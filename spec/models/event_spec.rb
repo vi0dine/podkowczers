@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  context 'valid Event' do
+  context do
     it { should belong_to(:concert) }
     it { should have_many(:reviews) }
     it { should have_many(:tickets) }
