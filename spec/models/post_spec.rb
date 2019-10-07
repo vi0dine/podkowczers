@@ -8,7 +8,8 @@ RSpec.describe Post, type: :model do
     it { should validate_presence_of(:body) }
     it { should validate_length_of(:body).is_at_most(11_500) }
     it { should belong_to(:user) }
-    it { should have_many(:posts_tags) } 
+    it { should have_many(:posts_tags) }
     it { should have_many(:tags).through(:posts_tags) }
+    it { should have_many(:comments) } 
   end
 end
