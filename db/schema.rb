@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_112813) do
+ActiveRecord::Schema.define(version: 2019_10_07_114044) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 2019_10_07_112813) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "place"
+    t.datetime "starts_at"
+    t.integer "estimated_length"
+    t.integer "concert_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["concert_id"], name: "index_events_on_concert_id"
   end
 
   create_table "posts", force: :cascade do |t|
