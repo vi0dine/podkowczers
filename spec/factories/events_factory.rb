@@ -9,7 +9,7 @@ FactoryBot.define do
 
     trait :with_tickets do
       after(:create) do |event|
-        create_list :ticket, 50, event: event
+        create_list :ticket, 20, event: event
       end
     end
 

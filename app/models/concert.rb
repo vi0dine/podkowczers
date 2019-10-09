@@ -11,4 +11,8 @@ class Concert < ApplicationRecord
   validates :description,
             presence: true,
             length: { minimum: 20, maximum: 5000 }
+
+  def available_tickets_count
+    tickets.where(reserved: false).size
+  end
 end

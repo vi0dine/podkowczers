@@ -7,7 +7,7 @@ FactoryBot.define do
     seat { Faker::Number.between(from: 1, to: 60) }
     reserved { false }
     mailed { false }
-    user
+    user { nil }
     event
 
     trait :reserved do
