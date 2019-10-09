@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.0'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'fast_jsonapi'
 gem 'jwt_sessions'
 gem 'pg'
 gem 'puma', '~> 3.11'
@@ -16,9 +17,10 @@ gem 'redis', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails', '~> 3.8'
-  gem 'webdrivers'
 end
 
 group :test do
