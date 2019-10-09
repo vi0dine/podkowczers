@@ -7,6 +7,11 @@ module Api
         @concerts = Concert.all
         render json: ConcertSerializer.new(@concerts).serializable_hash
       end
+
+      def show
+        @concert = Concert.find(params[:id])
+        render json: ConcertSerializer.new(@concert).serializable_hash
+      end
     end
   end
 end

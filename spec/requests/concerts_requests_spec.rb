@@ -27,7 +27,7 @@ RSpec.describe 'Concerts', type: :request do
 
     before {
       Concert.find(concert_id).tickets.first.update(reserved: true)
-      get "/api/v1/concert/#{concert_id}" 
+      get "/api/v1/concerts/#{concert_id}" 
     }
 
     it 'respond with code 200' do
@@ -39,7 +39,7 @@ RSpec.describe 'Concerts', type: :request do
     end
 
     it 'render concert data by given id' do
-      expect(json['data']['id']).to eq(concert_id)
+      expect(json['data']['id'].to_i).to eq(concert_id)
     end
 
     it 'render available tickets count' do
