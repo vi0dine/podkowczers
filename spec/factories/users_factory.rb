@@ -15,11 +15,23 @@ FactoryBot.define do
       role { :manager }
     end
 
-    # after(:create) do |user|
-    #   create_list :post, 3, user: user
-    #   create_list :comment, 5, user: user
-    #   create_list :review, 2, user: user
-    #   create_list :ticket, 10, user: user
-    # end
+    trait :with_tickets do
+      after(:create) do |user|
+        create_list :ticket, 5, user: user
+      end
+    end
+
+    trait :with_posts_and_comments do
+      after(:create) do |user|
+        create_list :post, 3, user: user
+        create_list :comment, 5, user: user
+      end
+    end
+
+    trait :with_reviews do
+      after(:create) do |user|
+        create_list :review, 2, user: user
+      end
+    end
   end
 end

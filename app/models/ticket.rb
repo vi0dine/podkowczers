@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Ticket < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :event
 
   validates :sector,
@@ -20,9 +20,7 @@ class Ticket < ApplicationRecord
                             greater_than: 0,
                             less_than: 100 }
   validates :reserved,
-            presence: true,
             inclusion: { in: [true, false] }
   validates :mailed,
-            presence: true,
             inclusion: { in: [true, false] }
 end

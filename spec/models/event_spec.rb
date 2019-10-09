@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   context do
-    it { should belong_to(:concert) }
+    let(:post) { create(:post) }
+    it { should belong_to(:concert )}
     it { should have_many(:reviews) }
     it { should have_many(:tickets) }
     it { should validate_presence_of(:place) }
