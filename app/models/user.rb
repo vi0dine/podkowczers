@@ -10,7 +10,7 @@ class User < ApplicationRecord
   enum role: %i[user manager admin].freeze
 
   validates :email,
-            format: { with: URI::MailTo::EMAIL_REGEXP },
+            format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i },
             presence: true,
             uniqueness: { case_sensitive: false }
   validates :password,

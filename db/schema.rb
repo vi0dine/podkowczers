@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2019_10_07_135503) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id"
-    t.integer "post_id"
+    t.bigint "user_id"
+    t.bigint "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_10_07_135503) do
     t.string "place"
     t.datetime "starts_at"
     t.integer "estimated_length"
-    t.integer "concert_id"
+    t.bigint "concert_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["concert_id"], name: "index_events_on_concert_id"
@@ -45,15 +45,15 @@ ActiveRecord::Schema.define(version: 2019_10_07_135503) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "posts_tags", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "tag_id"
+    t.bigint "post_id"
+    t.bigint "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_posts_tags_on_post_id"
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 2019_10_07_135503) do
     t.string "title"
     t.text "body"
     t.integer "rate"
-    t.integer "user_id"
-    t.integer "event_id"
+    t.bigint "user_id"
+    t.bigint "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_reviews_on_event_id"
@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(version: 2019_10_07_135503) do
     t.integer "seat"
     t.boolean "reserved", default: false
     t.boolean "mailed", default: false
-    t.integer "user_id"
-    t.integer "event_id"
+    t.bigint "user_id"
+    t.bigint "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id", "sector", "row", "seat"], name: "index_tickets_on_event_id_and_sector_and_row_and_seat"
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 2019_10_07_135503) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
-    t.integer "role"
-    t.integer "coins_count"
+    t.integer "role", default: 0
+    t.integer "coins_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
