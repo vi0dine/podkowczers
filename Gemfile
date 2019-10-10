@@ -9,11 +9,14 @@ gem 'rails', '~> 6.0.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'fast_jsonapi'
+gem 'gibberish'
+gem 'interactor', '~> 3.0'
 gem 'jwt_sessions'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rack-cors'
 gem 'redis', '~> 4.0'
+gem 'rqrcode'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

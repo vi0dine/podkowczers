@@ -12,20 +12,12 @@ module Api
       end
 
       def reserve
-        @requested_tickets = []
-        tickets_ids = params['tickets']
-        tickets_ids.each do |ticket_id|
-          @requested_tickets << Ticket.find(ticket_id)
+        result = TicketReservation::MakeTicketsReservation.call(tickets_ids: params[:tickets], user: current_user)
+        if result.success?
+          render json: TicketSerializer.new(result.requested_tickets).serializable_hash
+        else
+          render json: result.message
         end
-
-        @requested_tickets.each do |ticket|
-          ticket.update(
-            reserved: true,
-            user: current_user
-          )
-        end
-
-        render json: TicketSerializer.new(@requested_tickets).serializable_hash
       end
     end
   end
