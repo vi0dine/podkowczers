@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
-class ReviewSerializer
-  include FastJsonapi::ObjectSerializer
-  attributes :title, :body, :rate
-  belongs_to :user
+module Api
+  module V1
+    class ReviewSerializer
+      include FastJsonapi::ObjectSerializer
+      attributes :title, :body, :rate
+      belongs_to :user
+    end
+  end
 end
