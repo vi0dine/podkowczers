@@ -2,8 +2,8 @@
 module Api
   module V1
     class EventsController < ApplicationController
-      before_action :authorize_access_request!, only: %i[create]
-      before_action :admin?, only: %i[create]
+      before_action :authorize_access_request!, only: %i[create destroy]
+      before_action :admin?, only: %i[create destroy]
 
       def index
         @events = Event.all
@@ -24,7 +24,17 @@ module Api
         if @event.save
           render json: EventSerializer.new(@event).serializable_hash, status: :created
         else
-          render json: { error: concert.errors.full_messages.join(' ') }, status: :unprocessable_entity
+          render json: { error: @event.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
+      def destroy
+        @event = Event.find(params[:id])
+
+        if @event.delete
+          render json: { message: 'Successfully deleted event' }, status: :no_content
+        else
+          render json: { error: @event.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
       end
 

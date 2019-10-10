@@ -133,4 +133,75 @@ RSpec.describe 'Events', type: :request do
       end
     end
   end
+
+  describe 'request to delete event' do
+    context 'as an admin' do
+      let(:events) { create_list(:event, 3) }
+      let(:event_id) { events.sample.id }
+      let(:admin) { create(:user, :admin) }
+
+      before {
+        @tokens = session(admin)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        delete "/api/v1/events/#{event_id}",
+               headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 204' do
+        expect(response).to have_http_status(:no_content)
+      end
+
+      let(:another_event_id) { events.sample.id }
+
+      it 'deletes event from db' do
+        expect do
+          delete "/api/v1/events/#{another_event_id}",
+                 headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to change { Event.all.count }.by(-1)
+      end
+    end
+
+    context 'as a logged user (not admin)' do
+      let(:events) { create_list(:event, 3) }
+      let(:event_id) { events.sample.id }
+      let(:user) { create(:user) }
+
+      before {
+        @tokens = session(user)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        delete "/api/v1/events/#{event_id}",
+               headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      it 'did not deletes event from db' do
+        expect do
+          delete "/api/v1/events/#{event_id}",
+                 headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to change { Event.all.count }.by(0)
+      end
+    end
+
+    context 'as a quest' do
+      let(:events) { create_list(:event, 3) }
+      let(:event_id) { events.sample.id }
+
+      before {
+        delete "/api/v1/events/#{event_id}"
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      it 'did not deletes event from db' do
+        expect do
+          delete "/api/v1/events/#{event_id}"
+        end .to change { Event.all.count }.by(0)
+      end
+    end
+  end
 end

@@ -112,9 +112,11 @@ RSpec.describe 'Reviews', type: :request do
         expect(response).to have_http_status(:no_content)
       end
 
+      let(:another_review_id) { reviews.sample.id }
+
       it 'deleted review from db' do
         expect do
-          delete "/api/v1/reviews/#{reviews.sample.id}",
+          delete "/api/v1/reviews/#{another_review_id}",
                                     headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
         end .to change { Review.all.count }.by(-1)
       end
