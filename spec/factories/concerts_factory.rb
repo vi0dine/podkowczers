@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :concert do
-    name { "#{Faker::Music.band} Concert" }
+    sequence(:name) { |n| "#{n} #{Faker::Music.band} Concert" }
     description { Faker::Lorem.characters(number: 1500) }
 
     trait :with_events do

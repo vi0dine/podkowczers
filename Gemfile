@@ -25,6 +25,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rack-test'
   gem 'shoulda-matchers'
 end
 
