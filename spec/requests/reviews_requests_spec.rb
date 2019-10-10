@@ -74,4 +74,70 @@ RSpec.describe 'Reviews', type: :request do
       end
     end
   end
+
+  describe 'request to delete the review' do
+    let(:user) { create(:user) }
+    let(:admin) { create(:user, :admin) }
+    let(:reviews) { create_list(:review, 5) }
+
+    context 'as a login user (not admin)' do
+      before {
+        @tokens = session(user)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        delete "/api/v1/reviews/#{reviews.sample.id}",
+                                  headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      it 'did not delete review from db' do
+        expect do
+          delete "/api/v1/reviews/#{reviews.sample.id}",
+                                    headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to change { Review.all.count }.by(0)
+      end
+    end
+
+    context 'as an admin' do
+      before {
+        @tokens = session(admin)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        delete "/api/v1/reviews/#{reviews.sample.id}",
+                                  headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 204' do
+        expect(response).to have_http_status(:no_content)
+      end
+
+      it 'deleted review from db' do
+        expect do
+          delete "/api/v1/reviews/#{reviews.sample.id}",
+                                    headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to change { Review.all.count }.by(-1)
+      end
+    end
+
+    context 'as a quest' do
+      before {
+        delete "/api/v1/reviews/#{reviews.sample.id}"
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      it 'respond with JSON' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+      end
+
+      it 'did not delete review from db' do
+        expect do
+          delete "/api/v1/reviews/#{reviews.sample.id}"
+        end .to change { Review.all.count }.by(0)
+      end
+    end
+  end
 end

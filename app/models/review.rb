@@ -6,7 +6,7 @@ class Review < ApplicationRecord
 
   validates :title,
             presence: true,
-            length: { minimum: 3, maximum: 50 },
+            length: { minimum: 3, maximum: 70 },
             uniqueness: { case_sensitive: false }
   validates :body,
             presence: true,

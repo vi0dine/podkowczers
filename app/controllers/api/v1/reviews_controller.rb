@@ -3,7 +3,8 @@
 module Api
   module V1
     class ReviewsController < ApplicationController
-      before_action :authorize_access_request!, only: [:create]
+      before_action :authorize_access_request!, only: %i[create destroy]
+      before_action :admin?, only: :destroy
 
       def index
         @reviews = Review.all
@@ -18,7 +19,16 @@ module Api
         if review.save
           render json: ReviewSerializer.new(review).serializable_hash, status: :created
         else
-          puts review.errors.full_messages
+          render json: { error: review.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
+      def destroy
+        review = Review.find(params[:id])
+
+        if review.delete
+          render json: { message: 'Successfully removed' }, status: :no_content
+        else
           render json: { error: review.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
       end
