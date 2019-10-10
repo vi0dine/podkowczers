@@ -22,7 +22,7 @@ RSpec.describe 'Concerts', type: :request do
   end
 
   describe 'request single concert data' do
-    let!(:concerts) { create_list(:concert, 2) }
+    let!(:concerts) { create_list(:concert, 2, :with_events) }
     let(:concert_id) { concerts.first.id }
 
     before {

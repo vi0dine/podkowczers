@@ -5,8 +5,10 @@ FactoryBot.define do
     name { "#{Faker::Music.band} Concert" }
     description { Faker::Lorem.characters(number: 1500) }
 
-    after(:create) do |concert|
-      create_list :event, 3, :with_tickets, concert: concert
+    trait :with_events do
+      after(:create) do |concert|
+        create_list :event, 3, :with_tickets, concert: concert
+      end
     end
   end
 end
