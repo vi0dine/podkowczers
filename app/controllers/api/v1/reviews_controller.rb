@@ -13,13 +13,14 @@ module Api
       end
 
       def create
-        review = Review.new(review_params)
-        review.user = current_user
+        @event = Event.find(params[:event_id])
+        @review = @event.reviews.new(review_params)
+        @review.user = current_user
 
-        if review.save
-          render json: ReviewSerializer.new(review).serializable_hash, status: :created
+        if @review.save
+          render json: ReviewSerializer.new(@review).serializable_hash, status: :created
         else
-          render json: { error: review.errors.full_messages.join(' ') }, status: :unprocessable_entity
+          render json: { error: @review.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
       end
 
@@ -36,7 +37,7 @@ module Api
       private
 
       def review_params
-        params.require(:review).permit(:title, :body, :rate, :event_id)
+        params.require(:review).permit(:title, :body, :rate)
       end
     end
   end

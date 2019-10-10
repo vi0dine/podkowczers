@@ -57,7 +57,7 @@ RSpec.describe 'Concerts', type: :request do
         @tokens = session(admin)
         cookies[JWTSessions.access_cookie] = @tokens[:access]
         post '/api/v1/concerts', params: { concert: concert },
-                                headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+                                 headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
       it 'respond with code 201' do

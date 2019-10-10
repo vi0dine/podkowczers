@@ -24,13 +24,13 @@ RSpec.describe 'Reviews', type: :request do
   describe 'request to post new review' do
     let(:user) { create(:user) }
     let(:event) { create(:event) }
-    let(:review) { attributes_for(:review, event_id: event.id) }
+    let(:review) { attributes_for(:review) }
 
     context 'as a login user' do
       before {
         @tokens = session(user)
         cookies[JWTSessions.access_cookie] = @tokens[:access]
-        post '/api/v1/reviews', params: { review: review },
+        post '/api/v1/reviews', params: { review: review, event_id: event.id },
                                 headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
@@ -42,11 +42,11 @@ RSpec.describe 'Reviews', type: :request do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
 
-      let(:another_review) { attributes_for(:review, event_id: event.id) }
+      let(:another_review) { attributes_for(:review) }
 
       it 'add new review to db' do
         expect do
-          post '/api/v1/reviews', params: { review: another_review },
+          post '/api/v1/reviews', params: { review: another_review, event_id: event.id },
                                   headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
         end .to change { Review.all.count }.by(1)
       end
@@ -54,7 +54,7 @@ RSpec.describe 'Reviews', type: :request do
 
     context 'as a quest' do
       before {
-        post '/api/v1/reviews', params: { review: review }
+        post '/api/v1/reviews', params: { review: review, event_id: event.id }
       }
 
       it 'respond with code 401' do
@@ -65,11 +65,11 @@ RSpec.describe 'Reviews', type: :request do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
 
-      let(:another_review) { attributes_for(:review, event_id: event.id) }
+      let(:another_review) { attributes_for(:review) }
 
       it 'did not add new review to db' do
         expect do
-          post '/api/v1/reviews', params: { review: another_review }
+          post '/api/v1/reviews', params: { review: another_review, event_id: event.id }
         end .to change { Review.all.count }.by(0)
       end
     end
