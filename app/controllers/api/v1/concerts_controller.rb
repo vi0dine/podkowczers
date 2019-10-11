@@ -26,6 +26,16 @@ module Api
         end
       end
 
+      def destroy
+        concert = Concert.find(params[:id])
+
+        if concert.delete
+          render json: { message: 'Successfully delete concert' }, status: :no_content
+        else
+          render json: { error: concert.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
       private
 
       def concert_params

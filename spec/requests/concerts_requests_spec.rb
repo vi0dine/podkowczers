@@ -49,8 +49,8 @@ RSpec.describe 'Concerts', type: :request do
 
   describe 'request to delete a concert' do
     context 'as an admin' do
-      let(:concert) { create(:concert) }
-      let(:concert_id) { concert.id }
+      let(:concerts) { create_list(:concert, 4) }
+      let(:concert_id) { concerts.sample.id }
       let(:admin) { create(:user, :admin) }
 
       before {
@@ -64,24 +64,19 @@ RSpec.describe 'Concerts', type: :request do
         expect(response).to have_http_status(:no_content)
       end
 
-      it 'respond with JSON' do
-        expect(response.content_type).to eq('application/json; charset=utf-8')
-      end
-
-      let(:another_concert) { create(:concert) }
-      let(:another_concert_id) { another_concert.id }
+      let(:another_concert_id) { concerts.sample.id }
 
       it 'deletes concert from db' do
         expect do
-          delete "/api/v1/concerts/#{concert_id}",
+          delete "/api/v1/concerts/#{another_concert_id}",
                  headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
         end .to change { Concert.all.count }.by(-1)
       end
     end
 
     context 'as a logged user (not admin)' do
-      let(:concert) { create(:concert) }
-      let(:concert_id) { concert.id }
+      let(:concerts) { create_list(:concert, 4) }
+      let(:concert_id) { concerts.sample.id }
       let(:user) { create(:user) }
 
       before {
@@ -95,20 +90,19 @@ RSpec.describe 'Concerts', type: :request do
         expect(response).to have_http_status(:unauthorized)
       end
 
-      let(:another_concert) { create(:concert) }
-      let(:another_concert_id) { another_concert.id }
+      let(:another_concert_id) { concerts.sample.id }
 
       it 'not delete concert from db' do
         expect do
-          delete "/api/v1/concerts/#{concert_id}",
+          delete "/api/v1/concerts/#{another_concert_id}",
                  headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
         end .to change { Concert.all.count }.by(0)
       end
     end
 
     context 'as a quest' do
-      let(:concert) { create(:concert) }
-      let(:concert_id) { concert.id }
+      let(:concerts) { create_list(:concert, 4) }
+      let(:concert_id) { concerts.sample.id }
 
       before {
         delete "/api/v1/concerts/#{concert_id}"
@@ -122,12 +116,11 @@ RSpec.describe 'Concerts', type: :request do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
 
-      let(:another_concert) { create(:concert) }
-      let(:another_concert_id) { another_concert.id }
+      let(:another_concert_id) { concerts.sample.id }
 
       it 'not delete concert from db' do
         expect do
-          delete "/api/v1/concerts/#{concert_id}"
+          delete "/api/v1/concerts/#{another_concert_id}"
         end .to change { Concert.all.count }.by(0)
       end
     end
