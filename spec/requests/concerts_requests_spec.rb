@@ -47,6 +47,92 @@ RSpec.describe 'Concerts', type: :request do
     end
   end
 
+  describe 'request to delete a concert' do
+    context 'as an admin' do
+      let(:concert) { create(:concert) }
+      let(:concert_id) { concert.id }
+      let(:admin) { create(:user, :admin) }
+
+      before {
+        @tokens = session(admin)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        delete "/api/v1/concerts/#{concert_id}",
+               headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 204' do
+        expect(response).to have_http_status(:no_content)
+      end
+
+      it 'respond with JSON' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+      end
+
+      let(:another_concert) { create(:concert) }
+      let(:another_concert_id) { another_concert.id }
+
+      it 'deletes concert from db' do
+        expect do
+          delete "/api/v1/concerts/#{concert_id}",
+                 headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to change { Concert.all.count }.by(-1)
+      end
+    end
+
+    context 'as a logged user (not admin)' do
+      let(:concert) { create(:concert) }
+      let(:concert_id) { concert.id }
+      let(:user) { create(:user) }
+
+      before {
+        @tokens = session(user)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        delete "/api/v1/concerts/#{concert_id}",
+               headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      let(:another_concert) { create(:concert) }
+      let(:another_concert_id) { another_concert.id }
+
+      it 'not delete concert from db' do
+        expect do
+          delete "/api/v1/concerts/#{concert_id}",
+                 headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to change { Concert.all.count }.by(0)
+      end
+    end
+
+    context 'as a quest' do
+      let(:concert) { create(:concert) }
+      let(:concert_id) { concert.id }
+
+      before {
+        delete "/api/v1/concerts/#{concert_id}"
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      it 'respond with JSON' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+      end
+
+      let(:another_concert) { create(:concert) }
+      let(:another_concert_id) { another_concert.id }
+
+      it 'not delete concert from db' do
+        expect do
+          delete "/api/v1/concerts/#{concert_id}"
+        end .to change { Concert.all.count }.by(0)
+      end
+    end
+  end
+
   describe 'request to add new concert' do
     let(:concert) { attributes_for(:concert) }
 
