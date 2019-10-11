@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module TicketReservation
-  class GenerateBarcode
+  class GenerateQrCode
     include Interactor
 
     def call

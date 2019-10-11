@@ -8,7 +8,8 @@ module TicketReservation
              TicketReservation::FindRequestedTickets,
              TicketReservation::UpdateTickets,
              TicketReservation::EncryptReservation,
-             TicketReservation::GenerateBarcode,
+             TicketReservation::GenerateQrCode,
+           # TODO: TicketReservation::MakePdfAttachment
              TicketReservation::SendReservation
   end
 end
