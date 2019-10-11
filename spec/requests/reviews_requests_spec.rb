@@ -84,7 +84,7 @@ RSpec.describe 'Reviews', type: :request do
       before {
         @tokens = session(user)
         cookies[JWTSessions.access_cookie] = @tokens[:access]
-        delete "/api/v1/reviews/#{reviews.sample.id}",
+        delete "/api/v1/reviews/#{reviews.first.id}",
                                   headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
@@ -94,7 +94,7 @@ RSpec.describe 'Reviews', type: :request do
 
       it 'did not delete review from db' do
         expect do
-          delete "/api/v1/reviews/#{reviews.sample.id}",
+          delete "/api/v1/reviews/#{reviews.last.id}",
                                     headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
         end .to change { Review.all.count }.by(0)
       end
@@ -104,7 +104,7 @@ RSpec.describe 'Reviews', type: :request do
       before {
         @tokens = session(admin)
         cookies[JWTSessions.access_cookie] = @tokens[:access]
-        delete "/api/v1/reviews/#{reviews.sample.id}",
+        delete "/api/v1/reviews/#{reviews.first.id}",
                                   headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
@@ -112,7 +112,7 @@ RSpec.describe 'Reviews', type: :request do
         expect(response).to have_http_status(:no_content)
       end
 
-      let(:another_review_id) { reviews.sample.id }
+      let(:another_review_id) { reviews.last.id }
 
       it 'deleted review from db' do
         expect do
@@ -124,7 +124,7 @@ RSpec.describe 'Reviews', type: :request do
 
     context 'as a quest' do
       before {
-        delete "/api/v1/reviews/#{reviews.sample.id}"
+        delete "/api/v1/reviews/#{reviews.first.id}"
       }
 
       it 'respond with code 401' do
@@ -137,7 +137,7 @@ RSpec.describe 'Reviews', type: :request do
 
       it 'did not delete review from db' do
         expect do
-          delete "/api/v1/reviews/#{reviews.sample.id}"
+          delete "/api/v1/reviews/#{reviews.last.id}"
         end .to change { Review.all.count }.by(0)
       end
     end

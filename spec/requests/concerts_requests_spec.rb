@@ -50,7 +50,7 @@ RSpec.describe 'Concerts', type: :request do
   describe 'request to delete a concert' do
     context 'as an admin' do
       let(:concerts) { create_list(:concert, 4) }
-      let(:concert_id) { concerts.sample.id }
+      let(:concert_id) { concerts.first.id }
       let(:admin) { create(:user, :admin) }
 
       before {
@@ -64,7 +64,7 @@ RSpec.describe 'Concerts', type: :request do
         expect(response).to have_http_status(:no_content)
       end
 
-      let(:another_concert_id) { concerts.sample.id }
+      let(:another_concert_id) { concerts.last.id }
 
       it 'deletes concert from db' do
         expect do
@@ -76,7 +76,7 @@ RSpec.describe 'Concerts', type: :request do
 
     context 'as a logged user (not admin)' do
       let(:concerts) { create_list(:concert, 4) }
-      let(:concert_id) { concerts.sample.id }
+      let(:concert_id) { concerts.first.id }
       let(:user) { create(:user) }
 
       before {
@@ -90,7 +90,7 @@ RSpec.describe 'Concerts', type: :request do
         expect(response).to have_http_status(:unauthorized)
       end
 
-      let(:another_concert_id) { concerts.sample.id }
+      let(:another_concert_id) { concerts.last.id }
 
       it 'not delete concert from db' do
         expect do
@@ -102,7 +102,7 @@ RSpec.describe 'Concerts', type: :request do
 
     context 'as a quest' do
       let(:concerts) { create_list(:concert, 4) }
-      let(:concert_id) { concerts.sample.id }
+      let(:concert_id) { concerts.first.id }
 
       before {
         delete "/api/v1/concerts/#{concert_id}"
@@ -116,7 +116,7 @@ RSpec.describe 'Concerts', type: :request do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
 
-      let(:another_concert_id) { concerts.sample.id }
+      let(:another_concert_id) { concerts.last.id }
 
       it 'not delete concert from db' do
         expect do

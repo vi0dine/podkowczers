@@ -9,9 +9,12 @@ module TicketReservation
         context.fail!(message: 'Bilet zarezerwowany') if ticket.reserved?
 
         ticket.with_lock do
+          context.user.lock!
           ticket.reserved = true
           ticket.user = context.user
           ticket.save!
+          context.user.decrement!(:coins_count)
+          context.user.save!
         end
       end
     end

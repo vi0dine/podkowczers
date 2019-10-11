@@ -43,13 +43,15 @@ RSpec.describe 'Tickets', type: :request do
 
   describe 'can be reserved by user' do
     let!(:tickets) { create_list(:ticket, 50) }
-    let(:ticket_id) { tickets.first.id }
-    let(:user) { create(:user) }
+    let(:first_ticket_id) { tickets.first.id }
+    let(:second_ticket_id) { tickets[1].id }
+    let(:tickets_array) { [first_ticket_id, second_ticket_id] }
+    let(:user) { create(:user, coins_count: 20) }
 
     before {
       @tokens = session(user)
       cookies[JWTSessions.access_cookie] = @tokens[:access]
-      post '/api/v1/tickets', params: { tickets: [tickets.first.id, tickets.last.id] },
+      post '/api/v1/tickets', params: { tickets: tickets_array },
                               headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
     }
 
@@ -73,11 +75,25 @@ RSpec.describe 'Tickets', type: :request do
         "reserved" => true
       )
       expect((json['data'][1])['attributes']).to include(
-        "sector" => tickets.last.sector,
-        "row" => tickets.last.row,
-        "seat" => tickets.last.seat,
+        "sector" => tickets[1].sector,
+        "row" => tickets[1].row,
+        "seat" => tickets[1].seat,
         "reserved" => true
       )
+    end
+
+    it 'assigns ticket to the current user' do
+      expect(Ticket.find(first_ticket_id).user).to eq(user)
+      expect(Ticket.find(second_ticket_id).user).to eq(user)
+    end
+
+    let(:another_tickets_array) { [tickets.last.id, tickets[4].id] }
+
+    it 'remove coins from user' do
+      expect do
+        post '/api/v1/tickets', params: { tickets: another_tickets_array },
+                                headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      end.to change { User.find(user.id).coins_count }.by(-another_tickets_array.size)
     end
   end
 end
