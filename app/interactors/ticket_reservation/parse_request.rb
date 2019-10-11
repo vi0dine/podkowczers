@@ -6,7 +6,7 @@ module TicketReservation
 
     def call
       if context.tickets_ids.is_a? String
-        JSON.parse(context.tickets_ids)
+        context.tickets_ids = JSON.parse(context.tickets_ids)
       end
 
       if context.tickets_ids.empty?

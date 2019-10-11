@@ -16,7 +16,7 @@ module Api
         if result.success?
           render json: TicketSerializer.new(result.requested_tickets).serializable_hash
         else
-          render json: result.message
+          render json: { error: result.message }, status: :unprocessable_entity
         end
       end
     end
