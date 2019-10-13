@@ -5,13 +5,12 @@ module TicketReservation
     include Interactor
 
     def call
-      cipher = Gibberish::AES.new(Rails.application.credentials[:AES_secret])
+      signing_key = Ed25519::SigningKey.new(Rails.application.credentials[:tickets_secret])
 
       context.tickets_hashes = []
 
       context.requested_tickets.each do |ticket|
-        ticket_data = "TID: #{ticket.id} EID: #{ticket.event_id} UID: #{ticket.user_id}"
-        context.tickets_hashes << cipher.encrypt(ticket_data)
+        context.tickets_hashes << signing_key.sign(ticket.event_id.to_s)
       end
     end
   end

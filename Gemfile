@@ -8,8 +8,8 @@ gem 'rails', '~> 6.0.0'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'ed25519'
 gem 'fast_jsonapi'
-gem 'gibberish'
 gem 'interactor', '~> 3.0'
 gem 'jwt_sessions'
 gem 'pg'
@@ -21,7 +21,7 @@ gem 'rqrcode'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner'
-  gem "dotenv-rails"
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'hirb'
