@@ -1,0 +1,9 @@
+<% codes.each do |code| %>
+  <%= image_tag(code.to_data_url) %>
+<% end %>
+---------------------------------
+<% tickets.each do |ticket| %>
+  <%= ticket.event.concert.name %>
+  <br \>
+  ---------------------------------
+<% end %>

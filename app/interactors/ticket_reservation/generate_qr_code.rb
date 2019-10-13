@@ -8,7 +8,7 @@ module TicketReservation
       context.qr_codes = []
       context.tickets_hashes.each do |hash|
         qr_code = RQRCode::QRCode.new(hash)
-        context.qr_codes << qr_code
+        context.qr_codes << qr_code.as_png
       end
     end
   end
