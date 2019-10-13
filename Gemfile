@@ -17,6 +17,9 @@ gem 'puma', '~> 3.11'
 gem 'rack-cors'
 gem 'redis', '~> 4.0'
 gem 'rqrcode'
+gem 'sidekiq', '~> 6.0', '>= 6.0.2'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
