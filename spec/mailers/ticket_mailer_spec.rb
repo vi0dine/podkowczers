@@ -4,47 +4,42 @@ describe TicketMailer do
   describe 'reservation' do
     context 'headers' do
       let(:user) { create(:user) }
+      let(:user_id) { user.id }
       let(:event) { create(:event, :with_tickets) }
-      let(:attachment) { nil } # TODO: PDF GENERATION
-      let(:mail) { TicketMailer.reservation(user, event, attachment) }
+      let(:event_id) { event.id }
+      let(:attachment) { WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>') }
+      let(:mail) { TicketMailer.reservation(user_id, event_id, attachment) }
 
       it 'renders the subject' do
-        expect(mail.subject).to eq('Potwierdzenie rezerwacji miejsc')
+        expect(mail.subject).to eq('Potwierdzenie rezerwacji')
       end
 
       it 'sends to the right email' do
-        expect(mail.to).to eq(user.email)
+        expect(mail.to).to include(user.email)
       end
 
       it 'renders the from email' do
-        expect(mail.from).to eq('depodkowczers@gmail.com')
+        expect(mail.from).to include('depodkowczers@gmail.com')
       end
     end
 
     context 'body' do
       let(:user) { create(:user) }
-      let(:mail) { TicketMailer.reservation(user, event, attachment) }
+      let(:user_id) { user.id }
       let(:event) { create(:event, :with_tickets) }
-      let(:attachment) { nil } # TODO: PDF GENERATION
+      let(:event_id) { event.id }
+      let(:attachment) { WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>') }
+      let(:mail) { TicketMailer.reservation(user_id, event_id, attachment) }
 
       it 'includes event place' do
-        let(:user) { create(:user) }
-        let(:mail) { TicketMailer.reservation(user, event, attachment) }
-
         expect(mail.body.encoded).to include(event.place)
       end
 
       it 'includes event starts at' do
-        let(:user) { create(:user) }
-        let(:mail) { TicketMailer.reservation(user, event, attachment) }
-
-        expect(mail.body.encoded).to include(event.starts_at)
+        expect(mail.body.encoded).to include(event.starts_at.to_s)
       end
 
       it 'includes concert name' do
-        let(:user) { create(:user) }
-        let(:mail) { TicketMailer.reservation(user, event, attachment) }
-
         expect(mail.body.encoded).to include(event.concert.name)
       end
     end
