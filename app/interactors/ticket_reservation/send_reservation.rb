@@ -9,7 +9,8 @@ module TicketReservation
       # File.open('./ticket.pdf', 'wb') do |file|
       #   file << context.pdf_attachment
       # end
-      TicketMailer.reservation(context.user.id, context.requested_tickets.first.event.id, context.pdf_attachment)
+      SendTicketsToUserJob
+        .perform_later(context.user.id, context.requested_tickets.first.event.id, context.pdf_attachment)
     end
   end
 end

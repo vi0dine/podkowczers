@@ -4,11 +4,9 @@ describe TicketMailer do
   describe 'reservation' do
     context 'headers' do
       let(:user) { create(:user) }
-      let(:user_id) { user.id }
       let(:event) { create(:event, :with_tickets) }
-      let(:event_id) { event.id }
       let(:attachment) { WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>') }
-      let(:mail) { TicketMailer.reservation(user_id, event_id, attachment) }
+      let(:mail) { TicketMailer.reservation(user, event, attachment) }
 
       it 'renders the subject' do
         expect(mail.subject).to eq('Potwierdzenie rezerwacji')
@@ -25,11 +23,9 @@ describe TicketMailer do
 
     context 'body' do
       let(:user) { create(:user) }
-      let(:user_id) { user.id }
       let(:event) { create(:event, :with_tickets) }
-      let(:event_id) { event.id }
       let(:attachment) { WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>') }
-      let(:mail) { TicketMailer.reservation(user_id, event_id, attachment) }
+      let(:mail) { TicketMailer.reservation(user, event, attachment) }
 
       it 'includes event place' do
         expect(mail.body.encoded).to include(event.place)
