@@ -208,4 +208,93 @@ RSpec.describe 'Events', type: :request do
       end
     end
   end
+
+  describe 'request to update event' do
+    context 'as an admin' do
+      let(:event) { create(:event, :with_tickets) }
+      let(:event_id) { event.id }
+      let(:event_updates) { attributes_for(:event) }
+      let(:admin) { create(:user, :admin) }
+
+      before {
+        @tokens = session(admin)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        patch "/api/v1/events/#{event_id}", params: { event: event_updates },
+                                            headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 200' do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'render updated event data' do
+        expect(json['data']).to_not be_empty
+      end
+
+      let(:another_event) { create(:event, :with_tickets) }
+      let(:another_event_id) { another_event.id }
+      let(:another_event_updates) { attributes_for(:event) }
+
+      it 'updates event in db' do
+        expect do
+        patch "/api/v1/events/#{another_event_id}", params: { event: another_event_updates },
+                                            headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to change { Event.find(another_event_id).place }
+          .from(another_event.place).to(another_event_updates[:place])
+      end
+    end
+
+    context 'as a logged user (not admin)' do
+      let(:event) { create(:event, :with_tickets) }
+      let(:event_id) { event.id }
+      let(:event_updates) { attributes_for(:event) }
+      let(:user) { create(:user) }
+
+      before {
+        @tokens = session(user)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        patch "/api/v1/events/#{event_id}", params: { event: event_updates },
+                                            headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      let(:another_event) { create(:event, :with_tickets) }
+      let(:another_event_id) { another_event.id }
+      let(:another_event_updates) { attributes_for(:event) }
+
+      it 'does not update event in db' do
+        expect do
+          patch "/api/v1/events/#{another_event_id}", params: { event: another_event_updates },
+                                                      headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to_not change { Event.find(another_event_id).place }
+      end
+    end
+
+    context 'as a quest' do
+      let(:event) { create(:event, :with_tickets) }
+      let(:event_id) { event.id }
+      let(:event_updates) { attributes_for(:event) }
+
+      before {
+        patch "/api/v1/events/#{event_id}", params: { event: event_updates }
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      let(:another_event) { create(:event, :with_tickets) }
+      let(:another_event_id) { another_event.id }
+      let(:another_event_updates) { attributes_for(:event) }
+
+      it 'does not update event in db' do
+        expect do
+          patch "/api/v1/events/#{another_event_id}", params: { event: another_event_updates }
+        end .to_not change { Event.find(another_event_id).place }
+      end
+    end
+  end
 end
