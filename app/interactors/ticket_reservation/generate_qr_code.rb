@@ -5,10 +5,8 @@ module TicketReservation
     include Interactor
 
     def call
-      context.qr_codes = []
-      context.tickets_hashes.each do |hash|
-        qr_code = RQRCode::QRCode.new(hash)
-        context.qr_codes << qr_code.as_png
+      context.requested_tickets.each do |record|
+        record.merge!(qr_code: RQRCode::QRCode.new(record[:hash]).as_png)
       end
     end
   end

@@ -7,10 +7,8 @@ module TicketReservation
     def call
       signing_key = Ed25519::SigningKey.new(Rails.application.credentials[:tickets_secret])
 
-      context.tickets_hashes = []
-
-      context.requested_tickets.each do |ticket|
-        context.tickets_hashes << signing_key.sign(ticket.event_id.to_s)
+      context.requested_tickets.each do |record|
+        record.merge!(hash: signing_key.sign(record[:ticket].event_id.to_s))
       end
     end
   end

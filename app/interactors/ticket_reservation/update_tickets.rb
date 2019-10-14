@@ -5,7 +5,8 @@ module TicketReservation
     include Interactor
 
     def call
-      context.requested_tickets.each do |ticket|
+      context.requested_tickets.each do |record|
+        ticket = record[:ticket]
         context.fail!(message: 'Bilet zarezerwowany') if ticket.reserved?
 
         ticket.with_lock do

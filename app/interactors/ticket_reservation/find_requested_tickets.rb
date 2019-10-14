@@ -11,7 +11,7 @@ module TicketReservation
           context.fail!(message: 'Nie znaleziono biletu o danym ID')
         end
 
-        context.requested_tickets << Ticket.find(ticket_id)
+        context.requested_tickets << { ticket: Ticket.find(ticket_id) }
       end
     end
   end
