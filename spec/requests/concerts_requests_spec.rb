@@ -208,4 +208,86 @@ RSpec.describe 'Concerts', type: :request do
       end
     end
   end
+
+  describe 'request to update concert' do
+    let(:concert) { create(:concert) }
+    let(:concert_updates) { attributes_for(:concert) }
+
+    context 'as an admin' do
+      let(:admin) { create(:user, :admin) }
+
+      before {
+        @tokens = session(admin)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        patch "/api/v1/concerts/#{concert.id}", params: { concert: concert_updates },
+                                                headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 200' do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'respond with JSON' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+      end
+
+      it 'render updated concert data' do
+        expect(json['data']).to_not be_empty
+      end
+
+      let(:another_concert) { create(:concert) }
+      let(:another_concert_updates) { attributes_for(:concert) }
+
+      it 'update concert in db' do
+        expect do
+          patch "/api/v1/concerts/#{another_concert.id}", params: { concert: another_concert_updates },
+                                                          headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to change { Concert.find(another_concert.id).name }.from(another_concert.name).to(another_concert_updates[:name])
+      end
+    end
+
+    context 'as a logged user (not admin)' do
+      let(:user) { create(:user) }
+
+      before {
+        @tokens = session(user)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        patch "/api/v1/concerts/#{concert.id}", params: { concert: concert_updates },
+                                                headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      let(:another_concert) { create(:concert) }
+      let(:another_concert_updates) { attributes_for(:concert) }
+
+      it 'did not update concert in db' do
+        expect do
+          patch "/api/v1/concerts/#{another_concert.id}", params: { concert: another_concert_updates },
+                                                  headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to_not change { Concert.find(another_concert.id) }
+      end
+    end
+
+    context 'as a quest' do
+      before {
+        patch "/api/v1/concerts/#{concert.id}", params: { concert: concert_updates }
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      let(:another_concert) { create(:concert) }
+      let(:another_concert_updates) { attributes_for(:concert) }
+
+      it 'did not update concert in db' do
+        expect do
+          patch "/api/v1/concerts/#{another_concert.id}", params: { concert: another_concert_updates }
+        end .to_not change { Concert.find(another_concert.id) }
+      end
+    end
+  end
 end

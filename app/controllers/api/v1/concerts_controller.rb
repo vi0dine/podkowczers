@@ -3,8 +3,8 @@
 module Api
   module V1
     class ConcertsController < ApplicationController
-      before_action :authorize_access_request!, only: %i[create destroy]
-      before_action :admin?, only: %i[create destroy]
+      before_action :authorize_access_request!, only: %i[create update destroy]
+      before_action :admin?, only: %i[create update destroy]
 
       def index
         @concerts = Concert.all
@@ -21,6 +21,16 @@ module Api
 
         if concert.save
           render json: ConcertSerializer.new(concert).serializable_hash, status: :created
+        else
+          render json: { error: concert.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
+      def update
+        concert = Concert.find(params[:id])
+
+        if concert.update(concert_params)
+          render json: ConcertSerializer.new(concert).serializable_hash, status: :ok
         else
           render json: { error: concert.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end

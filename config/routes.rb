@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :reviews, only: %i[index create destroy]
-      resources :concerts, only: %i[index show create destroy]
+      resources :concerts, only: %i[index show create update destroy]
       resources :events, only: %i[index show create destroy]
       resources :tickets, only: %i[index]
         post :tickets, controller: :tickets, action: :reserve, as: 'reserve_tickets'
