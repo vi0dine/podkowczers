@@ -1,9 +1,20 @@
-<% codes.each do |code| %>
-  <%= image_tag(code.to_data_url) %>
-<% end %>
----------------------------------
-<% tickets.each do |ticket| %>
-  <%= ticket.event.concert.name %>
-  <br \>
-  ---------------------------------
-<% end %>
+<div>
+  <% tickets.each do |record| %>
+    <div class='ticket'>
+      <div style="display: inline-block;
+                  padding: 10px;
+                  text-align: left;
+                  vertical-align: middle;">
+        <h1><%= record[:ticket].event.concert.name %></h1>
+        <h2><%= record[:ticket].event.place %> <%= record[:ticket].event.starts_at.in_time_zone('Warsaw').strftime("%-d/%-m/%y %H:%M %Z") %></h2>
+      </div>
+      <div style="display: inline-block;
+                  margin-left: 50px;
+                  margin-right: 25px;
+                  float: right;
+                  vertical-align: middle;">
+        <%= image_tag(record[:qr_code].to_data_url) %>
+      </div>
+    </div>
+  <% end %>
+</div>

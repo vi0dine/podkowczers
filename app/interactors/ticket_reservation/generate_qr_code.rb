@@ -6,7 +6,7 @@ module TicketReservation
 
     def call
       context.requested_tickets.each do |record|
-        record.merge!(qr_code: RQRCode::QRCode.new(record[:hash]).as_png)
+        record.merge!(qr_code: RQRCode::QRCode.new(record[:hash]).as_png(size: 220))
       end
     end
   end

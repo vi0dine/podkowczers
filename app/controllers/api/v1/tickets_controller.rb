@@ -14,7 +14,7 @@ module Api
       def reserve
         result = TicketReservation::MakeTicketsReservation.call(tickets_ids: params[:tickets], user: current_user)
         if result.success?
-          render json: TicketSerializer.new(result.requested_tickets).serializable_hash
+          render json: TicketSerializer.new(result.requested_tickets.map{|x| x.values[0]}).serializable_hash
         else
           render json: { error: result.message }, status: :unprocessable_entity
         end
