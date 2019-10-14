@@ -3,8 +3,11 @@
 module Api
   module V1
     class ReviewsController < ApplicationController
-      before_action :authorize_access_request!, only: %i[create destroy]
+      before_action :authorize_access_request!, only: %i[create update destroy]
       before_action :admin?, only: :destroy
+      before_action only: :update do
+        owner_or_admin?(Review)
+      end
 
       def index
         @reviews = Review.all
@@ -21,6 +24,16 @@ module Api
           render json: ReviewSerializer.new(@review).serializable_hash, status: :created
         else
           render json: { error: @review.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
+      def update
+        review = Review.find(params[:id])
+
+        if review.update(review_params)
+          render json: ReviewSerializer.new(review).serializable_hash, status: :ok
+        else
+          render json: { error: review.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
       end
 

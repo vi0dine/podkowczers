@@ -16,6 +16,10 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def owner_or_admin?(object)
+    head(401) unless (current_user == object.find(params[:id]).user || current_user.role == 'admin')
+  end
+
   def not_authorized
     render json: { error: 'Not authorized' }, status: :unauthorized
   end
