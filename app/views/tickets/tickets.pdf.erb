@@ -7,6 +7,9 @@
                   vertical-align: middle;">
         <h1><%= record[:ticket].event.concert.name %></h1>
         <h2><%= record[:ticket].event.place %> <%= record[:ticket].event.starts_at.in_time_zone('Warsaw').strftime("%-d/%-m/%y %H:%M %Z") %></h2>
+        <p>Sektor:<%= record[:ticket].sector %></p>
+        <p>Rząd:<%= record[:ticket].row %></p>
+        <p>Miejsce:<%= record[:ticket].seat %></p>
       </div>
       <div style="display: inline-block;
                   margin-left: 50px;

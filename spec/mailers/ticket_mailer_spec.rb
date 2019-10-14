@@ -32,11 +32,7 @@ describe TicketMailer do
       end
 
       it 'includes event starts at' do
-        expect(mail.body.encoded).to include(event.starts_at.to_s)
-      end
-
-      it 'includes concert name' do
-        expect(mail.body.encoded).to include(event.concert.name)
+        expect(mail.body.encoded).to include(event.starts_at.strftime("%d/%m/%Y %H:%M"))
       end
     end
   end
