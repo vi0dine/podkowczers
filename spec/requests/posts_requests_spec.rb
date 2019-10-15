@@ -123,4 +123,88 @@ RSpec.describe 'Posts', type: :request do
       end
     end
   end
+
+  describe 'request to update post' do
+    let(:existing_post) { create(:post) }
+    let(:existing_post_id) { existing_post.id }
+    let(:post_updates) { attributes_for(:post) }
+
+    context 'as an admin' do
+      let(:admin) { create(:user, :admin) }
+
+      before {
+        @tokens = session(admin)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        patch "/api/v1/posts/#{existing_post_id}", params: { post: post_updates },
+                              headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'responds with code 200' do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'responds with JSON' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+      end
+
+      it 'renders updated post data' do
+        expect(json['data']).to_not be_empty
+      end
+
+      let(:another_post) { create(:post) }
+      let(:another_post_updates) { attributes_for(:post) }
+
+      it 'updates post in db' do
+        expect do
+          patch "/api/v1/posts/#{another_post.id}", params: { post: another_post_updates },
+                                                    headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to change { Post.find(another_post.id).title }
+          .from(another_post.title).to(another_post_updates[:title])
+      end
+    end
+
+    context 'as a logged user (not admin)' do
+      let(:user) { create(:user) }
+
+      before {
+        @tokens = session(user)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        patch "/api/v1/posts/#{existing_post_id}", params: { post: post_updates },
+                              headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      let(:another_post) { create(:post) }
+      let(:another_post_updates) { attributes_for(:post) }
+
+      it 'updates post in db' do
+        expect do
+          patch "/api/v1/posts/#{another_post.id}", params: { post: another_post_updates },
+                                                    headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to_not change { Post.find(another_post.id) }
+      end
+    end
+
+    context 'as a quest' do
+      before {
+        patch "/api/v1/posts/#{existing_post_id}", params: { post: post_updates }
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      let(:another_post) { create(:post) }
+      let(:another_post_updates) { attributes_for(:post) }
+
+      it 'updates post in db' do
+        expect do
+          patch "/api/v1/posts/#{another_post.id}", params: { post: another_post_updates }
+        end .to_not change { Post.find(another_post.id) }
+      end
+    end
+  end
 end

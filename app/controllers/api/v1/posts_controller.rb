@@ -3,8 +3,8 @@
 module Api
   module V1
     class PostsController < ApplicationController
-      before_action :authorize_access_request!, only: %i[create]
-      before_action :admin?, only: %i[create]
+      before_action :authorize_access_request!, only: %i[create update]
+      before_action :admin?, only: %i[create update]
 
       def index
         @posts = Post.all
@@ -24,6 +24,16 @@ module Api
 
         if @post.save
           render json: PostSerializer.new(@post).serializable_hash, status: :created
+        else
+          render json: { error: @post.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
+      def update
+        @post = Post.find(params[:id])
+
+        if @post.update(post_params)
+          render json: PostSerializer.new(@post).serializable_hash, status: :ok        
         else
           render json: { error: @post.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
