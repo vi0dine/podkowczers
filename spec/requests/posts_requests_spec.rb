@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+RSpec::Matchers.define_negated_matcher :not_change, :change
+
 RSpec.describe 'Posts', type: :request do
   describe 'request list of all posts' do
     let!(:posts) { create_list(:post, 6) }
@@ -180,7 +182,7 @@ RSpec.describe 'Posts', type: :request do
       let(:another_post) { create(:post) }
       let(:another_post_updates) { attributes_for(:post) }
 
-      it 'updates post in db' do
+      it 'does not update post in db' do
         expect do
           patch "/api/v1/posts/#{another_post.id}", params: { post: another_post_updates },
                                                     headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
@@ -200,10 +202,80 @@ RSpec.describe 'Posts', type: :request do
       let(:another_post) { create(:post) }
       let(:another_post_updates) { attributes_for(:post) }
 
-      it 'updates post in db' do
+      it 'does not update post in db' do
         expect do
           patch "/api/v1/posts/#{another_post.id}", params: { post: another_post_updates }
         end .to_not change { Post.find(another_post.id) }
+      end
+    end
+  end
+
+  describe 'request to delete post' do
+    let(:posts) { create_list(:post, 5, :with_comments_and_tags) }
+    let(:existing_post_id) { posts.first.id }
+    let(:another_post_id) { posts.last.id }
+
+    context 'as an admin' do
+      let(:admin) { create(:user, :admin) }
+
+      before {
+        @tokens = session(admin)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        delete "/api/v1/posts/#{existing_post_id}", headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'responds with code 204' do
+        expect(response).to have_http_status(:no_content)
+      end
+
+      let(:another_post_id) { posts.last.id }
+
+      it 'deletes post from db' do
+        expect do
+          delete "/api/v1/posts/#{another_post_id}", headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to change { Post.all.count }.by(-1)
+            .and change { Comment.all.count }.by(-posts.last.comments.size)
+            .and change { PostsTag.all.count }.by(-posts.last.posts_tags.size)
+      end
+    end
+
+    context 'as a logged user (not admin)' do
+      let(:user) { create(:user) }
+
+      before {
+        @tokens = session(user)
+        cookies[JWTSessions.access_cookie] = @tokens[:access]
+        delete "/api/v1/posts/#{existing_post_id}", headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      it 'does not delete post in db' do
+        expect do
+          delete "/api/v1/posts/#{another_post_id}", headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        end .to not_change { Post.all.count }
+            .and not_change { Comment.all.count }
+            .and not_change { PostsTag.all.count }
+      end
+    end
+
+    context 'as a quest' do
+      before {
+        delete "/api/v1/posts/#{existing_post_id}"
+      }
+
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+
+      it 'does not delete post in db' do
+        expect do
+          delete "/api/v1/posts/#{another_post_id}"
+        end .to not_change { Post.all.count }
+            .and not_change { Comment.all.count }
+            .and not_change { PostsTag.all.count }
       end
     end
   end

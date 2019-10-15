@@ -17,5 +17,12 @@ FactoryBot.define do
         create_list :tag, 10, post: post
       end
     end
+
+    trait :with_comments_and_tags do
+      after(:create) do |post|
+        create_list :tag, 10, posts: [post]
+        create_list :comment, 10, post: post
+      end
+    end
   end
 end
