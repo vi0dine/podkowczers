@@ -5,13 +5,7 @@ module TicketReservation
     include Interactor
 
     def call
-      if context.tickets_ids.is_a? String
-        context.tickets_ids = JSON.parse(context.tickets_ids)
-      end
-
-      if context.tickets_ids.empty?
-        context.fail!(message: 'Nie podano miejsc')
-      end
+      context.fail!(message: 'Nie podano miejsc') if context.tickets_ids.empty?
     end
   end
 end

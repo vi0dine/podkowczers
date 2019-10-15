@@ -10,6 +10,7 @@ module TicketReservation
              TicketReservation::EncryptReservation,
              TicketReservation::GenerateQrCode,
              TicketReservation::MakePdfAttachment,
-             TicketReservation::SendReservation
+             TicketReservation::SendReservation,
+             TicketReservation::MarkAsMailed
   end
 end
