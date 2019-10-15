@@ -1,9 +1,11 @@
 # frozen_string_literal: true
+
 module Api
   module V1
     class EventsController < ApplicationController
       before_action :authorize_access_request!, only: %i[create update destroy]
       before_action :admin?, only: %i[create update destroy]
+      before_action :set_event, only: %i[show update destroy]
 
       def index
         @events = Event.all
@@ -12,8 +14,6 @@ module Api
       end
 
       def show
-        @event = Event.find(params[:id])
-
         render json: EventSerializer.new(@event).serializable_hash
       end
 
@@ -29,8 +29,6 @@ module Api
       end
 
       def update
-        @event = Event.find(params[:id])
-
         if @event.update(event_params)
           render json: EventSerializer.new(@event).serializable_hash, status: :ok
         else
@@ -39,8 +37,6 @@ module Api
       end
 
       def destroy
-        @event = Event.find(params[:id])
-
         if @event.delete
           render json: { message: 'Successfully deleted event' }, status: :no_content
         else
@@ -52,6 +48,10 @@ module Api
 
       def event_params
         params.require(:event).permit(:place, :starts_at, :estimated_length)
+      end
+
+      def set_event
+        @event = Event.find(params[:id])
       end
     end
   end

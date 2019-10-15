@@ -7,21 +7,20 @@ module Api
       before_action only: :destroy do
         owner_or_admin?(Comment)
       end
+      before_action :set_post, only: %i[index create]
 
       def index
-        @post = Post.find(params[:post_id])
         @comments = @post.comments
 
         render json: CommentSerializer.new(@comments).serializable_hash, status: :ok
       end
 
       def create
-        @post = Post.find(params[:post_id])
         @comment = @post.comments.new(comment_params)
         @comment.user = current_user
 
         if @comment.save
-          render json: CommentSerializer.new(@comment).serializable_hash, status: :created          
+          render json: CommentSerializer.new(@comment).serializable_hash, status: :created
         else
           render json: { error: @comment.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
@@ -31,7 +30,7 @@ module Api
         @comment = Comment.find(params[:id])
 
         if @comment.delete
-          render json: { message: 'Successfully deleted comment' }, status: :no_content          
+          render json: { message: 'Successfully deleted comment' }, status: :no_content
         else
           render json: { error: @comment.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
@@ -41,6 +40,10 @@ module Api
 
       def comment_params
         params.require(:comment).permit(:body)
+      end
+
+      def set_post
+        @post = Post.find(params[:post_id])
       end
     end
   end

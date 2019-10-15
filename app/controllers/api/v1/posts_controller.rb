@@ -1,10 +1,11 @@
-# frozne_string_literal: true
+# frozen_string_literal: true
 
 module Api
   module V1
     class PostsController < ApplicationController
       before_action :authorize_access_request!, only: %i[create update destroy]
       before_action :admin?, only: %i[create update destroy]
+      before_action :set_post, only: %i[show update destroy]
 
       def index
         @posts = Post.all
@@ -13,14 +14,11 @@ module Api
       end
 
       def show
-        @post = Post.find(params[:id])
-
         render json: PostSerializer.new(@post).serializable_hash, status: :ok
       end
 
       def create
-        @user = current_user
-        @post = @user.posts.new(post_params)
+        @post = current_user.posts.new(post_params)
 
         if @post.save
           render json: PostSerializer.new(@post).serializable_hash, status: :created
@@ -30,8 +28,6 @@ module Api
       end
 
       def update
-        @post = Post.find(params[:id])
-
         if @post.update(post_params)
           render json: PostSerializer.new(@post).serializable_hash, status: :ok
         else
@@ -40,8 +36,6 @@ module Api
       end
 
       def destroy
-        @post = Post.find(params[:id])
-
         if @post.destroy
           render json: { message: 'Successfully deleted event' }, status: :no_content
         else
@@ -53,6 +47,10 @@ module Api
 
       def post_params
         params.require(:post).permit(:title, :body)
+      end
+
+      def set_post
+        @post = Post.find(params[:id])
       end
     end
   end

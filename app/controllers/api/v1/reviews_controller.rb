@@ -8,6 +8,7 @@ module Api
       before_action only: :update do
         owner_or_admin?(Review)
       end
+      before_action :set_review, only: %i[update destroy]
 
       def index
         @reviews = Review.all
@@ -28,22 +29,18 @@ module Api
       end
 
       def update
-        review = Review.find(params[:id])
-
-        if review.update(review_params)
-          render json: ReviewSerializer.new(review).serializable_hash, status: :ok
+        if @review.update(review_params)
+          render json: ReviewSerializer.new(@review).serializable_hash, status: :ok
         else
-          render json: { error: review.errors.full_messages.join(' ') }, status: :unprocessable_entity
+          render json: { error: @review.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
       end
 
       def destroy
-        review = Review.find(params[:id])
-
-        if review.delete
+        if @review.delete
           render json: { message: 'Successfully removed' }, status: :no_content
         else
-          render json: { error: review.errors.full_messages.join(' ') }, status: :unprocessable_entity
+          render json: { error: @review.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
       end
 
@@ -51,6 +48,10 @@ module Api
 
       def review_params
         params.require(:review).permit(:title, :body, :rate)
+      end
+
+      def set_review
+        @review = Review.find(params[:id])
       end
     end
   end
