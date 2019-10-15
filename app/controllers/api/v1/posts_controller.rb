@@ -8,6 +8,12 @@ module Api
 
         render json: PostSerializer.new(@posts).serializable_hash, status: :ok
       end
+
+      def show
+        @post = Post.find(params[:id])
+
+        render json: PostSerializer.new(@post).serializable_hash, status: :ok
+      end
     end
   end
 end
