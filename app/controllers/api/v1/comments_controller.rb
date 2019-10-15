@@ -3,7 +3,10 @@
 module Api
   module V1
     class CommentsController < ApplicationController
-      before_action :authorize_access_request!, only: %i[create]
+      before_action :authorize_access_request!, only: %i[create destroy]
+      before_action only: :destroy do
+        owner_or_admin?(Comment)
+      end
 
       def index
         @post = Post.find(params[:post_id])
@@ -19,6 +22,16 @@ module Api
 
         if @comment.save
           render json: CommentSerializer.new(@comment).serializable_hash, status: :created          
+        else
+          render json: { error: @comment.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
+      def destroy
+        @comment = Comment.find(params[:id])
+
+        if @comment.delete
+          render json: { message: 'Successfully deleted comment' }, status: :no_content          
         else
           render json: { error: @comment.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
