@@ -6,7 +6,7 @@ module TicketReservation
 
     def call
       context.requested_tickets.each do |record|
-        record[:ticket].update(mailed: true)
+        record[:ticket].mark_as_mailed
       end
     end
   end

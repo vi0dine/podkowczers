@@ -23,4 +23,25 @@ class Ticket < ApplicationRecord
             inclusion: { in: [true, false] }
   validates :mailed,
             inclusion: { in: [true, false] }
+
+  def mark_as_reserved
+    with_lock do
+      self.reserved = true
+      self.save!
+    end
+  end
+
+  def mark_as_free
+    with_lock do
+      self.reserved = false
+      self.save!
+    end
+  end
+
+  def mark_as_mailed
+    with_lock do
+      self.mailed = true
+      self.save!
+    end
+  end
 end

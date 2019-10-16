@@ -5,6 +5,8 @@ module TicketReservation
     include Interactor
 
     def call
+      context.fail!(message: 'Nie podano miejsce') if context.tickets_ids.empty?
+
       context.requested_tickets = []
       context.tickets_ids.each do |ticket_id|
         unless Ticket.find(ticket_id)

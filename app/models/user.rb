@@ -24,4 +24,20 @@ class User < ApplicationRecord
             presence: true,
             numericality: { only_integers: true,
                             greater_than_or_equal_to: 0 }
+
+  def assign_ticket(ticket)
+    tickets << ticket
+  end
+
+  def dissociate_ticket(ticket)
+    tickets.delete(ticket)
+  end
+
+  def add_coins(amount)
+    self.coins_count += amount
+  end
+
+  def decrement_coins_count
+    decrement!(:coins_count)
+  end
 end
