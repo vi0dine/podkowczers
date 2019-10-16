@@ -8,7 +8,7 @@ module TicketReservation
       SendTicketsToUserJob
         .perform_later(context.user.id,
                        context.requested_tickets.first[:ticket].event.id,
-                       context.pdf_attachment)
+                       context.save_path.to_s)
     end
   end
 end

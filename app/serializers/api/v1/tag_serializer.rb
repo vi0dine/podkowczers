@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
-class TagSerializer
-  include FastJsonapi::ObjectSerializer
-  attributes :title
-  has_many :posts
+module Api
+  module V1
+    class TagSerializer
+      include FastJsonapi::ObjectSerializer
+      attributes :title
+      has_many :posts
+    end
+  end
 end

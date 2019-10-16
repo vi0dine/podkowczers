@@ -56,15 +56,15 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    domain: ENV.fetch('SMTP_DOMAIN'),
-    address: ENV.fetch('SMTP_ADDRESS'),
+    domain: ENV["SMTP_DOMAIN"],
+    address: ENV["SMTP_ADDRESS"],
     port: 587,
     authentication: :plain,
     user_name: Rails.application.credentials.smpt_username,
     password: Rails.application.credentials.smpt_password,
     enable_starttls_auto: true
   }
-  config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_HOST') }
+  config.action_mailer.default_url_options = { host: ENV['APPLICATION_HOST'] }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
