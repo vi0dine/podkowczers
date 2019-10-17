@@ -9,6 +9,8 @@ module TicketReservation
 
       context.requested_tickets.each do |record|
         record.merge!(hash: signing_key.sign(record[:ticket].event_id.to_s))
+      rescue
+        context.fail!(message: 'Coś poszło nie tak. Spróbuj ponownie.')
       end
     end
   end
