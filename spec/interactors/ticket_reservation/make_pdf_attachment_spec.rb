@@ -7,13 +7,13 @@ RSpec.describe TicketReservation::MakePdfAttachment do
       let(:tickets) { create_list(:ticket, 5) }
       let(:req_tickets) { [
         { ticket: tickets[0],
-          hash: 12,
+          hash: 'dfgdwerewrwgeere34t24sd45fdfd',
           qr_code: RQRCode::QRCode.new('Some text for QR1').as_png(size: 220) },
         { ticket: tickets[1],
-          hash: 3,
+          hash: 'dfgdwerewrwgeere34t244gs5fdfd',
           qr_code: RQRCode::QRCode.new('Some text for QR2').as_png(size: 220) },
         { ticket: tickets[2],
-          hash: 'dfgdwerewrwgeere34t2445fdfd',
+          hash: 'dfgdwerewrwgeere34agt2445fdfd',
           qr_code: RQRCode::QRCode.new('Some text for QR3').as_png(size: 220) }
       ] }
 
