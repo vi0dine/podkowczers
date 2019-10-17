@@ -5,11 +5,12 @@ module TicketReservation
     include Interactor
 
     def call
+      if context.requested_tickets.any? { |record| record[:ticket].reserved? }
+        context.fail!(message: 'Bilet zarezerwowany') 
+      end
+
       context.requested_tickets.each do |record|
         ticket = record[:ticket]
-
-        context.fail!(message: 'Bilet zarezerwowany') if ticket.reserved?
-
         ticket.mark_as_reserved
       end
     end
