@@ -18,6 +18,7 @@ module TicketReservation
         context.user.with_lock do
           context.user.assign_ticket(ticket)
           context.user.decrement_coins_count
+          context.user.save!
         end
       end
     end
@@ -29,6 +30,7 @@ module TicketReservation
         context.user.with_lock do
           context.user.dissociate_ticket(ticket)
           context.user.add_coins(1)
+          context.user.save!
         end
       end
     end

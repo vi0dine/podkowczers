@@ -40,7 +40,7 @@ RSpec.describe TicketReservation::FindRequestedTickets do
       end
 
       it 'provides a failure message' do
-        expect(context.message).to eq('Nie podano miejsce')
+        expect(context.message).to eq('Nie podano miejsc')
       end
 
       it 'does not create requested tickets array' do

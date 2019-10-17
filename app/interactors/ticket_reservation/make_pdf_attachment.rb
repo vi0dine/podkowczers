@@ -11,8 +11,13 @@ module TicketReservation
           'tickets.pdf'
         )
       begin
-        PrintableTicketsGenerator.new(context.save_path, context.requested_tickets).call
-      rescue
+        pdf = PrintableTicketsGenerator.new(context.requested_tickets).call
+        context.user.reservations
+          .attach(
+            io: StringIO.new(pdf), filename: 'tickets.pdf', content_type: 'application/pdf'
+          )
+      rescue Exception => e
+        puts e.message
         context.fail!(message: 'Nie można było utworzyć pliku PDF z biletami. Rezerwacja została anulowana.
                        Prosimy spróbować później lub powiadomić administratora o występującym problemie')
       end

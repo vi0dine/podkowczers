@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   has_secure_password
+  has_many_attached :reservations
   has_many :posts
   has_many :comments
   has_many :reviews

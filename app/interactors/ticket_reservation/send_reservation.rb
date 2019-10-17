@@ -6,11 +6,9 @@ module TicketReservation
 
     def call
       SendTicketsToUserJob
-        .perform_later(context.user.id,
-                       context.requested_tickets.first[:ticket].event.id,
-                       context.save_path.to_s.gsub("\u0000", ''))
-      rescue
-        context.fail!('Nie można było przesłać biletów. Rezerwacja została anulowana.')
+        .perform_later(context.user.id, context.requested_tickets.collect { |hash| hash[:ticket].id })
+    rescue
+      context.fail!(message: 'Nie można było przesłać biletów. Rezerwacja została anulowana.')
     end
   end
 end

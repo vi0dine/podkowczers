@@ -37,8 +37,8 @@ Rails.application.configure do
     address: ENV.fetch('SMTP_ADDRESS'),
     port: 587,
     authentication: :plain,
-    user_name: Rails.application.credentials.smpt_username,
-    password: Rails.application.credentials.smpt_password,
+    user_name: Rails.application.credentials.smtp[:username],
+    password: Rails.application.credentials.smtp[:password],
     enable_starttls_auto: true
   }
   config.action_mailer.perform_caching = false

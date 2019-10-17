@@ -9,12 +9,12 @@ RSpec.describe SendTicketsToUserJob, type: :job do
   describe '#perform' do
     let(:user) { create(:user) }
     let(:event) { create(:event, :with_tickets) }
-    let(:attachment) { WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>') }
+    let(:tickets_ids) { event.tickets[0..3].pluck(:id) }
 
     it 'calls on the TicketMailer' do
       allow(User).to receive(:find).and_return(user)
 
-      SendTicketsToUserJob.new.perform(user.id, event.id, attachment)
+      SendTicketsToUserJob.new.perform(user.id, tickets_ids)
 
       expect(TicketMailer).to have_received(:reservation)
     end
