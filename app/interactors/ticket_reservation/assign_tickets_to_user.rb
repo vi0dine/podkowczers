@@ -5,12 +5,16 @@ module TicketReservation
     include Interactor
 
     def call
+      if context.user.coins_count < context.requested_tickets.size
+        context.fail!(message: 'Użytkownik nie ma tylu monet')
+      end
+
+      if context.requested_tickets.any? { |record| record[:ticket].user != nil }
+        context.fail!(message: 'Bilet ma już przypisanego użytkownika')
+      end
+
       context.requested_tickets.each do |record|
         ticket = record[:ticket]
-
-        context.fail!(message: 'Bilet ma już przypisanego użytkownika') unless ticket.user.nil?
-        context.fail!(message: 'Użytkownik nie ma tylu monet') if context.user.coins_count < context.requested_tickets.size
-
         context.user.with_lock do
           context.user.assign_ticket(ticket)
           context.user.decrement_coins_count

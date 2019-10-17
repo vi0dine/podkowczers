@@ -32,6 +32,10 @@ RSpec.describe TicketReservation::MarkAsReserved do
       it 'fails' do
         expect(context).to be_a_failure
       end
+
+      it 'provides a failure message' do
+        expect(context.message).to eq('Bilet zarezerwowany')
+      end
     end
   end
 end
