@@ -9,11 +9,9 @@ module TicketReservation
 
       context.requested_tickets = []
       context.tickets_ids.each do |ticket_id|
-        unless Ticket.find(ticket_id)
-          context.fail!(message: 'Nie znaleziono biletu o danym ID')
-        end
-
         context.requested_tickets << { ticket: Ticket.find(ticket_id) }
+      rescue ActiveRecord::RecordNotFound
+        context.fail!(message: 'Nie znaleziono biletu o danym ID')
       end
     end
   end
