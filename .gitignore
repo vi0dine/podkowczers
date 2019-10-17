@@ -7,9 +7,7 @@
 # Ignore bundler config.
 /.bundle
 
-.env
-
-/pdfs
+/.env
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
