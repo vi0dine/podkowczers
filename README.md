@@ -1,24 +1,16 @@
-# README
+# ePodkowczers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Info
 
-Things you may want to cover:
+Web API to provide blog functionalities, event management and ticket reservation system for school band from II LO w Wałbrzychu.
 
-* Ruby version
+Tech stack:
 
-* System dependencies
+- Ruby 2.6.3
+- Ruby on Rails 6.0.2
+- PostgreSQL
+- Rspec 3.8
+- Sidekiq 6.0.2
+- JWT
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## [Endpoints](endpoints.md)
