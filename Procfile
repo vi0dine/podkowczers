@@ -1,0 +1,1 @@
+tickets_mail_worker: bundle exec sidekiq -c 2
