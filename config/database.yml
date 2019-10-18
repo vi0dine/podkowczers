@@ -13,8 +13,8 @@ default: &default
 development:
   <<: *default
   database: podkowczers_dev
-  username: <%= Rails.application.credentials.postgres[:username] %>
-  password: <%= Rails.application.credentials.postgres[:password] %>
+  username: <%= Rails.application.credentials.db_username %>
+  password: <%= Rails.application.credentials.db_password %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,11 +22,11 @@ development:
 test:
   <<: *default
   database: podkowczers_test
-  username: <%= Rails.application.credentials.postgres[:username] %>
-  password: <%= Rails.application.credentials.postgres[:password] %>
+  username: <%= Rails.application.credentials.db_username %>
+  password: <%= Rails.application.credentials.db_password %>
 
 production:
   <<: *default
   database: podkowczers_prod
-  username: <%= Rails.application.credentials.postgres[:username] %>
-  password: <%= Rails.application.credentials.postgres[:password] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
