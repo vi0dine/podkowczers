@@ -1,1 +1,1 @@
-tickets_mail_worker: bundle exec sidekiq -c 2
+tickets_mail_worker: bundle exec sidekiq -q default -q user_tickets -c 2
