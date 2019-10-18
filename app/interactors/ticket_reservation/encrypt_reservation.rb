@@ -5,7 +5,7 @@ module TicketReservation
     include Interactor
 
     def call
-      signing_key = Ed25519::SigningKey.new(Rails.application.credentials[:tickets_secret])
+      signing_key = Ed25519::SigningKey.new(ENV['TICKETS_SECRET'])
 
       context.requested_tickets.each do |record|
         record.merge!(hash: signing_key.sign(record[:ticket].event_id.to_s))
