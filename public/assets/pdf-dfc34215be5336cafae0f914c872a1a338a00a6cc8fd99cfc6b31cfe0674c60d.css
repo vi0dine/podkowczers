@@ -1,0 +1,25 @@
+.ticket {
+  display: inline-block;
+  position: relative;
+  border: dashed 1px #777;
+  padding: 10px;
+  width: 100%;
+}
+
+.ticket::after {
+  content: "";
+  background-size: contain;
+  background-image: -webkit-linear-gradient(
+      left,
+      rgba(178, 110, 99, 0.8),
+      rgba(206, 192, 117, 0.6)
+    ),
+    url("image.jpg");
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
