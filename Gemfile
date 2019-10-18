@@ -10,6 +10,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'ed25519'
 gem 'fast_jsonapi'
+gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'interactor', '~> 3.0'
 gem 'jwt_sessions'
 gem 'pg'

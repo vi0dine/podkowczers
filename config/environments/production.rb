@@ -1,6 +1,8 @@
 Rails.application.configure do
   config.cache_classes = true
 
+  config.active_storage.service = :google
+
   config.eager_load = true
 
   config.assets.compile = true
