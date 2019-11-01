@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.rspec" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.rspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ruby-version" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.ruby-version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rakefile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Rakefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/config/manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/assets/config/manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/images/image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/assets/images/image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/mailer/ecommerce-template_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/assets/mailer/ecommerce-template_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/mailer/facebook@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/assets/mailer/facebook@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/mailer/okok.gif" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/assets/mailer/okok.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/pdf.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/assets/stylesheets/pdf.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/channels/application_cable/channel.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/channels/application_cable/channel.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/channels/application_cable/connection.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/channels/application_cable/connection.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/comments_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/concerts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/concerts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/events_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/events_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/posts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/posts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/reviews_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/reviews_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/tickets_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/tickets_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/concerns/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/concerns/.keep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/refresh_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/refresh_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/sign_in_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/sign_in_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/sign_up_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/sign_up_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interactors/ticket_reservation/assign_tickets_to_user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/assign_tickets_to_user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interactors/ticket_reservation/encrypt_reservation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/encrypt_reservation.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interactors/ticket_reservation/find_requested_tickets.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/find_requested_tickets.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interactors/ticket_reservation/generate_qr_code.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/generate_qr_code.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interactors/ticket_reservation/make_pdf_attachment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/make_pdf_attachment.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interactors/ticket_reservation/make_tickets_reservation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/make_tickets_reservation.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interactors/ticket_reservation/mark_as_reserved.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/mark_as_reserved.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interactors/ticket_reservation/send_reservation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/send_reservation.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/jobs/application_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/jobs/application_job.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/jobs/send_tickets_to_user_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/jobs/send_tickets_to_user_job.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mailers/application_mailer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/mailers/application_mailer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mailers/ticket_mailer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/mailers/ticket_mailer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/application_record.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/application_record.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/comment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/comment.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/concerns/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/concerns/.keep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/concert.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/concert.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/event.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/event.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/post.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/post.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/posts_tag.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/posts_tag.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/review.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/review.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/tag.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/tag.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ticket.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/ticket.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers/api/v1/comment_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/serializers/api/v1/comment_serializer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers/api/v1/concert_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/serializers/api/v1/concert_serializer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers/api/v1/event_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/serializers/api/v1/event_serializer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers/api/v1/post_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/serializers/api/v1/post_serializer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers/api/v1/review_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/serializers/api/v1/review_serializer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers/api/v1/tag_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/serializers/api/v1/tag_serializer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers/api/v1/ticket_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/serializers/api/v1/ticket_serializer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/create_csrf_token_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/create_csrf_token_service.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/printable_tickets_generator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/printable_tickets_generator.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/mailer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/views/layouts/mailer.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/mailer.text.erb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/views/layouts/mailer.text.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/pdf.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/views/layouts/pdf.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ticket_mailer/reservation.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/views/ticket_mailer/reservation.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/tickets/tickets.pdf.erb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/views/tickets/tickets.pdf.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/bundle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/bin/bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/backend/bin/rails" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/backend/bin/rake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/setup" beforeDir="false" afterPath="$PROJECT_DIR$/backend/bin/setup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spring" beforeDir="false" afterPath="$PROJECT_DIR$/backend/bin/spring" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.ru" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config.ru" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/application.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/boot.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/boot.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/cable.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/cable.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/credentials.yml.enc" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/credentials.yml.enc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/database.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/environment.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/environments/development.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/environments/production.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/environments/test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/application_controller_renderer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/application_controller_renderer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/backtrace_silencers.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/backtrace_silencers.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/cors.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/cors.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/filter_parameter_logging.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/filter_parameter_logging.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/inflections.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/inflections.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/jwt_sessions.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/jwt_sessions.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/mime_types.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/mime_types.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/wicked_pdf.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/wicked_pdf.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/wrap_parameters.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/wrap_parameters.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/locales/en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/puma.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/puma.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/spring.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/spring.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/storage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/storage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20191007090014_create_users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/migrate/20191007090014_create_users.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20191007095640_create_posts.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/migrate/20191007095640_create_posts.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20191007110635_create_comments.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/migrate/20191007110635_create_comments.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20191007111500_create_tags.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/migrate/20191007111500_create_tags.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20191007112334_create_posts_tags.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/migrate/20191007112334_create_posts_tags.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20191007112813_create_concerts.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/migrate/20191007112813_create_concerts.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20191007114044_create_events.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/migrate/20191007114044_create_events.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20191007131856_create_tickets.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/migrate/20191007131856_create_tickets.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20191007135503_create_reviews.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/migrate/20191007135503_create_reviews.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20191017112726_create_active_storage_tables.active_storage.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/migrate/20191017112726_create_active_storage_tables.active_storage.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/endpoints.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/endpoints.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tasks/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/backend/lib/tasks/.keep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/.keep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-45da174997eb91bd48f41f2f2dd45c75.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/.sprockets-manifest-45da174997eb91bd48f41f2f2dd45c75.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/ecommerce-template_logo-7c7a3d1960a2a4499e78d0ae52a66a11141e7585e0e46fb26c35443ed4e81675.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/ecommerce-template_logo-7c7a3d1960a2a4499e78d0ae52a66a11141e7585e0e46fb26c35443ed4e81675.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/facebook@2x-bcd1eedb4eba46b8e1252538923bef0c71070fecadc625cb6567b49d604a4727.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/facebook@2x-bcd1eedb4eba46b8e1252538923bef0c71070fecadc625cb6567b49d604a4727.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/image-227c602f9eeff01fcfde184773f266449399981e3f36eebfd606a4b0a7111071.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/image-227c602f9eeff01fcfde184773f266449399981e3f36eebfd606a4b0a7111071.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/mailer/ecommerce-template_logo-7c7a3d1960a2a4499e78d0ae52a66a11141e7585e0e46fb26c35443ed4e81675.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/mailer/ecommerce-template_logo-7c7a3d1960a2a4499e78d0ae52a66a11141e7585e0e46fb26c35443ed4e81675.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/mailer/facebook@2x-bcd1eedb4eba46b8e1252538923bef0c71070fecadc625cb6567b49d604a4727.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/mailer/facebook@2x-bcd1eedb4eba46b8e1252538923bef0c71070fecadc625cb6567b49d604a4727.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/mailer/okok-4bcd1244f2b520b3decf987933c03e8f303a97a680b592875af2cd33cf6dfb31.gif" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/mailer/okok-4bcd1244f2b520b3decf987933c03e8f303a97a680b592875af2cd33cf6dfb31.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/manifest-6a3cf5192354f71615ac51034b3e97c20eda99643fcaf5bbe6d41ad59bd12167.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/manifest-6a3cf5192354f71615ac51034b3e97c20eda99643fcaf5bbe6d41ad59bd12167.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/manifest-6a3cf5192354f71615ac51034b3e97c20eda99643fcaf5bbe6d41ad59bd12167.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/manifest-6a3cf5192354f71615ac51034b3e97c20eda99643fcaf5bbe6d41ad59bd12167.js.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/manifest-75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/manifest-75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/manifest-75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/manifest-75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070.js.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/okok-4bcd1244f2b520b3decf987933c03e8f303a97a680b592875af2cd33cf6dfb31.gif" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/okok-4bcd1244f2b520b3decf987933c03e8f303a97a680b592875af2cd33cf6dfb31.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/pdf-dfc34215be5336cafae0f914c872a1a338a00a6cc8fd99cfc6b31cfe0674c60d.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/pdf-dfc34215be5336cafae0f914c872a1a338a00a6cc8fd99cfc6b31cfe0674c60d.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/pdf-dfc34215be5336cafae0f914c872a1a338a00a6cc8fd99cfc6b31cfe0674c60d.css.gz" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/pdf-dfc34215be5336cafae0f914c872a1a338a00a6cc8fd99cfc6b31cfe0674c60d.css.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/comments_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/factories/comments_factory.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/concerts_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/factories/concerts_factory.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/events_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/factories/events_factory.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/posts_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/factories/posts_factory.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/posts_tags_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/factories/posts_tags_factory.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/reviews_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/factories/reviews_factory.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/tags_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/factories/tags_factory.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/tickets_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/factories/tickets_factory.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/users_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/factories/users_factory.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/interactors/ticket_reservation/assign_tickets_to_user_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/interactors/ticket_reservation/assign_tickets_to_user_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/interactors/ticket_reservation/encrypt_reservation_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/interactors/ticket_reservation/encrypt_reservation_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/interactors/ticket_reservation/find_requested_tickets_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/interactors/ticket_reservation/find_requested_tickets_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/interactors/ticket_reservation/generate_qr_code_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/interactors/ticket_reservation/generate_qr_code_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/interactors/ticket_reservation/make_pdf_attachment_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/interactors/ticket_reservation/make_pdf_attachment_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/interactors/ticket_reservation/mark_as_reserved_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/interactors/ticket_reservation/mark_as_reserved_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/interactors/ticket_reservation/send_reservation_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/interactors/ticket_reservation/send_reservation_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/jobs/send_tickets_to_user_job_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/jobs/send_tickets_to_user_job_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/mailers/previews/ticket_mailer_preview.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/mailers/previews/ticket_mailer_preview.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/mailers/ticket_mailer_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/mailers/ticket_mailer_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/comment_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/models/comment_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/concert_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/models/concert_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/event_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/models/event_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/post_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/models/post_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/posts_tag_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/models/posts_tag_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/review_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/models/review_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/tag_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/models/tag_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/ticket_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/models/ticket_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/user_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/models/user_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/rails_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/rails_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/comments_requests_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/comments_requests_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/concerts_requests_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/concerts_requests_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/events_requests_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/events_requests_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/posts_requests_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/posts_requests_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/refresh_request_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/refresh_request_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/reviews_requests_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/reviews_requests_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/sign_in_request_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/sign_in_request_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/sign_out_request_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/sign_out_request_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/sign_up_request_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/sign_up_request_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/tickets_requests_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/tickets_requests_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/spec_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/support/action_mailer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/support/action_mailer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/support/active_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/support/active_job.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/support/json_parser.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/support/json_parser.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/support/mailer_helpers.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/support/mailer_helpers.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/support/session_creator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/support/session_creator.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/.keep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/.keep" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1T0iiwkY2OS5iBmN7ddwg8olCaY" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Rails.Development: podkowczers">
+    <configuration name="Development: podkowczers" type="RailsRunConfigurationType" factoryName="Rails">
+      <module name="podkowczers" />
+      <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Production: podkowczers" type="RailsRunConfigurationType" factoryName="Rails">
+      <module name="podkowczers" />
+      <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="production" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="spec: podkowczers" type="RakeRunConfigurationType" factoryName="Rake">
+      <module name="podkowczers" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="spec" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":rspec " />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_VERBOSE" VALUE="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test: podkowczers" type="RakeRunConfigurationType" factoryName="Rake">
+      <module name="podkowczers" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="test" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="test" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":test_unit " />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_VERBOSE" VALUE="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="" />
+      <created>1572603544934</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572603544934</updated>
+      <workItem from="1572603546167" duration="2306000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
