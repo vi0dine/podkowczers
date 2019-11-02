@@ -10,7 +10,7 @@ class CreateCsrfTokenService
   def call
     generate_tokens
     set_cookies
-    tokens[:csrf]
+    tokens
   end
 
   private

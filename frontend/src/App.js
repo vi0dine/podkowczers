@@ -10,6 +10,7 @@ import { PostDetailsPage } from "./pages/post-details-page/post-details-page.com
 import { EventsPage } from "./pages/events-page/events-page.component";
 import { EventDetailsPage } from "./pages/event-details-page/event-details-page.component";
 import { TicketsPage } from "./pages/tickets-page/tickets-page.component";
+import { SignUpPage } from "./pages/signup-page/signup-page.component";
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
             <Route exact path='/concerts' component={ConcertsPage} />
             <Route path='/concerts/:id' component={ConcertDetailsPage} />
             <Route exact path='/events' component={EventsPage} />
-            <Route path='/events/:id' component={EventDetailsPage} />
-            <Route path='/tickets' component={TicketsPage} />
+            <Route exact path='/events/:id' component={EventDetailsPage} />
+            <Route path='/events/:id/tickets' component={TicketsPage} />
+            <Route path='/signup' component={SignUpPage} />
         </Switch>
     </div>
   );
