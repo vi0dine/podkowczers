@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+
+import { HomePage } from "./pages/home-page/homepage.component";
+import { ConcertsPage } from "./pages/concerts-page/concerts-page.component";
+import { ConcertDetailsPage } from "./pages/concert-details-page/concert-detail-page.component";
+import { BlogPage } from "./pages/blog-page/blog-page.component";
+import { PostDetailsPage } from "./pages/post-details-page/post-details-page.component";
+import { EventsPage } from "./pages/events-page/events-page.component";
+import { EventDetailsPage } from "./pages/event-details-page/event-details-page.component";
+import { TicketsPage } from "./pages/tickets-page/tickets-page.component";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Switch>
+            <Route exact path='/' component={HomePage} />
+            <Route exact path='/blog' component={BlogPage} />
+            <Route path='/blog/:id' component={PostDetailsPage} />
+            <Route exact path='/concerts' component={ConcertsPage} />
+            <Route path='/concerts/:id' component={ConcertDetailsPage} />
+            <Route exact path='/events' component={EventsPage} />
+            <Route path='/events/:id' component={EventDetailsPage} />
+            <Route path='/tickets' component={TicketsPage} />
+        </Switch>
     </div>
   );
 }
