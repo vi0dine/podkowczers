@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import './App.scss';
+
+import { Header } from "./components/header/header.component";
 
 import { HomePage } from "./pages/home-page/homepage.component";
 import { ConcertsPage } from "./pages/concerts-page/concerts-page.component";
@@ -15,6 +17,7 @@ import { SignUpPage } from "./pages/signup-page/signup-page.component";
 function App() {
   return (
     <div className="App">
+        <Header/>
         <Switch>
             <Route exact path='/' component={HomePage} />
             <Route exact path='/blog' component={BlogPage} />

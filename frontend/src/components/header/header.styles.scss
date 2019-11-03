@@ -1,0 +1,23 @@
+.Header {
+  .navbar, .navbar-menu {
+    background-color: #1B1725;
+  }
+  .navbar-item {
+    color: #AED9E0;
+    background-color: inherit;
+    transition: background-color 1s ease-in-out,
+                color 1s ease-in-out;
+
+    .current {
+      text-decoration: none;
+      background-color: #AED9E0;
+      color: #1B1725;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: #AED9E0;
+      color: #1B1725;
+    }
+  }
+}

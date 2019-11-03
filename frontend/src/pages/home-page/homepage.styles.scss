@@ -1,0 +1,43 @@
+.Homepage {
+  height: 100vh;
+  position: relative;
+}
+
+.Homepage::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('../../assets/bg.jpg');
+  filter: grayscale(100%);
+}
+
+.Homepage-content {
+  position: relative;
+
+  @media screen and (max-width: 1396px) {
+    display: none;
+  }
+
+  .title-container {
+    height: 100vh;
+
+    .title {
+      margin-top: 65vh;
+      font-size: 6rem;
+      color: #FCF7F8;
+      text-shadow: 2px 2px 40px #1B1725;
+    }
+  }
+}
+
+.Homepage::after {
+  content: "";
+  background: radial-gradient(circle, transparent 50%, rgb(125, 128, 218) 100%);
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
