@@ -1,0 +1,14 @@
+.Events {
+  padding: 1rem;
+  height: 90vh;
+  background-color: #1B1725;
+
+  .title, .subtitle {
+    color: #FCF7F8;
+  }
+
+  .events_list,
+  .events_addons {
+    height: 80vh;
+  }
+}
