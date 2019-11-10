@@ -1,14 +1,12 @@
 @import '~bulma';
 
 
-html {
+html, body {
+  height: 100%;
+  margin: 0;
   overflow: hidden;
 
   @media screen and (max-width: 770px) {
     overflow: auto;
   }
-}
-
-.App {
-  height: 100vh;
 }

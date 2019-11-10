@@ -1,5 +1,6 @@
 import React from 'react';
 import './events-page.styles.scss';
+import {EventsList} from "../../components/events-list/EventsList.component";
 
 export const EventsPage = () => {
     return (
@@ -16,7 +17,7 @@ export const EventsPage = () => {
                 </div>
                 <div className={'columns'}>
                     <div className={'events_list column is-8'} style={{'background-color': 'red'}}>
-                        LISTA WYDARZEŃ
+                        <EventsList />
                     </div>
                     <div className={'column is-4'} style={{'background-color': 'red'}}>
                         <div className={'columns'}>

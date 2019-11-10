@@ -1,6 +1,6 @@
 .Events {
-  padding: 1rem;
-  height: 90vh;
+  min-height: 100vh;
+  height: 100%;
   background-color: #1B1725;
 
   .title, .subtitle {
@@ -10,5 +10,6 @@
   .events_list,
   .events_addons {
     height: 80vh;
+    overflow-y: auto;
   }
 }
