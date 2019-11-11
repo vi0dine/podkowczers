@@ -1,9 +1,9 @@
 import React from 'react';
 import './EventsListItem.styles.scss';
 
-export const EventsListItem = ({event}) => {
+export const EventsListItem = ({event, handleClick}) => {
     return (
-        <div className={'EventsListItem columns is-vcentered'}>
+        <div onClick={() => handleClick(event.id)} className={'EventsListItem columns is-vcentered'}>
             <div className={'column is-1 has-text-centered'}>
                         <span className={'icon is-large'}>
                             <i className={'fas fa-2x fa-info-circle'}/>

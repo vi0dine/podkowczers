@@ -1,6 +1,6 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
-import './concert-tile.styles.scss';
+import './ConcertTile.styles.scss';
 
 export const ConcertTile = ({id, imageUrl}) => {
     const history = useHistory();

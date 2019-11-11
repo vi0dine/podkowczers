@@ -1,6 +1,6 @@
 import React from 'react';
-import { PostTile } from "../../components/post-tile/post-tile.component";
-import './blog-page.styles.scss';
+import { PostTile } from "../../components/post-tile/PostTile.component";
+import './BlogPage.styles.scss';
 
 export const BlogPage = () => {
     return (

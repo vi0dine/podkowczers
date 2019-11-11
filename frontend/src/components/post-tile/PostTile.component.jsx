@@ -1,6 +1,6 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
-import './post-tile.styles.scss';
+import './PostTile.styles.scss';
 
 export const PostTile = ({id, title, imageUrl}) => {
     const history = useHistory();

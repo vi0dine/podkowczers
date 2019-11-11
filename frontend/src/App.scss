@@ -10,3 +10,19 @@ html, body {
     overflow: auto;
   }
 }
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FCF7F8;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #403952;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1B1725;
+}

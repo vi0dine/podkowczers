@@ -1,4 +1,14 @@
 .EventsListItem {
   margin: 1rem;
-  background-color: #AED9E0;
+  background-color: #aed9e0;
+  color: #1B1725;
+  transition: background-color 1s ease-in-out,
+              color 1s ease-in-out;
+  border-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #403952;
+    color: #FCF7F8;
+  }
 }

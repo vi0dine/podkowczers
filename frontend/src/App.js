@@ -2,17 +2,17 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 
-import { Header } from "./components/header/header.component";
+import { Header } from "./components/header/Header.component";
 
-import { HomePage } from "./pages/home-page/homepage.component";
-import { ConcertsPage } from "./pages/concerts-page/concerts-page.component";
-import { ConcertDetailsPage } from "./pages/concert-details-page/concert-detail-page.component";
-import { BlogPage } from "./pages/blog-page/blog-page.component";
-import { PostDetailsPage } from "./pages/post-details-page/post-details-page.component";
-import { EventsPage } from "./pages/events-page/events-page.component";
-import { EventDetailsPage } from "./pages/event-details-page/event-details-page.component";
-import { TicketsPage } from "./pages/tickets-page/tickets-page.component";
-import { SignUpPage } from "./pages/signup-page/signup-page.component";
+import { HomePage } from "./pages/home-page/Homepage.component";
+import { ConcertsPage } from "./pages/concerts-page/ConcertsPage.component";
+import { ConcertDetailsPage } from "./pages/concert-details-page/ConcertDetailsPage.component";
+import { BlogPage } from "./pages/blog-page/BlogPage.component";
+import { PostDetailsPage } from "./pages/post-details-page/PostDetailsPage.component";
+import { EventsPage } from "./pages/events-page/EventsPage.component";
+import { EventDetailsPage } from "./pages/event-details-page/EventDetailsPage.component";
+import { TicketsPage } from "./pages/tickets-page/TicketsPage.component";
+import { SignUpPage } from "./pages/signup-page/SignUpPage.component";
 
 function App() {
   return (

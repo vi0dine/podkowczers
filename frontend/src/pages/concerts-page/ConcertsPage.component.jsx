@@ -1,6 +1,6 @@
 import React from 'react';
-import { ConcertTile } from "../../components/concert-tile/concert-tile.component";
-import './concerts-page.styles.scss';
+import { ConcertTile } from "../../components/concert-tile/ConcertTile.component";
+import './ConcertsPage.styles.scss';
 
 export const ConcertsPage = () => {
     return (

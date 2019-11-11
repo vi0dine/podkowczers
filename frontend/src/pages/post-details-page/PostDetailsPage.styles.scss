@@ -1,0 +1,31 @@
+.PostDetails {
+  min-height: 100vh;
+  height: 100%;
+  background-color: #1B1725;
+  color: #FCF7F8;
+  padding: 2rem;
+
+  .title, .subtitle {
+    color: #FCF7F8;
+  }
+
+  .PostDetailsBody {
+    height: 85vh;
+    overflow-y: auto;
+    text-align: justify;
+  }
+
+  .PostDetailsImages {
+    height: 85vh;
+    overflow-y: auto;
+  }
+}
+
+.text-appear {
+  opacity: 0.01;
+}
+
+.text-appear.text-appear-active {
+  opacity: 1;
+  transition: opacity 2s ease-in;
+}

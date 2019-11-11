@@ -1,5 +1,5 @@
 import React from 'react';
-import './homepage.styles.scss';
+import './Homepage.styles.scss';
 
 export const HomePage = () => {
     return (
