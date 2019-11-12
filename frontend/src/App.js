@@ -11,7 +11,6 @@ import { BlogPage } from "./pages/blog-page/BlogPage.component";
 import { PostDetailsPage } from "./pages/post-details-page/PostDetailsPage.component";
 import { EventsPage } from "./pages/events-page/EventsPage.component";
 import { EventDetailsPage } from "./pages/event-details-page/EventDetailsPage.component";
-import { TicketsPage } from "./pages/tickets-page/TicketsPage.component";
 import { SignUpPage } from "./pages/signup-page/SignUpPage.component";
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
             <Route path='/concerts/:id' component={ConcertDetailsPage} />
             <Route exact path='/events' component={EventsPage} />
             <Route exact path='/events/:id' component={EventDetailsPage} />
-            <Route path='/events/:id/tickets' component={TicketsPage} />
             <Route path='/signup' component={SignUpPage} />
         </Switch>
     </div>

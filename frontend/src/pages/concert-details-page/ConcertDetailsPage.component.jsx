@@ -28,6 +28,20 @@ export const ConcertDetailsPage = () => {
                 dateTime: '09.08.2020 18:30',
                 availableTickets: '30',
                 reservationOpen: false
+            },
+            {
+                id: 9,
+                name: 'Some event',
+                dateTime: '09.08.2020 18:30',
+                availableTickets: '30',
+                reservationOpen: false
+            },
+            {
+                id: 10,
+                name: 'Some event',
+                dateTime: '09.08.2020 18:30',
+                availableTickets: '30',
+                reservationOpen: false
             }],
         attachments: [{src: 'http://lorempixel.com/1280/720/nightlife/1/'}, {src: 'http://lorempixel.com/1280/720/nightlife/2/'}, {src: 'http://lorempixel.com/1280/720/nightlife/3/'}]
     };

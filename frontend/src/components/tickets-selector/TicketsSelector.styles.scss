@@ -1,0 +1,23 @@
+.grid {
+  height: 100%;
+  background: #FCF7F8;
+  display: grid;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-rows: 100px repeat(10, 40px) 150px;
+  grid-template-columns: 50px repeat(26, 25px) 50px;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+}
+
+.scene {
+  grid-row: 1;
+  grid-column: 2 / 27;
+  background: red;
+}
+
+.gear {
+  grid-row: 12;
+  grid-column: 2 / 27;
+  background: cyan;
+}

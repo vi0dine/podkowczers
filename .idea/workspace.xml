@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/signup-page/signup-page.component.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/signup-page/signup-page.styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/podkowczers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/podkowczers.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/refresh_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/refresh_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/services/create_csrf_token_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/create_csrf_token_service.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/initializers/cors.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/cors.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/initializers/jwt_sessions.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/jwt_sessions.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/tickets-page/tickets-page.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/tickets-page/tickets-page.component.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +148,10 @@
       <updated>1572603544934</updated>
       <workItem from="1572603546167" duration="2306000" />
       <workItem from="1572606831869" duration="386000" />
-      <workItem from="1572729644529" duration="2575000" />
+      <workItem from="1572729644529" duration="2655000" />
+      <workItem from="1572857150826" duration="599000" />
+      <workItem from="1572861630108" duration="20000" />
+      <workItem from="1572876258458" duration="17000" />
     </task>
     <servers />
   </component>
