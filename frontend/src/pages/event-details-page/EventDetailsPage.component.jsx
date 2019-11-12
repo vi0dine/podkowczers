@@ -9,10 +9,26 @@ export const EventDetailsPage = () => {
         starts_at: '2019-01-02',
         estimated_length: '90000',
         available_tickets: 12,
-        reservation_open: true
+        reservation_open: true,
+        tickets: []
     };
 
+
+    for(let j = 1; j<10; j++) {
+        for(let i = 1; i < 26; i++) {
+            event.tickets.push({id: i+j, row: j, seat: i})
+        }
+    }
+
     const [selectedTickets, setSelectedTickets] = useState([]);
+
+    const selectSeat = (ticket) => {
+        setSelectedTickets([...selectedTickets, ticket]);
+    };
+
+    const deselectSeat = (ticket) => {
+        selectedTickets.filter((selected) => (selected.id === ticket.id));
+    };
 
     return (
         <div className={'EventDetails container is-fluid'}>
@@ -94,7 +110,11 @@ export const EventDetailsPage = () => {
                     </div>
                 </div>
                 <div className={'column'}>
-                    <TicketsSelector event={event} selectedTickets={selectedTickets} handleSelect={setSelectedTickets} />
+                    <TicketsSelector
+                        tickets={event.tickets}
+                        handleSelect={selectSeat}
+                        handleDeselect={deselectSeat}
+                    />
                 </div>
             </div>
         </div>

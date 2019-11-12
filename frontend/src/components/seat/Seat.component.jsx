@@ -1,12 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import './Seat.styles.scss';
 
-export const Seat = ({ticket, handleClick}) => {
+export const Seat = ({ticket, handleSelect, handleDeselect}) => {
+    const [selected, setSelected] = useState(false);
+
     return (
         <div
             style={{gridRow: ticket.row+1, gridColumn: ticket.seat+1}}
-            className={'seat'}
-            onClick={handleClick}
+            className={'seat ' + (selected ? 'selected' : 'free')}
+            onClick={() => {
+                if (selected) {
+                    handleDeselect()
+                } else {
+                    handleSelect()
+                }
+                setSelected(!selected);
+            }}
         >
             {ticket.seat}
         </div>
