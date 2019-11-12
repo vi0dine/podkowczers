@@ -5,15 +5,16 @@ import './TicketsSelector.styles.scss';
 export const TicketsSelector = ({tickets, handleSelect, handleDeselect}) => {
     return (
         <div className={'grid'}>
-            <div className={'scene'} />
-            {tickets.filter((ticket) => (ticket.seat !== 13 && ticket.seat !== 14)).map((ticket) => (
+            <div className={'scene'} >SCENA</div>
+            <div className={'divider'} />
+            {tickets.map((ticket) => (
                 <Seat
                     ticket={ticket}
                     handleSelect={() => {handleSelect(ticket)}}
                     handleDeselect={() => {handleDeselect(ticket)}}
                 />
             ))}
-            <div className={'gear'} />
+            <div className={'gear'} >NAGŁOŚNIENIE</div>
         </div>
     );
 };

@@ -1,13 +1,16 @@
 .seat {
+  border-radius: .3rem;
   color: #FCF7F8;
   text-align: center;
   line-height: 40px;
+  transition: all .5s linear;
 }
 
 .free {
-  background: #403952;
+  background: #4B4A67;
 }
 
 .selected {
-  background: #1B1725;
+  background: #a18dc3;
+  border-radius: .6rem;
 }

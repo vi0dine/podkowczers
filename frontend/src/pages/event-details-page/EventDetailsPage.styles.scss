@@ -7,4 +7,41 @@
   .title, .subtitle {
     color: #FCF7F8;
   }
+
+  .card {
+    border-radius: .5rem;
+    background: #114B5F;
+    color: #FCF7F8;
+
+    .card-header-title {
+      color: #FCF7F8;
+    }
+  }
+
+  .TicketsList {
+    max-height: 30vh;
+    overflow-y: auto;
+
+    .notification {
+      background: #4B4A67;
+    }
+  }
+}
+
+.ticket-enter {
+  opacity: 0.01;
+}
+
+.ticket-enter.ticket-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.ticket-leave {
+  opacity: 1;
+}
+
+.ticket-leave.ticket-leave-active {
+  opacity: 0.01;
+  transition: opacity 400ms ease-in;
 }

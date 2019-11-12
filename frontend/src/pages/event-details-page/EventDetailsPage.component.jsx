@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './EventDetailsPage.styles.scss';
+import { CSSTransitionGroup } from 'react-transition-group';
 import {TicketsSelector} from "../../components/tickets-selector/TicketsSelector.component";
 
 export const EventDetailsPage = () => {
@@ -14,8 +15,8 @@ export const EventDetailsPage = () => {
     };
 
 
-    for(let j = 1; j<10; j++) {
-        for(let i = 1; i < 26; i++) {
+    for(let j = 1; j<=10; j++) {
+        for(let i = 1; i <= 20; i++) {
             event.tickets.push({id: i+j, row: j, seat: i})
         }
     }
@@ -27,7 +28,7 @@ export const EventDetailsPage = () => {
     };
 
     const deselectSeat = (ticket) => {
-        selectedTickets.filter((selected) => (selected.id === ticket.id));
+        setSelectedTickets(selectedTickets.filter((selected) => (selected.id !== ticket.id)));
     };
 
     return (
@@ -94,10 +95,25 @@ export const EventDetailsPage = () => {
                     <hr />
                     { selectedTickets && (
                         <div className={'columns'}>
-                            <div className={'column has-text-centered'}>
+                            <div className={'TicketsList column has-text-centered'}>
+                                <CSSTransitionGroup
+                                    transitionName={'ticket'}
+                                    transitionEnterTimeout={300}
+                                    transitionLeaveTimeout={400}
+                                >
                                 {selectedTickets.map((ticket) =>  (
-                                    <p>{ticket.row}  {ticket.seat}</p>
+                                        <div className={'notification'}>
+                                            <div className={'columns'}>
+                                                <div className={'column'}>
+                                                    <h4 className={'subtitle'}>Rząd: <span className={'subtitle'}>{ticket.row}</span></h4>
+                                                </div>
+                                                <div className={'column'}>
+                                                    <h4 className={'subtitle'}>Miejsce: <span className={'subtitle'}>{ticket.seat}</span></h4>
+                                                </div>
+                                            </div>
+                                        </div>
                                 ))}
+                                </CSSTransitionGroup>
                             </div>
                         </div>
                     ) }

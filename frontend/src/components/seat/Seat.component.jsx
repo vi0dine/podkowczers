@@ -6,7 +6,7 @@ export const Seat = ({ticket, handleSelect, handleDeselect}) => {
 
     return (
         <div
-            style={{gridRow: ticket.row+1, gridColumn: ticket.seat+1}}
+            // style={{gridRow: ticket.row+1, gridColumn: ticket.seat+1}}
             className={'seat ' + (selected ? 'selected' : 'free')}
             onClick={() => {
                 if (selected) {

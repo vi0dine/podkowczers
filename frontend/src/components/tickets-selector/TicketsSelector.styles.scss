@@ -1,23 +1,57 @@
-.grid {
-  height: 100%;
-  background: #FCF7F8;
-  display: grid;
-  justify-items: stretch;
-  align-items: stretch;
-  grid-template-rows: 100px repeat(10, 40px) 150px;
-  grid-template-columns: 50px repeat(26, 25px) 50px;
-  grid-column-gap: 10px;
-  grid-row-gap: 15px;
-}
-
 .scene {
-  grid-row: 1;
-  grid-column: 2 / 27;
-  background: red;
+  //grid-row: 1;
+  //grid-column: 2 / 27;
+  text-align: center;
+  color: #FCF7F8;
+  font-size: 32pt;
+  line-height: 100px;
+  background: #114B5F;
+  grid-area: sc;
 }
 
 .gear {
-  grid-row: 12;
-  grid-column: 2 / 27;
-  background: cyan;
+  //grid-row: 12;
+  //grid-column: 2 / 27;
+  background: #456990;
+  text-align: center;
+  color: #1B1725;
+  font-size: 32pt;
+  line-height: 100px;
+  grid-area: gr;
+}
+
+.divider {
+  background: #1B1725;
+  grid-area: pass;
+}
+
+.grid {
+  opacity: .7;
+  height: 100%;
+  padding: 20px;
+  background: #1B1725;
+  display: grid;
+  justify-items: stretch;
+  align-items: stretch;
+  //grid-template-rows: 100px repeat(10, 40px) 150px;
+  grid-template-rows: 100px repeat(11, 1fr) 90px;
+  //grid-template-columns: 50px repeat(26, 25px) 50px;
+  grid-template-columns: repeat(22, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+
+  grid-template-areas:
+          "sc sc sc sc sc sc sc sc sc sc sc sc sc sc sc sc sc sc sc sc sc sc"
+          ". . . . . . . . . . pass pass . . . . . . . . . ."
+          ". . . . . . . . . . pass pass . . . . . . . . . ."
+          ". . . . . . . . . . pass pass . . . . . . . . . ."
+          ". . . . . . . . . . pass pass . . . . . . . . . ."
+          ". . . . . . . . . . pass pass . . . . . . . . . ."
+          ". . . . . . . . . . pass pass . . . . . . . . . ."
+          ". . . . . . . . . . pass pass . . . . . . . . . ."
+          ". . . . . . . . . . pass pass . . . . . . . . . ."
+          ". . . . . . . . . . pass pass . . . . . . . . . ."
+          ". . . . . . . . . . pass pass . . . . . . . . . ."
+          ". . . . . . . . . . . . . . . . . . . . . ."
+          ". gr gr gr gr gr gr gr gr gr gr gr gr gr gr gr gr gr gr gr gr .";
 }
