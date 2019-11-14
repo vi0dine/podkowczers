@@ -5,6 +5,10 @@ import { Provider } from 'react-redux';
 import store from "./redux/store";
 import './index.css';
 import App from './App';
+import 'moment/locale/pl'
+import moment from "moment";
+
+moment.locale('pl');
 
 ReactDOM.render(
     <Provider store={store}>
