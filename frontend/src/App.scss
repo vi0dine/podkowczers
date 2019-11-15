@@ -1,6 +1,10 @@
 @import '~bulma';
 @import '~bulma-divider';
+@import '~bulma-pageloader';
 
+.pageloader {
+  background: #1B1725;
+}
 
 html, body {
   height: 100%;

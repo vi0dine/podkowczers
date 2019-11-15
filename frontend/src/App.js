@@ -12,11 +12,13 @@ import { PostDetailsPage } from "./pages/post-details-page/PostDetailsPage.compo
 import { EventsPage } from "./pages/events-page/EventsPage.component";
 import { EventDetailsPage } from "./pages/event-details-page/EventDetailsPage.component";
 import { SignUpPage } from "./pages/signup-page/SignUpPage.component";
+import {Pageloader} from "./components/pageloader/Pageloader.component";
 
 function App() {
   return (
     <div className="App">
         <Header/>
+        <Pageloader/>
         <Switch>
             <Route exact path='/' component={HomePage} />
             <Route exact path='/blog' component={BlogPage} />

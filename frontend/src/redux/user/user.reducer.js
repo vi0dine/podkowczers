@@ -1,32 +1,24 @@
-const INITIAL_STATE = {
-    authenticated: false,
-    token: null,
-    role: null
-};
+import {AUTH_FAILED, AUTH_START, AUTH_SUCCESS, LOGOUT_SUCCESS} from "./user.types";
 
-const SET_TOKEN = 'SET_TOKEN';
-const SET_ROLE = 'SET_ROLE';
-const AUTHENTICATE = 'AUTHENTICATE';
+const INITIAL_STATE = {
+    id: null,
+    role: null,
+    token: null,
+    error: null,
+    loading: false,
+};
 
 const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case SET_TOKEN:
-            return {
-                ...state,
-                token: action.payload
-            };
-        case SET_ROLE:
-            return {
-                ...state,
-                role: action.payload
-            };
-        case AUTHENTICATE:
-            return {
-                ...state,
-                authenticated: true
-            };
-        default:
-            return state;
+        case AUTH_START:
+            return {...state, ...{ loading: true, error: null }};
+        case AUTH_SUCCESS:
+            return {...state, id: action.id, role: action.role, token: action.token, loading: false };
+        case AUTH_FAILED:
+            return {...state,  loading: false, error: action.error };
+        case LOGOUT_SUCCESS:
+            return {...state, id: null, role: null, token: null};
+        default: return state;
     }
 };
 

@@ -3,13 +3,23 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import './Header.styles.scss';
+import {useDispatch, useSelector} from "react-redux";
+import {logout} from "../../redux/user/user.actions";
+import {store} from "../../redux/store";
 
 export const Header = () => {
+    const user = useSelector(state => state.UserState.id);
     const location = useLocation();
+    const dispatch = useDispatch();
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     const handleBurgerClick = () => {
+        console.log(store.getState());
         setBurgerOpen(!burgerOpen);
+    };
+
+    const handleLogout = () => {
+        dispatch(logout());
     };
 
     return (
@@ -34,7 +44,13 @@ export const Header = () => {
                         <Link className={`navbar-item ${location.pathname.includes("/blog") ? 'current' : ''}`} to={'/blog'}>BLOG</Link>
                         <Link className={`navbar-item ${location.pathname.includes("/concerts") ? 'current' : ''}`} to={'/concerts'}>KONCERTY</Link>
                         <Link className={`navbar-item ${location.pathname.includes("/events") ? 'current' : ''}`} to={'/events'}>WYDARZENIA</Link>
-                        <Link className={`navbar-item ${location.pathname.includes("/signup") ? 'current' : ''}`} to={'/signup'}><strong>ZAŁÓŻ KONTO</strong></Link>
+                        {
+                            !user ? (
+                                <Link className={`navbar-item ${location.pathname.includes("/signup") ? 'current' : ''}`} to={'/signup'}><strong>ZAŁÓŻ KONTO</strong></Link>
+                            ) : (
+                                <a className={'navbar-item'} onClick={() => handleLogout()}><strong>WYLOGUJ</strong></a>
+                            )
+                        }
                     </div>
                 </div>
             </nav>

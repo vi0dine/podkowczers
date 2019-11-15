@@ -1,18 +1,51 @@
-const SET_TOKEN = 'SET_TOKEN';
-const SET_ROLE = 'SET_ROLE';
-const AUTHENTICATE = 'AUTHENTICATE';
+import {
+    AUTH_FAILED,
+    AUTH_START,
+    AUTH_SUCCESS,
+    AUTH_USER,
+    LOGOUT_START,
+    LOGOUT_SUCCESS
+} from "./user.types";
 
-export const setUserToken = token => ({
-    type: SET_TOKEN,
-    payload: token
-});
+export const authUser = (email, password, mode) => {
+    return {
+        type: AUTH_USER,
+        email: email,
+        password: password,
+        mode: mode
+    }
+};
 
-export const setUserRole = role => ({
-    type: SET_ROLE,
-    payload: role
-});
+export const authStart = () => {
+    return {
+        type: AUTH_START
+    }
+};
 
-export const authenticateUser = () => ({
-    type: AUTHENTICATE,
-    payload: null
-});
+export const authSuccess = (id, role, token) => {
+    return {
+        type: AUTH_SUCCESS,
+        id: id,
+        role: role,
+        token: token
+    }
+};
+
+export const authFail = (error) => {
+    return {
+        type: AUTH_FAILED,
+        error: error
+    }
+};
+
+export const logout = () => {
+    return {
+        type: LOGOUT_START
+    }
+};
+
+export const logoutSuccess = () => {
+    return {
+        type: LOGOUT_SUCCESS
+    }
+};
