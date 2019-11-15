@@ -14,4 +14,7 @@ class Event < ApplicationRecord
             presence: true,
             numericality: { only_integers: true,
                             greater_than_or_equal_to: 900 }
+  def available_tickets_count
+    tickets.where(reserved: false).size
+  end
 end

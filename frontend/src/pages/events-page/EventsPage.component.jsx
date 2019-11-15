@@ -1,87 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import './EventsPage.styles.scss';
 import {EventsList} from "../../components/events-list/EventsList.component";
 import {EventsCalendar} from "../../components/events-calendar/EventsCalendar.component";
+import moment from "moment";
 
 export const EventsPage = () => {
-    const events = [
-        {
-            id: 1,
-            name: 'Some event',
-            dateTime: '09.08.2020 18:30',
-            availableTickets: '30',
-            reservationOpen: false
-        },
-        {
-            id: 2,
-            name: 'Some event',
-            dateTime: '09.08.2020 18:30',
-            availableTickets: '30',
-            reservationOpen: false
-        },
-        {
-            id: 3,
-            name: 'Some event',
-            dateTime: '09.08.2020 18:30',
-            availableTickets: '30',
-            reservationOpen: false
-        },
-        {
-            id: 4,
-            name: 'Some event',
-            dateTime: '09.08.2020 18:30',
-            availableTickets: '30',
-            reservationOpen: false
-        },
-        {
-            id: 5,
-            name: 'Some event',
-            dateTime: '09.08.2020 18:30',
-            availableTickets: '30',
-            reservationOpen: false
-        },
-        {
-            id: 6,
-            name: 'Some event',
-            dateTime: '09.08.2020 18:30',
-            availableTickets: '30',
-            reservationOpen: false
-        },
-        {
-            id: 7,
-            name: 'Some event',
-            dateTime: '09.08.2020 18:30',
-            availableTickets: '30',
-            reservationOpen: false
-        },
-        {
-            id: 8,
-            name: 'Some event',
-            dateTime: '09.08.2020 18:30',
-            availableTickets: '30',
-            reservationOpen: false
-        }
-    ];
+    const [events, setEvents] = useState([]);
+    const [ready, setReady] = useState(false);
 
-    const sampleEvents = [
-        {
-            id: 1,
-            start: new Date(2019, 10, 12),
-            end: '2019-11-24'
-        },
-        {
-            id: 2,
-            start: new Date(2019, 10, 2),
-            end: '2019-11-28'
-        },
-        {
-            id: 3,
-            start: new Date(2019, 10, 5),
-            end: '2019-11-28'
-        }
-    ];
+    const fetchEvents = async () => {
+        let response = await axios.request({url: '/api/v1/events', method: "GET"})
+        setEvents(response.data.data);
+        setReady(true);
+    };
 
-    return (
+    useEffect(() => {
+        fetchEvents();
+    }, []);
+
+    return ready && (
         <div className={'Events container is-fluid'}>
             <div className={'container'}>
                 <div className={'columns'}>
@@ -100,7 +38,12 @@ export const EventsPage = () => {
                     <div className={'column is-4'}>
                         <div className={'columns is-centered'}>
                             <div className={'column'}>
-                                <EventsCalendar events={sampleEvents} />
+                                <EventsCalendar events={events} month={new Date(moment())} />
+                            </div>
+                        </div>
+                        <div className={'columns is-centered'}>
+                            <div className={'column'}>
+                                <EventsCalendar events={events} month={new Date(moment().add(1, 'month'))} />
                             </div>
                         </div>
                     </div>

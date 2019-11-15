@@ -1,5 +1,6 @@
 import React from 'react';
 import './EventsListItem.styles.scss';
+import moment from "moment";
 
 export const EventsListItem = ({event, handleClick}) => {
     return (
@@ -12,15 +13,15 @@ export const EventsListItem = ({event, handleClick}) => {
             <div className={'column is-8 has-text-centered'}>
                 <div className={'columns is-vcentered'}>
                     <div className={'column'}>
-                        {event.name}
+                        {event.attributes.place}
                     </div>
                     <div className={'column'}>
-                        {event.dateTime}
+                        {moment(event.attributes.starts_at).format('LLL')}
                     </div>
                 </div>
             </div>
             <div className={'column has-text-centered'}>
-                {event.availableTickets}
+                {event.attributes.tickets_count}
             </div>
         </div>
     );

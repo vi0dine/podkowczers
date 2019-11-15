@@ -13,7 +13,8 @@ module Api
       end
 
       def show
-        render json: ConcertSerializer.new(@concert).serializable_hash
+        options = { include: [:events] }
+        render json: ConcertSerializer.new(@concert, options).serializable_hash
       end
 
       def create
@@ -36,7 +37,7 @@ module Api
 
       def destroy
         if @concert.delete
-          render json: { message: 'Successfully delete @concert' }, status: :no_content
+          render json: { message: 'Successfully delete concert' }, status: :no_content
         else
           render json: { error: @concert.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end

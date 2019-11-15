@@ -18,7 +18,7 @@ function* authUser(action) {
             params: {email: action.email, password: action.password},
             method: "POST"
         }));
-        yield put(authSuccess(response.data.id, response.data.role, response.data.csrf));
+        yield put(authSuccess(response.data.id, response.data.role, response.data.access, response.data.csrf));
         history.push('/');
     } catch (error) {
         yield put(authFail(error))

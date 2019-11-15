@@ -17,7 +17,7 @@ export const Seat = ({ticket, handleSelect, handleDeselect}) => {
                 setSelected(!selected);
             }}
         >
-            {ticket.seat}
+            {ticket.attributes.seat}
         </div>
     );
 };

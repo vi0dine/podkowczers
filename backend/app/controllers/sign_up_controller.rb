@@ -6,7 +6,7 @@ class SignUpController < ApplicationController
 
     if user.save
       token = CreateCsrfTokenService.new(user, response).call
-      render json: { csrf: token }
+      render json: { id: user.id, role: user.role, csrf: token }
     else
       render json: { error: user.errors.full_messages.join(' ') }, status: :unprocessable_entity
     end

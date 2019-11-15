@@ -7,8 +7,8 @@ class SignInController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user&.authenticate(params[:password])
-      token = CreateCsrfTokenService.new(user, response).call
-      render json: { csrf: token }
+      tokens = CreateCsrfTokenService.new(user, response).call
+      render json: { id: user.id, role: user.role, csrf: tokens[:csrf], access: tokens[:access] }
     else
       not_found
     end

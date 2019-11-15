@@ -9,12 +9,12 @@ module Api
 
       def index
         @events = Event.all
-
         render json: EventSerializer.new(@events).serializable_hash
       end
 
       def show
-        render json: EventSerializer.new(@event).serializable_hash
+        options = { include: [:tickets] }
+        render json: EventSerializer.new(@event, options).serializable_hash
       end
 
       def create

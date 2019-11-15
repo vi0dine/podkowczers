@@ -13,7 +13,7 @@ import {setupAxios} from "./axios/setup";
 import {Pageloader} from "./components/pageloader/Pageloader.component";
 
 moment.locale('pl');
-setupAxios();
+export const { axiosPlain, axiosSecured } = setupAxios();
 
 ReactDOM.render(
     <Provider store={store}>

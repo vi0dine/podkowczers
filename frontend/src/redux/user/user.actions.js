@@ -4,7 +4,8 @@ import {
     AUTH_SUCCESS,
     AUTH_USER,
     LOGOUT_START,
-    LOGOUT_SUCCESS
+    LOGOUT_SUCCESS,
+    REFRESH_TOKEN
 } from "./user.types";
 
 export const authUser = (email, password, mode) => {
@@ -22,12 +23,13 @@ export const authStart = () => {
     }
 };
 
-export const authSuccess = (id, role, token) => {
+export const authSuccess = (id, role, access, csrf) => {
     return {
         type: AUTH_SUCCESS,
         id: id,
         role: role,
-        token: token
+        token: access,
+        csrf: csrf
     }
 };
 
@@ -47,5 +49,12 @@ export const logout = () => {
 export const logoutSuccess = () => {
     return {
         type: LOGOUT_SUCCESS
+    }
+};
+
+export const refreshToken = (csrf) => {
+    return {
+        type: REFRESH_TOKEN,
+        csrf: csrf
     }
 };
