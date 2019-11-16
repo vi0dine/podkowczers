@@ -46,7 +46,7 @@ module Api
       private
 
       def concert_params
-        params.require(:concert).permit(:name, :description)
+        params.require(:concert).permit(:name, :description, photos: [])
       end
 
       def set_concert

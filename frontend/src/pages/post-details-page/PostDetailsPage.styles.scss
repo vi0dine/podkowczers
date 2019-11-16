@@ -11,8 +11,14 @@
 
   .PostDetailsBody {
     height: 85vh;
+    padding: 1.5rem;
     overflow-y: auto;
     text-align: justify;
+
+    p {
+      width: 100%;
+      word-wrap: break-word;
+    }
   }
 
   .PostDetailsImages {

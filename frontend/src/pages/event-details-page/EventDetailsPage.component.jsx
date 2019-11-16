@@ -1,14 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {axiosSecured} from "../../index";
 import { useParams } from 'react-router-dom';
 import './EventDetailsPage.styles.scss';
 import { CSSTransitionGroup } from 'react-transition-group';
 import {TicketsSelector} from "../../components/tickets-selector/TicketsSelector.component";
 import moment from "moment";
+import {useDispatch} from "react-redux";
+import {makeReservation} from "../../redux/user/user.actions";
+import {Notifier} from "../../components/notifier/Notifier.component";
 
 export const EventDetailsPage = () => {
     const { id } = useParams();
+
+    const dispatch = useDispatch();
 
     const [event, setEvent] = useState(null);
     const [selectedTickets, setSelectedTickets] = useState([]);
@@ -25,7 +29,7 @@ export const EventDetailsPage = () => {
 
     useEffect(() => {
         fetchEvent();
-    }, [selectedTickets]);
+    }, []);
 
 
     const selectSeat = (ticket) => {
@@ -36,14 +40,14 @@ export const EventDetailsPage = () => {
         setSelectedTickets(selectedTickets.filter((selected) => (selected.id !== ticket.id)));
     };
 
-    const makeReservation = async (tickets) => {
+    const prepareReservation = (tickets) => {
         const ids = tickets.map((ticket) => ticket.id);
-        await axiosSecured.request({url: '/api/v1/tickets', params: { tickets: ids }, method: "POST"});
-        setSelectedTickets([]);
+        dispatch(makeReservation(ids));
     };
 
     return ready && (
         <div className={'EventDetails container is-fluid'}>
+            <Notifier />
             <div className={'columns'}>
                 <div className={'EventDetailsInfo column is-4'}>
                     <div className={'columns'}>
@@ -130,7 +134,7 @@ export const EventDetailsPage = () => {
                     ) }
                     <div className={'columns'}>
                         <div className={'column has-text-centered'}>
-                            <button onClick={() => {makeReservation(selectedTickets)}} className={'button is-large is-fullwidth is-primary'}>
+                            <button onClick={() => {prepareReservation(selectedTickets)}} className={'button is-large is-fullwidth is-primary'}>
                                 ZAREZERWUJ
                             </button>
                         </div>

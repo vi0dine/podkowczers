@@ -9,6 +9,7 @@ export const ConcertsPage = () => {
 
     const fetchConcerts = async () => {
         let response = await axios.request({url: `/api/v1/concerts`, method: "GET"});
+        console.log(response.data.data[0]);
         setConcerts(response.data.data);
         setReady(true);
     };
@@ -23,27 +24,27 @@ export const ConcertsPage = () => {
                 <div className="tile is-vertical">
                     <div className="tile">
                         <div className="tile is-parent">
-                            <ConcertTile id={concerts[0].id} imageUrl={'http://lorempixel.com/800/800/nightlife/1'} />
+                            <ConcertTile id={concerts[0].id} imageUrl={concerts[0].attributes.images[0]} />
                         </div>
                     </div>
                     <div className="tile is-parent is-vertical">
                         <div className="tile is-parent">
-                            <ConcertTile id={concerts[1].id} imageUrl={'http://lorempixel.com/800/800/nightlife/2'} />
+                            <ConcertTile id={concerts[1].id} imageUrl={concerts[1].attributes.images[0]} />
                         </div>
                         <div className="tile is-parent">
-                            <ConcertTile id={concerts[2].id} imageUrl={'http://lorempixel.com/800/800/nightlife/3'} />
+                            <ConcertTile id={concerts[2].id} imageUrl={concerts[2].attributes.images[0]} />
                         </div>
                     </div>
                 </div>
                 <div className="tile is-parent">
-                    <ConcertTile id={concerts[3].id} imageUrl={'http://lorempixel.com/800/800/nightlife/4'} />
+                    <ConcertTile id={concerts[3].id} imageUrl={concerts[3].attributes.images[0]} />
                 </div>
                 <div className="tile is-parent">
                     <div className="tile is-parent">
-                        <ConcertTile id={concerts[4].id} imageUrl={'http://lorempixel.com/800/800/nightlife/5'} />
+                        <ConcertTile id={concerts[4].id} imageUrl={concerts[4].attributes.images[0]} />
                     </div>
                     <div className="tile is-parent">
-                        <ConcertTile id={concerts[5].id} imageUrl={'http://lorempixel.com/800/800/nightlife/6'} />
+                        <ConcertTile id={concerts[5].id} imageUrl={concerts[5].attributes.images[0]} />
                     </div>
                 </div>
             </div>

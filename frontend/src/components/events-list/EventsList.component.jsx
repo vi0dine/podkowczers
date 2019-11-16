@@ -1,13 +1,14 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import {push} from 'connected-react-router';
 import {EventsListItem} from "../event-list-item/EventsListItem.component";
 import './EventsList.styles.scss'
+import {useDispatch} from "react-redux";
 
 export const EventsList = ({events}) => {
-    const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleClick = (id) => {
-        history.push(`/events/${id}`);
+        dispatch(push(`/events/${id}`));
     };
 
     return (

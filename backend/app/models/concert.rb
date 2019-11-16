@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Concert < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
+  has_many_attached :photos
   has_many :events
   has_many :tickets, through: :events
 
@@ -14,5 +17,13 @@ class Concert < ApplicationRecord
 
   def available_tickets_count
     tickets.where(reserved: false).size
+  end
+
+  def photos_paths
+    paths = []
+    self.photos.blobs.each do |photo|
+      paths << polymorphic_url(photo)
+    end
+    paths
   end
 end

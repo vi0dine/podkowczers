@@ -1,20 +1,21 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
 import './ConcertTile.styles.scss';
+import {useDispatch} from "react-redux";
+import {push} from 'connected-react-router';
 
 export const ConcertTile = ({id, imageUrl}) => {
-    const history = useHistory();
+    const dispatch = useDispatch();
     const styles = {
-        backgroundImage: `url(${imageUrl})`
+        backgroundImage: `url(${(imageUrl !== undefined ? imageUrl : 'http://via.placeholder.com/400x400')})`
     };
 
     const handleClick = () => {
-        history.push(`/concerts/${id}`)
+        dispatch(push(`/concerts/${id}`));
     };
 
     return (
         <div className='tile is-child ConcertTile' onClick={() => handleClick()}>
-            <div style={styles} className='ConcertTile_image' src={imageUrl} alt="concert"/>
+            <div style={styles} className='ConcertTile_image' alt="concert"/>
         </div>
     );
 };

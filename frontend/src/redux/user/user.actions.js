@@ -1,10 +1,10 @@
 import {
     AUTH_FAILED,
     AUTH_SUCCESS,
-    AUTH_USER,
+    AUTH_USER, CLEAR_NOTIFICATION,
     LOGOUT_START,
-    LOGOUT_SUCCESS,
-    REFRESH_TOKEN
+    LOGOUT_SUCCESS, MAKE_RESERVATION,
+    REFRESH_TOKEN, RESERVATION_FAILED, RESERVATION_SUCCESS
 } from "./user.types";
 
 export const authUser = (email, password, mode) => {
@@ -49,5 +49,32 @@ export const refreshToken = (csrf) => {
     return {
         type: REFRESH_TOKEN,
         csrf: csrf
+    }
+};
+
+export const makeReservation = (tickets) => {
+    return {
+        type: MAKE_RESERVATION,
+        tickets: tickets
+    }
+};
+
+export const reservationSuccess = (message) => {
+    return {
+        type: RESERVATION_SUCCESS,
+        message: message
+    }
+};
+
+export const reservationFail = (error) => {
+    return {
+        type: RESERVATION_FAILED,
+        error: error
+    }
+};
+
+export const clearNotification = () => {
+    return {
+        type: CLEAR_NOTIFICATION
     }
 };

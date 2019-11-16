@@ -1,10 +1,18 @@
-import {AUTH_FAILED, AUTH_SUCCESS, LOGOUT_SUCCESS, REFRESH_TOKEN} from "./user.types";
+import {
+    AUTH_FAILED,
+    AUTH_SUCCESS, CLEAR_NOTIFICATION,
+    LOGOUT_SUCCESS,
+    REFRESH_TOKEN,
+    RESERVATION_FAILED,
+    RESERVATION_SUCCESS
+} from "./user.types";
 
 const INITIAL_STATE = {
     id: null,
     role: null,
     token: null,
     error: null,
+    message: null
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -17,6 +25,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
             return {...state, id: null, role: null, token: null};
         case REFRESH_TOKEN:
             return {...state, token: action.token};
+        case RESERVATION_SUCCESS:
+            return {...state, message: action.message};
+        case RESERVATION_FAILED:
+            return {...state, error: action.error};
+        case CLEAR_NOTIFICATION:
+            return {...state, message: null};
         default: return state;
     }
 };

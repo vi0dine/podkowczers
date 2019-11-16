@@ -1,15 +1,16 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
+import {push} from 'connected-react-router';
 import './PostTile.styles.scss';
+import {useDispatch} from "react-redux";
 
 export const PostTile = ({id, title, imageUrl}) => {
-    const history = useHistory();
+    const dispatch = useDispatch();
     const styles = {
         backgroundImage: `url(${imageUrl})`
     };
 
     const handleClick = () => {
-        history.push(`/blog/${id}`)
+        dispatch(push(`/blog/${id}`));
     };
 
     return (

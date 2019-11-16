@@ -23,7 +23,7 @@ export const Slideshow = ({images, delay}) => {
                 }}
             >
                 {images.map(img => (
-                    <GalleryImage objectFit="cover" key={img.src} src={img.src} />
+                    <GalleryImage objectFit="cover" key={img} src={img} />
                 ))}
             </Gallery>
         </div>

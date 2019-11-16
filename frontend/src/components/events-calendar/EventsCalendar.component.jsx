@@ -1,11 +1,12 @@
 import React, {useEffect} from "react";
-import { useHistory } from 'react-router-dom';
 import './EventsCalendar.styles.scss';
 import Calendar from 'react-calendar';
 import moment from "moment";
+import {useDispatch} from "react-redux";
+import {push} from 'connected-react-router';
 
 export const EventsCalendar = ({events, month}) => {
-    const history = useHistory();
+    const dispatch = useDispatch();
 
     const dates = events.map((event) => {return new Date(event.attributes.starts_at.substring(0, 10)).getTime()});
 
@@ -28,9 +29,7 @@ export const EventsCalendar = ({events, month}) => {
                                 .starts_at
                                 .substring(0, 10))
                                 .getTime() === new Date(value.toISOString().substring(0, 10)).getTime()))[0];
-                        history.push(`/events/${event.id}`);
-                    } else {
-                        console.log(new Date(value.toISOString().substring(0, 10)))
+                        dispatch(push(`/events/${event.id}`));
                     }
                 }}
                 showNavigation={false}

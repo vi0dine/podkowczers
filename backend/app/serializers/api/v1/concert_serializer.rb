@@ -5,6 +5,11 @@ module Api
     class ConcertSerializer
       include FastJsonapi::ObjectSerializer
       attributes :name, :description
+
+      attribute :images do |concert|
+          concert.photos_paths
+        end
+
       attribute :tickets_count do |concert|
         concert.available_tickets_count
       end

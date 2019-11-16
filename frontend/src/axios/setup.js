@@ -3,7 +3,7 @@ import {store} from "../redux/store";
 import {logout, refreshToken} from "../redux/user/user.actions";
 import {setLoaded, setLoading} from "../redux/app/app.actions";
 
-const API_URL = 'http://localhost:4000';
+export const API_URL = 'http://localhost:4000';
 
 export const setupAxios = () => {
     axios.defaults.baseURL = API_URL;
@@ -62,7 +62,7 @@ export const setupAxios = () => {
                     'Authorization': store.getState().UserState.token
                 }})
                 .then(response => {
-                    store.dispatch(refreshToken(response.data.csrf));
+                    store.dispatch(refreshToken(response.data.csrf.csrf));
 
                     let retryConfig = error.response.config;
                     retryConfig.headers['X-CSRF-TOKEN'] = store.getState().UserState.csrf;

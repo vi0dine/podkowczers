@@ -1,15 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import {Link} from "react-router-dom";
 import './Header.styles.scss';
 import {useDispatch, useSelector} from "react-redux";
+import {push, replace} from 'connected-react-router';
 import {logout} from "../../redux/user/user.actions";
 import {store} from "../../redux/store";
 
 export const Header = () => {
     const user = useSelector(state => state.UserState.id);
-    const location = useLocation();
+    const location = useSelector(state => state.router.location);
     const dispatch = useDispatch();
     const [burgerOpen, setBurgerOpen] = useState(false);
 
@@ -26,9 +25,9 @@ export const Header = () => {
         <div className='Header'>
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <Link to={'/'} className='navbar-item'>
+                    <a onClick={() => dispatch(push('/'))} className='navbar-item'>
                         <img alt='logo' src="https://bulma.io/images/bulma-logo.png" width="112" height="28"/>
-                    </Link>
+                    </a>
                     <a role="button" className={`navbar-burger burger ${burgerOpen ? 'is-active' : ''}`}
                        onClick={() => handleBurgerClick()}
                        aria-label="menu" aria-expanded="false"
@@ -41,12 +40,12 @@ export const Header = () => {
 
                 <div id="navbarBasicExample" className={`navbar-menu ${burgerOpen ? 'is-active' : ''}`}>
                     <div className="navbar-end">
-                        <Link className={`navbar-item ${location.pathname.includes("/blog") ? 'current' : ''}`} to={'/blog'}>BLOG</Link>
-                        <Link className={`navbar-item ${location.pathname.includes("/concerts") ? 'current' : ''}`} to={'/concerts'}>KONCERTY</Link>
-                        <Link className={`navbar-item ${location.pathname.includes("/events") ? 'current' : ''}`} to={'/events'}>WYDARZENIA</Link>
+                        <a className={`navbar-item ${location.pathname.includes("/blog") ? 'current' : ''}`} onClick={() => dispatch(push('/blog'))}>BLOG</a>
+                        <a className={`navbar-item ${location.pathname.includes("/concerts") ? 'current' : ''}`} onClick={() => dispatch(push('/concerts'))}>KONCERTY</a>
+                        <a className={`navbar-item ${location.pathname.includes("/events") ? 'current' : ''}`} onClick={() => dispatch(replace('/events'))}>WYDARZENIA</a>
                         {
                             !user ? (
-                                <Link className={`navbar-item ${location.pathname.includes("/signup") ? 'current' : ''}`} to={'/signup'}><strong>ZAŁÓŻ KONTO</strong></Link>
+                                <a className={`navbar-item ${location.pathname.includes("/signup") ? 'current' : ''}`} onClick={() => dispatch(push('/signup'))}><strong>ZAŁÓŻ KONTO</strong></a>
                             ) : (
                                 <a className={'navbar-item'} onClick={() => handleLogout()}><strong>WYLOGUJ</strong></a>
                             )
