@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TicketReservation::EncryptReservation do
-  let(:signing_key) { Ed25519::SigningKey.new(Rails.application.credentials[:tickets_secret]) }
+  let(:signing_key) { Ed25519::SigningKey.new(ENV['TICKETS_SECRET']) }
 
   describe '.call' do
     context 'when given valid params' do
