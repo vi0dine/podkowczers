@@ -1,6 +1,5 @@
 import {
     AUTH_FAILED,
-    AUTH_START,
     AUTH_SUCCESS,
     AUTH_USER,
     LOGOUT_START,
@@ -14,12 +13,6 @@ export const authUser = (email, password, mode) => {
         email: email,
         password: password,
         mode: mode
-    }
-};
-
-export const authStart = () => {
-    return {
-        type: AUTH_START
     }
 };
 

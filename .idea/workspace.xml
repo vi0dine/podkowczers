@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/app/app.actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/app/app.reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/app/app.types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/axios/setup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/axios/setup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pageloader/Pageloader.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pageloader/Pageloader.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/seat/Seat.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/seat/Seat.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/seat/Seat.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/seat/Seat.styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/event-details-page/EventDetailsPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/event-details-page/EventDetailsPage.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/root-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/root-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/user/user.actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/user/user.reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/user/user.sagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.types.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/user/user.types.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -152,6 +166,8 @@
       <workItem from="1572857150826" duration="599000" />
       <workItem from="1572861630108" duration="20000" />
       <workItem from="1572876258458" duration="17000" />
+      <workItem from="1573813032885" duration="20526000" />
+      <workItem from="1573904611038" duration="3192000" />
     </task>
     <servers />
   </component>

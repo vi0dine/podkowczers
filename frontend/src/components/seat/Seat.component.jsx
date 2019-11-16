@@ -7,14 +7,16 @@ export const Seat = ({ticket, handleSelect, handleDeselect}) => {
     return (
         <div
             // style={{gridRow: ticket.row+1, gridColumn: ticket.seat+1}}
-            className={'seat ' + (selected ? 'selected' : 'free')}
+            className={'seat ' + (selected ? 'selected' : 'free') + (ticket.attributes.reserved ? ' reserved' : '')}
             onClick={() => {
-                if (selected) {
-                    handleDeselect()
-                } else {
-                    handleSelect()
+                if (!ticket.attributes.reserved) {
+                    if (selected) {
+                        handleDeselect()
+                    } else {
+                        handleSelect()
+                    }
+                    setSelected(!selected);
                 }
-                setSelected(!selected);
             }}
         >
             {ticket.attributes.seat}

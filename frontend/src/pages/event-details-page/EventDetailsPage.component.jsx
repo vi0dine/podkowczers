@@ -1,48 +1,32 @@
 import React, {useEffect, useState} from 'react';
-import { axiosSecured, axiosPlain } from "../../index";
+import axios from 'axios';
+import {axiosSecured} from "../../index";
 import { useParams } from 'react-router-dom';
 import './EventDetailsPage.styles.scss';
 import { CSSTransitionGroup } from 'react-transition-group';
 import {TicketsSelector} from "../../components/tickets-selector/TicketsSelector.component";
 import moment from "moment";
-import {store} from "../../redux/store";
 
 export const EventDetailsPage = () => {
-    // const event = {
-    //     concert: 'Osiecka w II LO',
-    //     place: 'Teatr Zdrojowy w Szczawnie Zdroju',
-    //     starts_at: '2019-01-02',
-    //     estimated_length: '90000',
-    //     available_tickets: 12,
-    //     reservation_open: true,
-    //     tickets: []
-    // };
-
-
-    // for(let j = 1; j<=10; j++) {
-    //     for(let i = 1; i <= 20; i++) {
-    //         event.tickets.push({id: i+j, row: j, seat: i})
-    //     }
-    // }
-
     const { id } = useParams();
 
     const [event, setEvent] = useState(null);
+    const [selectedTickets, setSelectedTickets] = useState([]);
     const [tickets, setTickets] = useState([]);
     const [ready, setReady] = useState(false);
 
     const fetchEvent = async () => {
-        let response = await axiosPlain.request({url: `/api/v1/events/${id}`, method: "GET"});
+        let response = await axios.request({url: `/api/v1/events/${id}`, method: "GET"});
         setEvent(response.data.data);
-        setTickets(response.data.included.sort((a, b) => ( a.attributes.row > b.attributes.row ? 1 : -1 )));
+        setTickets(response.data.included
+            .sort((a, b) => ( a.attributes.row - b.attributes.row || a.attributes.seat - b.attributes.seat)));
         setReady(true);
     };
 
     useEffect(() => {
         fetchEvent();
-    }, []);
+    }, [selectedTickets]);
 
-    const [selectedTickets, setSelectedTickets] = useState([]);
 
     const selectSeat = (ticket) => {
         setSelectedTickets([...selectedTickets, ticket]);
@@ -54,9 +38,8 @@ export const EventDetailsPage = () => {
 
     const makeReservation = async (tickets) => {
         const ids = tickets.map((ticket) => ticket.id);
-        let response = axiosSecured.request({url: '/api/v1/tickets', params: { tickets: ids }, method: "POST"});
-        console.log(response);
-        console.log(store.getState().UserState);
+        await axiosSecured.request({url: '/api/v1/tickets', params: { tickets: ids }, method: "POST"});
+        setSelectedTickets([]);
     };
 
     return ready && (
