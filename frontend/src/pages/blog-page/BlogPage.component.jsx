@@ -29,18 +29,18 @@ export const BlogPage = () => {
                 <div className="tile is-vertical">
                     <div className="tile">
                         <div className="tile is-parent is-vertical">
-                            <PostTile id={posts[0].id} title={posts[0].attributes.title} imageUrl={posts[0].attributes.images[0]} />
+                            <PostTile id={posts[0].id} imageUrl={posts[0].attributes.images[0]} />
                         </div>
                         <div className="tile is-parent">
-                            <PostTile id={posts[1].id} title={posts[1].attributes.title} imageUrl={posts[1].attributes.images[0]} />
+                            <PostTile id={posts[1].id} imageUrl={posts[1].attributes.images[0]} />
                         </div>
                     </div>
                     <div className="tile is-parent">
-                        <PostTile id={posts[2].id} title={posts[2].attributes.title} imageUrl={posts[2].attributes.images[0]} />
+                        <PostTile id={posts[2].id} imageUrl={posts[2].attributes.images[0]} />
                     </div>
                 </div>
                 <div className="tile is-parent">
-                    <PostTile id={posts[3].id} title={posts[3].attributes.title} imageUrl={posts[3].attributes.images[0]} />
+                    <PostTile id={posts[3].id} imageUrl={posts[3].attributes.images[0]} />
                 </div>
             </div>
         </div>

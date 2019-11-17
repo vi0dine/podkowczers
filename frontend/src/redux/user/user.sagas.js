@@ -33,7 +33,7 @@ function* authUser(action) {
             method: "POST"
         }));
         yield put(authSuccess(response.data.id, response.data.role, response.data.access, response.data.csrf));
-        yield put(fillProfile(response.data.email, response.data.coins, response.data.reservations));
+        yield put(fillProfile(response.data.email, response.data.avatar, response.data.coins, response.data.reservations));
         yield put(push(`/user/${response.data.id}`));
     } catch (error) {
         yield put(authFail(error.response.data.error));
@@ -72,7 +72,7 @@ function* fetchUser(action) {
             url: `/api/v1/users/${action.id}`,
             method: "GET"
         }));
-        yield put(fillProfile(response.data.user.email, response.data.user.coins, response.data.user.reservations))
+        yield put(fillProfile(response.data.user.email, response.data.user.avatar, response.data.user.coins, response.data.user.reservations))
     } catch (error) {
         yield put(reservationFail(error.response.data.error));
         yield delay(2500);

@@ -1,10 +1,13 @@
 import React from 'react';
 import './EventsListItem.styles.scss';
 import moment from "moment";
+import {useSelector} from "react-redux";
 
 export const EventsListItem = ({event, handleClick}) => {
+    const user = useSelector(state => state.UserState.id)
+
     return (
-        <div onClick={() => handleClick(event.id)} className={'EventsListItem columns is-vcentered'}>
+        <div onClick={() => user ? handleClick(event.id) : () => {}} className={'EventsListItem columns is-vcentered'}>
             <div className={'column is-1 has-text-centered'}>
                         <span className={'icon is-large'}>
                             <i className={'fas fa-2x fa-info-circle'}/>

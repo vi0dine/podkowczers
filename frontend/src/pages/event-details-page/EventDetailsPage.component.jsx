@@ -6,7 +6,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import {TicketsSelector} from "../../components/tickets-selector/TicketsSelector.component";
 import moment from "moment";
 import {useDispatch, useSelector} from "react-redux";
-import {makeReservation} from "../../redux/user/user.actions";
+import {clearNotification, makeReservation, reservationFail} from "../../redux/user/user.actions";
 
 export const EventDetailsPage = () => {
     const { id } = useParams();
@@ -41,8 +41,15 @@ export const EventDetailsPage = () => {
     };
 
     const prepareReservation = (tickets) => {
-        const tickets_ids = tickets.map((ticket) => ticket.id);
-        dispatch(makeReservation(user_id, tickets_ids));
+        if (tickets.length > 0) {
+            const tickets_ids = tickets.map((ticket) => ticket.id);
+            dispatch(makeReservation(user_id, tickets_ids));
+        } else {
+            dispatch(reservationFail("Musisz wybrać miejsca."));
+            setTimeout(() => {
+                dispatch(clearNotification())
+            }, 3000);
+        }
     };
 
     return ready && (
