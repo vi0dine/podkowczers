@@ -22,14 +22,12 @@ export const PostDetailsPage = () => {
     }, []);
 
     return ready && (
+        <CSSTransitionGroup
+            transitionName={'post-details-page'}
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+        >
         <div className={'PostDetails container is-fluid'}>
-            <CSSTransitionGroup
-                transitionName={'text'}
-                transitionAppear={true}
-                transitionAppearTimeout={2000}
-                transitionEnter={false}
-                transitionLeave={false}
-            >
             <div className={'columns'}>
                 <div className={'column is-7'}>
                     <div className={'columns'}>
@@ -47,7 +45,7 @@ export const PostDetailsPage = () => {
                         <Slideshow images={post.attributes.images} delay={5000} />
                 </div>
             </div>
-            </CSSTransitionGroup>
         </div>
+        </CSSTransitionGroup>
     );
 };

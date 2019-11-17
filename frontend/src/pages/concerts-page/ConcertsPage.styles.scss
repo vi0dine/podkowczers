@@ -9,3 +9,12 @@
     height: 100%;
   }
 }
+
+.concerts-page-appear {
+  opacity: 0.01;
+}
+
+.concerts-page-appear.concerts-page-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

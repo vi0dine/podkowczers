@@ -2,42 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/notifier/Notifier.component.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/users_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/notifier/Notifier.styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/user-page/UserPage.component.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/user-page/UserPage.styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/concerts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/concerts_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/posts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/posts_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/models/concert.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/concert.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/models/post.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/post.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/serializers/api/v1/concert_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/serializers/api/v1/concert_serializer.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/serializers/api/v1/post_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/serializers/api/v1/post_serializer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/controllers/sign_in_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/sign_in_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/user.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/seeds.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/axios/setup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/axios/setup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/concert-tile/ConcertTile.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/concert-tile/ConcertTile.component.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/events-calendar/EventsCalendar.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/events-calendar/EventsCalendar.component.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/events-list/EventsList.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/events-list/EventsList.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/event-list-item/EventsListItem.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/event-list-item/EventsListItem.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/event-list-item/EventsListItem.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/event-list-item/EventsListItem.styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/events-calendar/EventsCalendar.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/events-calendar/EventsCalendar.styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/header/Header.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/header/Header.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/notifier/Notifier.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/notifier/Notifier.component.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/post-tile/PostTile.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/post-tile/PostTile.component.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/slideshow/Slideshow.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/slideshow/Slideshow.component.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/history.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/blog-page/BlogPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/blog-page/BlogPage.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/blog-page/BlogPage.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/blog-page/BlogPage.styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/concert-details-page/ConcertDetailsPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/concert-details-page/ConcertDetailsPage.component.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/concert-details-page/ConcertDetailsPage.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/concert-details-page/ConcertDetailsPage.styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/concerts-page/ConcertsPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/concerts-page/ConcertsPage.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/concerts-page/ConcertsPage.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/concerts-page/ConcertsPage.styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/event-details-page/EventDetailsPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/event-details-page/EventDetailsPage.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/event-details-page/EventDetailsPage.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/event-details-page/EventDetailsPage.styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/events-page/EventsPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/events-page/EventsPage.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/events-page/EventsPage.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/events-page/EventsPage.styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home-page/Homepage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/home-page/Homepage.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home-page/Homepage.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/home-page/Homepage.styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/post-details-page/PostDetailsPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post-details-page/PostDetailsPage.component.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/post-details-page/PostDetailsPage.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post-details-page/PostDetailsPage.styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/root-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/root-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/signup-page/SignUpPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/signup-page/SignUpPage.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/signup-page/SignUpPage.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/signup-page/SignUpPage.styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/user/user.actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/user/user.reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/user/user.sagas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.types.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/user/user.types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +193,8 @@
       <workItem from="1573813032885" duration="20526000" />
       <workItem from="1573904611038" duration="3413000" />
       <workItem from="1573918829029" duration="9217000" />
-      <workItem from="1573929486860" duration="902000" />
+      <workItem from="1573929486860" duration="1343000" />
+      <workItem from="1573985185287" duration="7185000" />
     </task>
     <servers />
   </component>

@@ -3,6 +3,7 @@ import './SignUpPage.styles.scss'
 import {UserForm} from "../../components/sign-in-form/SignInForm.component";
 import {useDispatch} from "react-redux";
 import {authUser} from "../../redux/user/user.actions";
+import {CSSTransitionGroup} from "react-transition-group";
 
 export const SignUpPage = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,12 @@ export const SignUpPage = () => {
         dispatch(authUser(email, password, 'SIGN_UP'));
     };
 
-    return(
+    return (
+        <CSSTransitionGroup
+            transitionName={'signup-page'}
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+        >
         <div className={'SignUpPage container is-fluid'}>
             <div className={'columns is-vcentered'}>
                 <div className={'column'}>
@@ -26,5 +32,6 @@ export const SignUpPage = () => {
                 </div>
             </div>
         </div>
+        </CSSTransitionGroup>
     );
 };

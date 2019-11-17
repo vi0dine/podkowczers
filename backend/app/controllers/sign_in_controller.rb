@@ -8,7 +8,16 @@ class SignInController < ApplicationController
 
     if user&.authenticate(params[:password])
       tokens = CreateCsrfTokenService.new(user, response).call
-      render json: { id: user.id, role: user.role, csrf: tokens[:csrf], access: tokens[:access] }
+      render json: {
+        id: user.id,
+        email: user.email,
+        coins: user.coins_count,
+        avatar: user.user_avatar,
+        reservations: user.user_reservations,
+        role: user.role,
+        csrf: tokens[:csrf],
+        access: tokens[:access]
+      }
     else
       not_found
     end
@@ -23,6 +32,6 @@ class SignInController < ApplicationController
   private
 
   def not_found
-    render json: { error: 'Cannot find email/password combination' }, status: :not_found
+    render json: {error: 'Nie znaleziono użytkownika o takich danych.'}, status: :not_found
   end
 end

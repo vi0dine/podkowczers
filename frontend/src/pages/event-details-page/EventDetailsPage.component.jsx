@@ -5,12 +5,12 @@ import './EventDetailsPage.styles.scss';
 import { CSSTransitionGroup } from 'react-transition-group';
 import {TicketsSelector} from "../../components/tickets-selector/TicketsSelector.component";
 import moment from "moment";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {makeReservation} from "../../redux/user/user.actions";
-import {Notifier} from "../../components/notifier/Notifier.component";
 
 export const EventDetailsPage = () => {
     const { id } = useParams();
+    const user_id = useSelector(state => state.UserState.id);
 
     const dispatch = useDispatch();
 
@@ -41,13 +41,17 @@ export const EventDetailsPage = () => {
     };
 
     const prepareReservation = (tickets) => {
-        const ids = tickets.map((ticket) => ticket.id);
-        dispatch(makeReservation(ids));
+        const tickets_ids = tickets.map((ticket) => ticket.id);
+        dispatch(makeReservation(user_id, tickets_ids));
     };
 
     return ready && (
+        <CSSTransitionGroup
+            transitionName={'event-details-page'}
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+        >
         <div className={'EventDetails container is-fluid'}>
-            <Notifier />
             <div className={'columns'}>
                 <div className={'EventDetailsInfo column is-4'}>
                     <div className={'columns'}>
@@ -149,5 +153,6 @@ export const EventDetailsPage = () => {
                 </div>
             </div>
         </div>
+        </CSSTransitionGroup>
     );
 };

@@ -1,7 +1,7 @@
 import {
     AUTH_FAILED,
     AUTH_SUCCESS,
-    AUTH_USER, CLEAR_NOTIFICATION,
+    AUTH_USER, CLEAR_NOTIFICATION, FETCH_USER, FILL_PROFILE,
     LOGOUT_START,
     LOGOUT_SUCCESS, MAKE_RESERVATION,
     REFRESH_TOKEN, RESERVATION_FAILED, RESERVATION_SUCCESS
@@ -23,6 +23,23 @@ export const authSuccess = (id, role, access, csrf) => {
         role: role,
         token: access,
         csrf: csrf
+    }
+};
+
+export const getUser = (id) => {
+    return {
+        type: FETCH_USER,
+        id: id
+    }
+};
+
+export const fillProfile = (email, avatar, coins, reservations) => {
+    return {
+        type: FILL_PROFILE,
+        email: email,
+        avatar: avatar,
+        coins: coins,
+        reservations: reservations
     }
 };
 
@@ -52,9 +69,10 @@ export const refreshToken = (csrf) => {
     }
 };
 
-export const makeReservation = (tickets) => {
+export const makeReservation = (id, tickets) => {
     return {
         type: MAKE_RESERVATION,
+        id: id,
         tickets: tickets
     }
 };

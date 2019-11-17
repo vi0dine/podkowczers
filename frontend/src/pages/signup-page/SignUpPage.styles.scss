@@ -17,3 +17,12 @@
     }
   }
 }
+
+.signup-page-appear {
+  opacity: 0.01;
+}
+
+.signup-page-appear.signup-page-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

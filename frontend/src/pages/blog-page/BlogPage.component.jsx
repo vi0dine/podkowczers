@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { PostTile } from "../../components/post-tile/PostTile.component";
 import './BlogPage.styles.scss';
 import axios from "axios";
+import {CSSTransitionGroup} from "react-transition-group";
 
 export const BlogPage = () => {
     const [posts, setPosts] = useState([]);
@@ -18,6 +19,11 @@ export const BlogPage = () => {
     }, []);
 
     return ready && posts.length >= 4 && (
+        <CSSTransitionGroup
+            transitionName={'blog-page'}
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+        >
         <div className='Blog container is-fluid'>
             <div className="tile is-ancestor">
                 <div className="tile is-vertical">
@@ -38,5 +44,6 @@ export const BlogPage = () => {
                 </div>
             </div>
         </div>
+        </CSSTransitionGroup>
     );
 };

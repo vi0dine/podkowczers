@@ -1,6 +1,6 @@
 import {
     AUTH_FAILED,
-    AUTH_SUCCESS, CLEAR_NOTIFICATION,
+    AUTH_SUCCESS, CLEAR_NOTIFICATION, FILL_PROFILE,
     LOGOUT_SUCCESS,
     REFRESH_TOKEN,
     RESERVATION_FAILED,
@@ -10,6 +10,10 @@ import {
 const INITIAL_STATE = {
     id: null,
     role: null,
+    avatar: null,
+    email: null,
+    coins: null,
+    reservations: null,
     token: null,
     error: null,
     message: null
@@ -21,6 +25,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
             return {...state, id: action.id, role: action.role, token: action.token, csrf: action.csrf, loading: false };
         case AUTH_FAILED:
             return {...state, error: action.error };
+        case FILL_PROFILE:
+            return {...state, email: action.email, avatar: action.avatar, coins: action.coins, reservations: action.reservations};
         case LOGOUT_SUCCESS:
             return {...state, id: null, role: null, token: null};
         case REFRESH_TOKEN:
@@ -30,7 +36,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         case RESERVATION_FAILED:
             return {...state, error: action.error};
         case CLEAR_NOTIFICATION:
-            return {...state, message: null};
+            return {...state, message: null, error: null};
         default: return state;
     }
 };

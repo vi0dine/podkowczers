@@ -13,15 +13,21 @@ export const EventsListItem = ({event, handleClick}) => {
             <div className={'column is-8 has-text-centered'}>
                 <div className={'columns is-vcentered'}>
                     <div className={'column'}>
-                        {event.attributes.place}
+                        <h3 className={'subtitle'}>
+                            {event.attributes.place}
+                        </h3>
                     </div>
                     <div className={'column'}>
-                        {moment(event.attributes.starts_at).format('LLL')}
+                        <h3 className={'subtitle'}>
+                            {moment(event.attributes.starts_at).format('LLL')}
+                        </h3>
                     </div>
                 </div>
             </div>
             <div className={'column has-text-centered'}>
-                {event.attributes.tickets_count}
+                <h3 className={'title'}>
+                    {event.attributes.tickets_count}
+                </h3>
             </div>
         </div>
     );

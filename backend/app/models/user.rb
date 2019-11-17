@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   has_secure_password
+  has_one_attached :avatar
   has_many_attached :reservations
   has_many :posts
   has_many :comments
@@ -40,5 +43,17 @@ class User < ApplicationRecord
 
   def decrement_coins_count
     decrement!(:coins_count)
+  end
+
+  def user_avatar
+    polymorphic_url(avatar.blob)
+  end
+
+  def user_reservations
+    links = []
+    reservations.blobs.sort_by { |reservation | reservation.created_at }.reverse.each do |reservation|
+      links << { date: reservation.created_at, link: polymorphic_url(reservation) }
+    end
+    links
   end
 end

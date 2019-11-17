@@ -45,3 +45,12 @@
   opacity: 0.01;
   transition: opacity 400ms ease-in;
 }
+
+.event-details-page-appear {
+  opacity: 0.01;
+}
+
+.event-details-page-appear.event-details-page-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

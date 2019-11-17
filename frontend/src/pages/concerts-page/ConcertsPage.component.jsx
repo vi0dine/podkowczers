@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { ConcertTile } from "../../components/concert-tile/ConcertTile.component";
 import './ConcertsPage.styles.scss';
+import {CSSTransitionGroup} from "react-transition-group";
 
 export const ConcertsPage = () => {
     const [concerts, setConcerts] = useState([]);
@@ -9,7 +10,6 @@ export const ConcertsPage = () => {
 
     const fetchConcerts = async () => {
         let response = await axios.request({url: `/api/v1/concerts`, method: "GET"});
-        console.log(response.data.data[0]);
         setConcerts(response.data.data);
         setReady(true);
     };
@@ -18,7 +18,12 @@ export const ConcertsPage = () => {
         fetchConcerts()
     }, []);
 
-    return ready && (
+    return ready && concerts.length >= 6 && (
+        <CSSTransitionGroup
+            transitionName={'concerts-page'}
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+        >
         <div className='Concerts container is-fluid'>
             <div className="tile is-ancestor">
                 <div className="tile is-vertical">
@@ -49,5 +54,6 @@ export const ConcertsPage = () => {
                 </div>
             </div>
         </div>
+        </CSSTransitionGroup>
     );
 };

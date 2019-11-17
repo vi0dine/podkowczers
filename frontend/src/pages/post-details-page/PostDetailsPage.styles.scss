@@ -27,11 +27,11 @@
   }
 }
 
-.text-appear {
+.post-details-page-appear {
   opacity: 0.01;
 }
 
-.text-appear.text-appear-active {
+.post-details-page-appear.post-details-page-appear-active {
   opacity: 1;
-  transition: opacity 2s ease-in;
+  transition: opacity .5s ease-in;
 }

@@ -31,3 +31,12 @@
     overflow-y: auto;
   }
 }
+
+.concert-details-page-appear {
+  opacity: 0.01;
+}
+
+.concert-details-page-appear.concert-details-page-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

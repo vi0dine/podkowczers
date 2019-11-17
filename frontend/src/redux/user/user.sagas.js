@@ -1,9 +1,18 @@
-import {put, call, takeLatest} from 'redux-saga/effects'
+import {put, call, takeLatest, delay} from 'redux-saga/effects'
 import {axiosSecured} from "../../index";
 import axios from 'axios';
-import {AUTH_USER, LOGOUT_START, MAKE_RESERVATION} from "./user.types";
-import {authFail, authSuccess, logoutSuccess, reservationFail, reservationSuccess} from "./user.actions";
-import {push, goBack} from 'connected-react-router';
+import {AUTH_USER, FETCH_USER, LOGOUT_START, MAKE_RESERVATION} from "./user.types";
+import {
+    authFail,
+    authSuccess,
+    clearNotification,
+    getUser,
+    fillProfile,
+    logoutSuccess,
+    reservationFail,
+    reservationSuccess
+} from "./user.actions";
+import {push} from 'connected-react-router';
 
 export function* watchAuthSaga() {
     yield takeLatest(AUTH_USER, authUser);
@@ -12,6 +21,7 @@ export function* watchAuthSaga() {
 
 export function* watchReservationsSaga() {
     yield takeLatest(MAKE_RESERVATION, makeReservation);
+    yield takeLatest(FETCH_USER, fetchUser)
 }
 
 function* authUser(action) {
@@ -23,9 +33,10 @@ function* authUser(action) {
             method: "POST"
         }));
         yield put(authSuccess(response.data.id, response.data.role, response.data.access, response.data.csrf));
-        yield put(push('/'));
+        yield put(fillProfile(response.data.email, response.data.coins, response.data.reservations));
+        yield put(push(`/user/${response.data.id}`));
     } catch (error) {
-        yield put(authFail(error));
+        yield put(authFail(error.response.data.error));
         yield put(push('/'));
     }
 }
@@ -43,9 +54,28 @@ function* makeReservation(action) {
             method: "POST"
         }));
         const message = "Pomyślnie zarezerwowano miejsca. Bilety wkrótce zostaną przesłane na email powiązany z kontem";
-        yield put(reservationSuccess(message))
+        yield put(reservationSuccess(message));
+        yield put(getUser(action.id));
+        yield put(push(`/user/${action.id}`));
+        yield delay(2500);
+        yield put(clearNotification());
     } catch (error) {
-        yield put(goBack());
-        yield(put(reservationFail(error.response.data.error)))
+        yield put(reservationFail(error.response.data.error));
+        yield delay(2500);
+        yield put(clearNotification());
+    }
+}
+
+function* fetchUser(action) {
+    try {
+        const response = yield call(() => axiosSecured.request({
+            url: `/api/v1/users/${action.id}`,
+            method: "GET"
+        }));
+        yield put(fillProfile(response.data.user.email, response.data.user.coins, response.data.user.reservations))
+    } catch (error) {
+        yield put(reservationFail(error.response.data.error));
+        yield delay(2500);
+        yield put(clearNotification());
     }
 }

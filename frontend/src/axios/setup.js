@@ -41,7 +41,7 @@ export const setupAxios = () => {
         config => {
             store.dispatch(setLoading());
             const method = config.method.toUpperCase();
-            if (method !== 'OPTIONS' && method !== 'GET') {
+            if (method !== 'OPTIONS') {
                 config.headers = {
                     ...config.headers,
                     'X-CSRF-TOKEN': store.getState().UserState.csrf,
@@ -52,8 +52,9 @@ export const setupAxios = () => {
         }
     );
 
-    securedAxiosInstance.interceptors.response.use(() => {
+    securedAxiosInstance.interceptors.response.use((response) => {
         store.dispatch(setLoaded());
+        return response
     }, (error) => {
         if (error.response && error.response.config && error.response.status === 401) {
             return plainAxiosInstance.post('/refresh', {},

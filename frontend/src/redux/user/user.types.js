@@ -1,6 +1,10 @@
 export const AUTH_USER = 'AUTH_USER';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_FAILED = 'AUTH_FAILED';
+
+export const FETCH_USER = 'FETCH_USER';
+export const FILL_PROFILE = 'FILL_PROFILE';
+
 export const LOGOUT_START = 'LOGOUT_START';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 

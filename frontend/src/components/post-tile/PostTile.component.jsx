@@ -6,7 +6,7 @@ import {useDispatch} from "react-redux";
 export const PostTile = ({id, title, imageUrl}) => {
     const dispatch = useDispatch();
     const styles = {
-        backgroundImage: `url(${imageUrl})`
+        backgroundImage: `url(${(imageUrl !== undefined ? imageUrl : 'http://via.placeholder.com/400x400')})`
     };
 
     const handleClick = () => {

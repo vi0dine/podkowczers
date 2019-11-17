@@ -8,3 +8,12 @@
     color: #FCF7F8;
   }
 }
+
+.events-page-appear {
+  opacity: 0.01;
+}
+
+.events-page-appear.events-page-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

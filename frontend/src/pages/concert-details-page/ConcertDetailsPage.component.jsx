@@ -4,6 +4,7 @@ import {useParams} from "react-router";
 import './ConcertDetailsPage.styles.scss';
 import {Slideshow} from "../../components/slideshow/Slideshow.component";
 import {EventsList} from "../../components/events-list/EventsList.component";
+import {CSSTransitionGroup} from "react-transition-group";
 
 export const ConcertDetailsPage = () => {
     const { id } = useParams();
@@ -24,6 +25,11 @@ export const ConcertDetailsPage = () => {
     }, []);
 
     return ready && (
+        <CSSTransitionGroup
+            transitionName={'concert-details-page'}
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+        >
         <div className={'ConcertDetails container is-fluid'}>
             <div className={'columns'}>
                 <div className={'column is-5'}>
@@ -51,5 +57,6 @@ export const ConcertDetailsPage = () => {
                 </div>
             </div>
         </div>
+        </CSSTransitionGroup>
     );
 };

@@ -4,6 +4,7 @@ import './EventsPage.styles.scss';
 import {EventsList} from "../../components/events-list/EventsList.component";
 import {EventsCalendar} from "../../components/events-calendar/EventsCalendar.component";
 import moment from "moment";
+import {CSSTransitionGroup} from "react-transition-group";
 
 export const EventsPage = () => {
     const [events, setEvents] = useState([]);
@@ -20,6 +21,11 @@ export const EventsPage = () => {
     }, []);
 
     return ready && (
+        <CSSTransitionGroup
+            transitionName={'events-page'}
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+        >
         <div className={'Events container is-fluid'}>
             <div className={'container'}>
                 <div className={'columns'}>
@@ -28,7 +34,7 @@ export const EventsPage = () => {
                     </div>
                     <div className={'column is-offset-6 has-text-centered'}>
                         <h2 className={'title is-size-5'}>Dostępne</h2>
-                        <p className={'subtitle'}>3</p>
+                        <p className={'subtitle'}>{events.length}</p>
                     </div>
                 </div>
                 <div className={'columns'}>
@@ -50,5 +56,6 @@ export const EventsPage = () => {
                 </div>
             </div>
         </div>
+        </CSSTransitionGroup>
     );
 };

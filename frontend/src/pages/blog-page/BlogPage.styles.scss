@@ -9,3 +9,12 @@
     height: 100%;
   }
 }
+
+.blog-page-appear {
+  opacity: 0.01;
+}
+
+.blog-page-appear.blog-page-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

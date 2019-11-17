@@ -1,0 +1,33 @@
+.UserPage {
+  min-height: 100vh;
+  height: 100%;
+  background-color: #1B1725;
+  color: #FCF7F8;
+  padding: 2rem;
+
+  .title, .subtitle {
+    color: #FCF7F8;
+  }
+
+  .UserReservations {
+    height: 50vh;
+    overflow-y: auto;
+  }
+
+  .box {
+    background-color: #403952;
+  }
+
+  i {
+    color: #4B4A67;
+  }
+}
+
+.user-page-appear {
+  opacity: 0.01;
+}
+
+.user-page-appear.user-page-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

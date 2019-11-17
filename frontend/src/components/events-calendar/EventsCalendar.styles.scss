@@ -6,12 +6,18 @@
 .react-calendar {
   margin: 2rem;
   border-radius: 1rem;
+  box-shadow: 1px 1px 2px #4B4A67;
   color: #FCF7F8;
   background: linear-gradient(45deg, #7877a6, #403952) !important;
 
   button {
     transition: all .5s linear;
     color: #FCF7F8;
+
+    abbr {
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #1B1725;
+    }
   }
 
   button:hover {

@@ -41,3 +41,22 @@
   right: 0;
   position: absolute;
 }
+
+.homepage-appear {
+  opacity: 0.01;
+}
+
+.homepage-appear.homepage-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+.title-appear {
+  opacity: 0.01;
+  transform: translateY(-40px);
+}
+
+.title-appear.title-appear-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 2s ease-in;
+}

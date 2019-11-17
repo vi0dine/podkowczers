@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import {useState} from 'react';
 import './Header.styles.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {push, replace} from 'connected-react-router';
@@ -40,14 +40,22 @@ export const Header = () => {
 
                 <div id="navbarBasicExample" className={`navbar-menu ${burgerOpen ? 'is-active' : ''}`}>
                     <div className="navbar-end">
-                        <a className={`navbar-item ${location.pathname.includes("/blog") ? 'current' : ''}`} onClick={() => dispatch(push('/blog'))}>BLOG</a>
-                        <a className={`navbar-item ${location.pathname.includes("/concerts") ? 'current' : ''}`} onClick={() => dispatch(push('/concerts'))}>KONCERTY</a>
-                        <a className={`navbar-item ${location.pathname.includes("/events") ? 'current' : ''}`} onClick={() => dispatch(replace('/events'))}>WYDARZENIA</a>
+                        <a className={`navbar-item ${location.pathname.includes("/blog") ? 'current' : ''}`}
+                           onClick={() => dispatch(push('/blog'))}>BLOG</a>
+                        <a className={`navbar-item ${location.pathname.includes("/concerts") ? 'current' : ''}`}
+                           onClick={() => dispatch(push('/concerts'))}>KONCERTY</a>
+                        <a className={`navbar-item ${location.pathname.includes("/events") ? 'current' : ''}`}
+                           onClick={() => dispatch(replace('/events'))}>WYDARZENIA</a>
                         {
                             !user ? (
-                                <a className={`navbar-item ${location.pathname.includes("/signup") ? 'current' : ''}`} onClick={() => dispatch(push('/signup'))}><strong>ZAŁÓŻ KONTO</strong></a>
+                                <a className={`navbar-item ${location.pathname.includes("/signup") ? 'current' : ''}`}
+                                   onClick={() => dispatch(push('/signup'))}><strong>ZAŁÓŻ KONTO</strong></a>
                             ) : (
-                                <a className={'navbar-item'} onClick={() => handleLogout()}><strong>WYLOGUJ</strong></a>
+                                <>
+                                    <a className={`navbar-item ${location.pathname.includes("/user") ? 'current' : ' '}`}
+                                       onClick={() => dispatch(push(`/user/${user}`))}>PROFIL</a>
+                                    <a className={'navbar-item'} onClick={() => handleLogout()}><strong>WYLOGUJ</strong></a>
+                                </>
                             )
                         }
                     </div>

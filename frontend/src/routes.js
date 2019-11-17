@@ -8,6 +8,7 @@ import {ConcertDetailsPage} from "./pages/concert-details-page/ConcertDetailsPag
 import {EventsPage} from "./pages/events-page/EventsPage.component";
 import {EventDetailsPage} from "./pages/event-details-page/EventDetailsPage.component";
 import {SignUpPage} from "./pages/signup-page/SignUpPage.component";
+import {UserPage} from "./pages/user-page/UserPage.component";
 
 export const routes = (
     <Switch>
@@ -18,6 +19,7 @@ export const routes = (
         <Route path='/concerts/:id' component={ConcertDetailsPage} />
         <Route exact path='/events' component={EventsPage} />
         <Route exact path='/events/:id' component={EventDetailsPage} />
+        <Route exact path='/user/:id' component={UserPage} />
         <Route path='/signup' component={SignUpPage} />
     </Switch>
 );
