@@ -49,3 +49,28 @@
 /frontend/npm-debug.log*
 /frontend/yarn-debug.log*
 /frontend/yarn-error.log*
+
+## ADMIN
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/admin-panel/node_modules
+/admin-panel/.pnp
+/admin-panel/.pnp.js
+
+# testing
+/admin-panel/coverage
+
+# production
+/admin-panel/build
+
+# misc
+/admin-panel/.DS_Store
+/admin-panel/.env.local
+/admin-panel/.env.development.local
+/admin-panel/.env.test.local
+/admin-panel/.env.production.local
+
+/admin-panel/npm-debug.log*
+/admin-panel/yarn-debug.log*
+/admin-panel/yarn-error.log*
