@@ -4,7 +4,7 @@ import './Header.styles.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {push, replace} from 'connected-react-router';
 import {useLocation} from "react-router";
-import {logout} from "../../redux/user/User.actions";
+import {logout} from "../../redux/admin/Admin.actions";
 
 
 export const Header = () => {

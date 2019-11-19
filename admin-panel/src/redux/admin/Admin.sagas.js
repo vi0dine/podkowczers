@@ -1,11 +1,11 @@
 import {put, call, takeLatest} from 'redux-saga/effects'
 import axios from 'axios';
-import {AUTH_USER, LOGOUT} from "./User.types";
+import {AUTH_USER, LOGOUT} from "./Admin.types";
 import {
     authFail,
     authSuccess,
     logoutSuccess,
-} from "./User.actions";
+} from "./Admin.actions";
 import {push} from 'connected-react-router';
 
 export function* watchAuthSaga() {

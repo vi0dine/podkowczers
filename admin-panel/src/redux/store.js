@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 import history from "../history";
 
 import {createRootReducer} from "./rootReducer";
-import {watchAuthSaga} from "./user/User.sagas";
+import {watchAuthSaga} from "./admin/Admin.sagas";
 import {watchUsersSaga} from "./users/Users.sagas";
 
 const persistConfig = {

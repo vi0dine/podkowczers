@@ -1,10 +1,18 @@
 import {call, put, takeLatest} from 'redux-saga/effects'
-import {FETCH_USERS} from "./Users.types";
+import {DELETE_USER, FETCH_USERS} from "./Users.types";
 import {axiosSecured} from "../../index";
-import {fetchUsersFailed, fetchUsersStart, fetchUsersSuccess} from "./Users.actions";
+import {
+    deleteUserFailed,
+    deleteUserStart,
+    deleteUserSuccess,
+    fetchUsersFailed,
+    fetchUsersStart,
+    fetchUsersSuccess
+} from "./Users.actions";
 
 export function* watchUsersSaga() {
     yield takeLatest(FETCH_USERS, fetchUsers);
+    yield takeLatest(DELETE_USER, deleteUser)
 }
 
 function* fetchUsers() {
@@ -17,5 +25,19 @@ function* fetchUsers() {
         yield put(fetchUsersSuccess(response.data.data));
     } catch (error) {
         yield put(fetchUsersFailed(error.response.data.error));
+    }
+}
+
+function* deleteUser(action) {
+    try {
+        yield put(deleteUserStart());
+        const response = yield call(() => axiosSecured.request({
+            url: `/api/v1/users/${action.id}`,
+            method: "DELETE"
+        }));
+        console.log(response);
+        yield put(deleteUserSuccess(response.data.data))
+    } catch (error) {
+        yield put(deleteUserFailed(error.response.data.error))
     }
 }

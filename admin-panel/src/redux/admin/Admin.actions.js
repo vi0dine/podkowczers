@@ -6,7 +6,7 @@ import {
     LOGOUT,
     LOGOUT_SUCCESS,
     REFRESH_TOKEN
-} from "./User.types";
+} from "./Admin.types";
 
 export const authUser = (email, password) => {
     return {

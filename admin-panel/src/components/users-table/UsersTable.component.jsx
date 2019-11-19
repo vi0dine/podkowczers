@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react';
 import './UsersTable.styles.scss'
 import {useDispatch, useSelector} from "react-redux";
-import {fetchUsers} from "../../redux/users/Users.actions";
+import {push} from 'connected-react-router'
+import {deleteUser, fetchUsers} from "../../redux/users/Users.actions";
 
 export const UsersTable = () => {
     const loading = useSelector(state => state.UsersState.loading);
     const users = useSelector(state => state.UsersState.users);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -28,10 +30,14 @@ export const UsersTable = () => {
         </thead>
     );
 
-    const actions = (
+    const actions = (id) => (
         <>
-            <button className={'button is-primary is-small'}>EDYTUJ</button>&nbsp;
-            <button className={'button is-danger is-small'}>USUŃ</button>
+            <button
+                onClick={() => {dispatch(push(`/users/${id}`))}}
+                className={'button is-primary is-small'}>EDYTUJ</button>&nbsp;
+            <button
+                onClick={() => {dispatch(deleteUser(id))}}
+                className={'button is-danger is-small'}>USUŃ</button>
         </>
     );
 
@@ -51,7 +57,7 @@ export const UsersTable = () => {
                             <td>{user.attributes.comments.length}</td>
                             <td>{user.attributes.reviews.length}</td>
                             <td>{user.attributes.created_at}</td>
-                            <td>{actions}</td>
+                            <td>{actions(user.id)}</td>
                         </tr>
                     )
                 }

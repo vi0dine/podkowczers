@@ -1,7 +1,7 @@
 import React from 'react';
 import {UserForm} from "../../components/sign-in-form/SignInForm.component";
 import {useDispatch} from "react-redux";
-import {authUser} from "../../redux/user/User.actions";
+import {authUser} from "../../redux/admin/Admin.actions";
 
 export const LoginPage = () => {
     const dispatch = useDispatch();

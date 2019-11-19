@@ -4,7 +4,7 @@ import {
     CLEAR_NOTIFICATION,
     LOGOUT_SUCCESS,
     REFRESH_TOKEN,
-} from "./User.types";
+} from "./Admin.types";
 
 const INITIAL_STATE = {
     id: null,
@@ -14,7 +14,7 @@ const INITIAL_STATE = {
     message: null
 };
 
-const userReducer = (state = INITIAL_STATE, action) => {
+const adminReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case AUTH_SUCCESS:
             return {...state, id: action.id, role: action.role, token: action.token, csrf: action.csrf, loading: false };
@@ -30,4 +30,4 @@ const userReducer = (state = INITIAL_STATE, action) => {
     }
 };
 
-export default userReducer;
+export default adminReducer;
