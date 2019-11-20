@@ -45,6 +45,14 @@ class User < ApplicationRecord
     decrement!(:coins_count)
   end
 
+  def promote
+    update(role: 'admin')
+  end
+
+  def demote
+    update(role: 'user')
+  end
+
   def user_avatar
     polymorphic_url(avatar.blob)
   end

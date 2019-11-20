@@ -19,6 +19,21 @@ module Api
           render json: { error: result.message }, status: :unprocessable_entity
         end
       end
+
+      def destroy
+        @ticket = Ticket.find(params[:id])
+        if @ticket.delete
+          render json: TicketSerializer.new(@ticket).serializable_hash, status: :ok
+        else
+          render json: { error: @ticket.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
+      private
+
+      def ticket_params
+        params.require(:ticket).permit(:id)
+      end
     end
   end
 end

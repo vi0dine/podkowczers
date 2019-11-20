@@ -38,7 +38,7 @@ module Api
 
       def destroy
         if @review.delete
-          render json: { message: 'Successfully removed' }, status: :no_content
+          render json: ReviewSerializer.new(@review).serializable_hash, status: :ok
         else
           render json: { error: @review.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end

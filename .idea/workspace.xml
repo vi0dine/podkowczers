@@ -2,27 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/pages/UserPage/UserPage.component.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/pages/UserPage/UserPage.styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/comments/Comments.actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/comments/Comments.reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/comments/Comments.sagas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/comments/Comments.types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/reviews/Reviews.actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/reviews/Reviews.reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/reviews/Reviews.sagas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/reviews/Reviews.types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/tickets/Tickets.actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/tickets/Tickets.reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/tickets/Tickets.sagas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/tickets/Tickets.types.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-panel/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/components/header/Header.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/components/header/Header.component.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/components/users-table/UsersTable.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/components/users-table/UsersTable.component.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/pages/LoginPage/LoginPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/pages/LoginPage/LoginPage.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-panel/src/pages/UserPage/UserPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/pages/UserPage/UserPage.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-panel/src/pages/UserPage/UserPage.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/pages/UserPage/UserPage.styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/rootReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/user/User.actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/admin/Admin.actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/user/User.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/admin/Admin.reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/user/User.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/admin/Admin.sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/user/User.types.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/admin/Admin.types.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.sagas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.types.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/comments_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/reviews_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/reviews_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/tickets_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/tickets_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/controllers/sign_in_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/sign_in_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/user.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/routes.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -181,7 +188,12 @@
       <workItem from="1574003819695" duration="3512000" />
       <workItem from="1574058941822" duration="603000" />
       <workItem from="1574079663342" duration="16000" />
-      <workItem from="1574194324743" duration="4775000" />
+      <workItem from="1574194324743" duration="4837000" />
+      <workItem from="1574230812372" duration="193000" />
+      <workItem from="1574241535321" duration="15000" />
+      <workItem from="1574245034001" duration="3874000" />
+      <workItem from="1574275041753" duration="57000" />
+      <workItem from="1574275782555" duration="6880000" />
     </task>
     <servers />
   </component>

@@ -14,6 +14,33 @@ module Api
         render json: { user: { email: @user.email, coins: @user.coins_count, reservations: @user.user_reservations } }
       end
 
+      def add_coin
+        @user = User.find(params[:user_id])
+        if @user.add_coins(1)
+          render json: {}, status: :created
+        else
+          render json: { error: @user.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
+      def promote
+        @user = User.find(params[:user_id])
+        if @user.promote
+          render json: {}, status: :created
+        else
+          render json: { error: @user.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
+      def demote
+        @user = User.find(params[:user_id])
+        if @user.demote
+          render json: {}, status: :created
+        else
+          render json: { error: @user.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        end
+      end
+
       def destroy
         @user = User.find(params[:id])
         if @user.delete
@@ -26,7 +53,7 @@ module Api
       private
 
       def user_params
-        params.require(:user).permit(%i[id])
+        params.require(:user).permit(%i[id user_id])
       end
     end
   end

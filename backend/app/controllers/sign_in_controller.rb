@@ -12,7 +12,7 @@ class SignInController < ApplicationController
         id: user.id,
         email: user.email,
         coins: user.coins_count,
-        avatar: user.user_avatar,
+        # avatar: user.user_avatar,
         reservations: user.user_reservations,
         role: user.role,
         csrf: tokens[:csrf],

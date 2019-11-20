@@ -30,7 +30,7 @@ module Api
         @comment = Comment.find(params[:id])
 
         if @comment.delete
-          render json: { message: 'Successfully deleted comment' }, status: :no_content
+          render json: CommentSerializer.new(@comment).serializable_hash, status: :ok
         else
           render json: { error: @comment.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
