@@ -1,0 +1,23 @@
+.table-container {
+  height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.table {
+  background-color: #403952;
+  color: #FCF7F8;
+
+  thead th, th {
+    color: #FCF7F8;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #1B1725;
+  }
+
+  tr:hover {
+      background-color: #1B1725 !important;
+      cursor: pointer;
+      color: #FCF7F8;
+      transition: all .5s linear;
+  }
+}

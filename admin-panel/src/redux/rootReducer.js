@@ -5,6 +5,7 @@ import usersReducer from "./users/Users.reducer";
 import {reviewsReducer} from "./reviews/Reviews.reducer";
 import {commentsReducer} from "./comments/Comments.reducer";
 import {ticketsReducer} from "./tickets/Tickets.reducer";
+import {eventsReducer} from "./events/Events.reducer";
 
 export const createRootReducer = (history) => combineReducers({
     router: connectRouter(history),
@@ -12,5 +13,6 @@ export const createRootReducer = (history) => combineReducers({
     UsersState: usersReducer,
     ReviewsState: reviewsReducer,
     CommentsState: commentsReducer,
-    TicketsState: ticketsReducer
+    TicketsState: ticketsReducer,
+    EventsState: eventsReducer
 });

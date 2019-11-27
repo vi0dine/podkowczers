@@ -12,6 +12,7 @@ import {watchUsersSaga} from "./users/Users.sagas";
 import {watchReviewsSaga} from "./reviews/Reviews.sagas";
 import {watchCommentsSaga} from "./comments/Comments.sagas";
 import {watchTicketsSaga} from "./tickets/Tickets.sagas";
+import {watchEventsSaga} from "./events/Events.sagas";
 
 const persistConfig = {
     key: 'root',
@@ -35,3 +36,4 @@ sagaMiddleware.run(watchUsersSaga);
 sagaMiddleware.run(watchReviewsSaga);
 sagaMiddleware.run(watchCommentsSaga);
 sagaMiddleware.run(watchTicketsSaga);
+sagaMiddleware.run(watchEventsSaga);
