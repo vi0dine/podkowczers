@@ -10,7 +10,6 @@ export const setupAxios = () => {
 
     const securedAxiosInstance = axios.create({
         baseURL: API_URL,
-        withCredentials: true,
         headers: {
             "Content-Type": "application/json"
         }
@@ -18,7 +17,6 @@ export const setupAxios = () => {
 
     const plainAxiosInstance = axios.create({
         baseURL: API_URL,
-        withCredentials: true,
         headers: {
             "Content-Type": "application/json"
         }

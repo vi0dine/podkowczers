@@ -8,13 +8,15 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV['DB_HOST'] %>
   timeout: 5000
 
 development:
   <<: *default
-  database: podkowczers_dev
-  username: <%= Rails.application.credentials.db_username %>
-  password: <%= Rails.application.credentials.db_password %>
+  database: <%= ENV['DB_NAME_DEV'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  port: 5432
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,11 +24,12 @@ development:
 test:
   <<: *default
   database: podkowczers_test
-  username: <%= Rails.application.credentials.db_username %>
-  password: <%= Rails.application.credentials.db_password %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 production:
   <<: *default
-  database: podkowczers_prod
+  database: <%= ENV['DB_NAME_PROD'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+  port: 5432

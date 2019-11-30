@@ -2,37 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/comments/Comments.actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/comments/Comments.reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/comments/Comments.sagas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/comments/Comments.types.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/reviews/Reviews.actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/reviews/Reviews.reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/reviews/Reviews.sagas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/reviews/Reviews.types.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/tickets/Tickets.actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/tickets/Tickets.reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/tickets/Tickets.sagas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/src/redux/tickets/Tickets.types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-panel/Dockerfile.dev" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Dockerfile.dev" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/development/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/Dockerfile.dev" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx/Dockerfile.dev" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx/default.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/pages/UserPage/UserPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/pages/UserPage/UserPage.component.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/pages/UserPage/UserPage.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/pages/UserPage/UserPage.styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/rootReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.types.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/src/redux/users/Users.types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/comments_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/reviews_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/reviews_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/tickets_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/tickets_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/sign_in_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/sign_in_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-panel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Gemfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/generate_qr_code.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/generate_qr_code.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/cable.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/cable.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/database.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/initializers/cors.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/cors.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/initializers/jwt_sessions.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/jwt_sessions.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/initializers/wicked_pdf.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/wicked_pdf.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/axios/setup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/axios/setup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/user-page/UserPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/user-page/UserPage.component.jsx" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,27 +32,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1T0iiwkY2OS5iBmN7ddwg8olCaY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker/development" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/backend" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Rails.Development: podkowczers">
     <configuration name="Development: podkowczers" type="RailsRunConfigurationType" factoryName="Rails">
@@ -133,7 +119,7 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_VERBOSE" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
       <method v="2" />
     </configuration>
     <configuration name="test: podkowczers" type="RakeRunConfigurationType" factoryName="Rake">
@@ -159,9 +145,21 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_VERBOSE" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="SvnConfiguration">
@@ -193,7 +191,14 @@
       <workItem from="1574241535321" duration="15000" />
       <workItem from="1574245034001" duration="3874000" />
       <workItem from="1574275041753" duration="57000" />
-      <workItem from="1574275782555" duration="6880000" />
+      <workItem from="1574275782555" duration="7211000" />
+      <workItem from="1574326077145" duration="24000" />
+      <workItem from="1574876714261" duration="2436000" />
+      <workItem from="1574941003506" duration="82000" />
+      <workItem from="1575050470099" duration="10376000" />
+      <workItem from="1575063767196" duration="5249000" />
+      <workItem from="1575108468964" duration="5583000" />
+      <workItem from="1575124473802" duration="7486000" />
     </task>
     <servers />
   </component>
@@ -212,5 +217,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="553" y="342" width="630" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575064001969">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state x="553" y="342" width="630" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1613.1023@67.27.1613.1023" timestamp="1575064001969" />
+    <state x="606" y="286" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575054153704">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state x="606" y="286" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1575054153704" />
+    <state x="521" y="273" width="704" height="528" key="find.popup" timestamp="1575115316948">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state x="521" y="273" width="704" height="528" key="find.popup/67.27.1613.1023@67.27.1613.1023" timestamp="1575115316948" />
   </component>
 </project>

@@ -1,0 +1,67 @@
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - /var/lib/postgresql/data
+  redis:
+    image: redis:latest
+    volumes:
+      - /var/lib/redis/data
+  sidekiq:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ../../backend
+    command: 'bundle exec sidekiq -q default -q user_tickets '
+    volumes:
+      - ../../backend:/api
+    environment:
+      DB_HOST: db
+      DB_NAME_DEV: podkowczers_dev
+      DB_USERNAME: postgres
+      DB_PASSWORD: Heisenberg1932!
+      RAILS_ENV: development
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      - redis
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ../../nginx
+    ports:
+    - 80:80
+    - 81:81
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ../../backend
+    environment:
+      DB_HOST: db
+      DB_NAME_DEV: podkowczers_dev
+      DB_USERNAME: postgres
+      DB_PASSWORD: Heisenberg1932!
+      REDIS_URL: redis://redis:6379
+    command: rails s -p 4000 -b '0.0.0.0'
+    volumes:
+      - ../../backend:/api
+    ports:
+      - 4000:4000
+    depends_on:
+      - db
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ../../frontend
+    volumes:
+    - ../../frontend:/app
+    depends_on:
+      - api
+  admin:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ../../admin-panel
+    volumes:
+      - ../../admin-panel:/admin
+    depends_on:
+      - api

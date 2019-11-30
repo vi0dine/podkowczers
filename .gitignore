@@ -74,3 +74,5 @@
 /admin-panel/npm-debug.log*
 /admin-panel/yarn-debug.log*
 /admin-panel/yarn-error.log*
+
+/docker

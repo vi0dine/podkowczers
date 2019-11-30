@@ -7,7 +7,7 @@ import {CSSTransitionGroup} from "react-transition-group";
 export const UserPage = () => {
     const user = useSelector(state => state.UserState);
 
-    return (
+    return user && (
         <CSSTransitionGroup
             transitionName={'user-page'}
             transitionAppear={true}
@@ -54,7 +54,7 @@ export const UserPage = () => {
                             <div className={'columns'}>
                                 <div className={'UserReservations column'}>
                                     {
-                                        user.reservations.map((reservation) => (
+                                        user.reservations && user.reservations.map((reservation) => (
                                             <div className={'box'}>
                                                 <div className={'columns is-vcentered'}>
                                                     <div className={'column is-7'}>
