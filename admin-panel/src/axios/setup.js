@@ -63,7 +63,7 @@ export const setupAxios = () => {
       ) {
         return plainAxiosInstance
           .post(
-            "/refresh",
+            "/api/v1/refresh",
             {},
             {
               headers: {

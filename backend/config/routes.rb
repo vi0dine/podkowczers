@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  default_url_options :host => "http://localhost:4000"
+  default_url_options host: 'http://localhost:4000'
 
   namespace :api do
     namespace :v1 do
@@ -14,12 +16,12 @@ Rails.application.routes.draw do
       resources :concerts, only: %i[index show create update destroy]
       resources :events, only: %i[index show create update destroy]
       resources :tickets, only: %i[index destroy]
-        post :tickets, controller: :tickets, action: :reserve, as: 'reserve_tickets'
+      post :tickets, controller: :tickets, action: :reserve, as: 'reserve_tickets'
+
+      post '/signup', controller: :sign_up, action: :create
+      post '/signin', controller: :sign_in, action: :create
+      post '/refresh', controller: :refresh, action: :create
+      delete '/signout', controller: :sign_in, action: :destroy
     end
   end
-
-  post '/signup', controller: :sign_up, action: :create
-  post '/signin', controller: :sign_in, action: :create
-  post '/refresh', controller: :refresh, action: :create
-  delete '/signout', controller: :sign_in, action: :destroy
 end
