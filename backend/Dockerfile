@@ -1,6 +1,6 @@
 FROM ruby:2.6.5-stretch
 RUN apt-get install -y wget
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs libsqlite3-dev
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs libsqlite3-dev nano
 
 RUN apt-get install -y xfonts-utils
 RUN wget http://mirrors.kernel.org/ubuntu/pool/main/x/xfonts-utils/xfonts-utils_7.7+3_amd64.deb -P /var/www/downloads
