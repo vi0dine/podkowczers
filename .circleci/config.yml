@@ -9,6 +9,7 @@ jobs:
           PGUSER: postgres
       - image: postgres:9.5
         environment:
+          POSTGRES_PASSWORD=password
           DB_NAME: podkowczers_test
           DB_USER: postgres
           DB_PASSWORD: password
