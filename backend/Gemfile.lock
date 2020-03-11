@@ -179,6 +179,8 @@ GEM
       rspec-mocks (~> 3.9.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.2)
+    rspec_junit_formatter (0.4.1)
+      rspec-core (>= 2, < 4, != 2.12.0)
     ruby_dep (1.5.0)
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
@@ -236,6 +238,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rqrcode
   rspec-rails (~> 3.8)
+  rspec_junit_formatter
   shoulda-matchers
   sidekiq (~> 6.0, >= 6.0.2)
   spring

@@ -33,6 +33,7 @@ end
 
 group :test do
   gem 'nyan-cat-formatter'
+  gem 'rspec_junit_formatter'
   gem 'rack-test'
   gem 'shoulda-matchers'
 end
