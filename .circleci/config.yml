@@ -22,7 +22,7 @@ jobs:
           name: 'Get dependencies'
           command: |
                     apt-get install -y wget && \
-                    wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb -P /var/www" && \
+                    wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb -P /var/www && \
                     dpkg -i  /var/www/wkhtmltox_0.12.5-1.stretch_amd64.deb
       - run: sudo gem update --system
       - run: sudo gem install bundler:2.0.2
@@ -32,6 +32,9 @@ jobs:
       - run:
           name: Bundle Install
           command: bundle install
+      - run:
+          name: Wait for Redis
+          command: dockerize -wait redis://localhost:6397 -timeout 1m
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
