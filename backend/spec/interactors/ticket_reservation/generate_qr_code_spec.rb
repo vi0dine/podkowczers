@@ -39,8 +39,8 @@ RSpec.describe TicketReservation::GenerateQrCode do
       let(:tickets) { create_list(:ticket, 3) }
       let(:req_tickets) { [
         { ticket: tickets[0],
-          hash: 12 },
-        { ticket: tickets[1],
+          hash: nil },
+        { ticket: nil,
           hash: 3 },
         { ticket: tickets[2],
           hash: 'dfgdwerewrwgeere34t2445fdfd' }

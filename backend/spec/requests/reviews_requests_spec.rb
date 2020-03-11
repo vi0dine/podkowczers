@@ -113,8 +113,8 @@ RSpec.describe 'Reviews', type: :request do
                                   headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
-      it 'responds with code 204' do
-        expect(response).to have_http_status(:no_content)
+      it 'responds with code 200' do
+        expect(response).to have_http_status(:ok)
       end
 
       let(:another_review_id) { reviews.last.id }

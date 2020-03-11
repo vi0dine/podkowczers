@@ -6,6 +6,10 @@ module TicketReservation
 
     def call
       context.requested_tickets.each do |record|
+        if (!record[:ticket] || !record[:hash]) {
+          raise StandardError
+        }
+        
         record.merge!(qr_code: RQRCode::QRCode.new("#{record[:ticket].inspect}/n#{record[:hash]}").as_png(size: 220))
       rescue
         context.fail!(message: 'Coś poszło nie tak. Spróbuj ponownie.')

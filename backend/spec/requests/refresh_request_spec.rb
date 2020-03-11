@@ -5,7 +5,7 @@ RSpec.describe 'Refresh', type: :request do
     let(:user) { create(:user) }
 
     before do
-      post '/signin', params: { email: user.email, password: user.password }
+      post '/api/v1/signin', params: { email: user.email, password: user.password }
       @old_token = json['csrf']
       post '/refresh', headers: { 'X-CSRF-TOKEN': @old_token }
     end

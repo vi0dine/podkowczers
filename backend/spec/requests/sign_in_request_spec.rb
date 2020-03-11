@@ -32,7 +32,7 @@ RSpec.describe 'Sign in', type: :request do
       end
 
       it 'render errors' do
-        expect(json['error']).to eq('Cannot find email/password combination')
+        expect(json['error']).to eq('Nie znaleziono użytkownika o takich danych.')
       end
     end
   end
@@ -49,7 +49,7 @@ RSpec.describe 'Sign in', type: :request do
     end
 
     it 'render errors' do
-      expect(json['error']).to eq('Cannot find email/password combination')
+      expect(json['error']).to eq('Nie znaleziono użytkownika o takich danych.')
     end
   end
 end

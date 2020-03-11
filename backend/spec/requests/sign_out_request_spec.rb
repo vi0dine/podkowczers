@@ -5,7 +5,7 @@ RSpec.describe 'Sign out', type: :request do
     let(:user) { create(:user) }
 
     before do
-      post '/signin', params: { email: user.email, password: user.password }
+      post '/api/v1/signin', params: { email: user.email, password: user.password }
       delete '/api/v1/signout', headers: { 'X-CSRF-TOKEN': json['csrf'] }
     end
 
