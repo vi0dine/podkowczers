@@ -100,8 +100,8 @@ RSpec.describe 'Comments', type: :request do
                headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
-      it 'respond with code 204' do
-        expect(response).to have_http_status(:no_content)
+      it 'respond with code 200' do
+        expect(response).to have_http_status(:ok)
       end
 
       let(:another_comment) { create(:comment, post: posts.first) }
@@ -127,8 +127,8 @@ RSpec.describe 'Comments', type: :request do
                headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
-      it 'respond with code 204' do
-        expect(response).to have_http_status(:no_content)
+      it 'respond with code 200' do
+        expect(response).to have_http_status(:ok)
       end
 
       let(:another_comment) { create(:comment, user: user, post: posts.first) }

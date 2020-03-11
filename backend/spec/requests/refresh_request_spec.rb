@@ -7,7 +7,7 @@ RSpec.describe 'Refresh', type: :request do
     before do
       post '/api/v1/signin', params: { email: user.email, password: user.password }
       @old_token = json['csrf']
-      post '/refresh', headers: { 'X-CSRF-TOKEN': @old_token }
+      post '/api/v1/refresh', headers: { 'X-CSRF-TOKEN': @old_token }
     end
 
     it 'respond with code 200' do
