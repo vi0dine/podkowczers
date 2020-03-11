@@ -12,7 +12,7 @@ services:
       - /var/lib/redis/data
   sidekiq:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: dev.Dockerfile
       context: ../../backend
     command: "bundle exec sidekiq -q default -q user_tickets "
     volumes:
@@ -23,11 +23,11 @@ services:
       - redis
   api:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: dev.Dockerfile
       context: ../../backend
     env_file:
       - ../../.env.dev
-    command: sh -c "rails db:create && rails db:migrate && rails s -p 4000 -b 0.0.0.0"
+    command: sh -c "rails db:create && rails db:migrate && rm -f /rails/tmp/pids/server.pid && rails s -p 4000 -b 0.0.0.0"
     volumes:
       - ../../backend:/api
     ports:
@@ -36,7 +36,7 @@ services:
       - db
   client:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: dev.Dockerfile
       context: ../../frontend
     env_file:
       - ../../.env.dev

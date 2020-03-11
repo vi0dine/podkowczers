@@ -8,9 +8,9 @@ WORKDIR /app
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
 
-RUN yarn
-RUN yarn global add react-scripts
 RUN yarn global add node-sass
+RUN yarn install
+RUN yarn global add react-scripts
 RUN npm rebuild node-sass
 
 COPY . /app
