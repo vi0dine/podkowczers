@@ -4,7 +4,6 @@ import './Header.styles.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {push, replace} from 'connected-react-router';
 import {logout} from "../../redux/user/user.actions";
-import {store} from "../../redux/store";
 
 export const Header = () => {
     const user = useSelector(state => state.UserState.id);
@@ -13,7 +12,6 @@ export const Header = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     const handleBurgerClick = () => {
-        console.log(store.getState());
         setBurgerOpen(!burgerOpen);
     };
 
@@ -25,9 +23,6 @@ export const Header = () => {
         <div className='Header'>
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <a onClick={() => dispatch(push('/'))} className='navbar-item'>
-                        <img alt='logo' src="https://bulma.io/images/bulma-logo.png" width="112" height="28"/>
-                    </a>
                     <a role="button" className={`navbar-burger burger ${burgerOpen ? 'is-active' : ''}`}
                        onClick={() => handleBurgerClick()}
                        aria-label="menu" aria-expanded="false"
@@ -40,10 +35,10 @@ export const Header = () => {
 
                 <div id="navbarBasicExample" className={`navbar-menu ${burgerOpen ? 'is-active' : ''}`}>
                     <div className="navbar-end">
-                        <a className={`navbar-item ${location.pathname.includes("/blog") ? 'current' : ''}`}
-                           onClick={() => dispatch(push('/blog'))}>BLOG</a>
-                        <a className={`navbar-item ${location.pathname.includes("/concerts") ? 'current' : ''}`}
-                           onClick={() => dispatch(push('/concerts'))}>KONCERTY</a>
+                        {/*<a className={`navbar-item ${location.pathname.includes("/blog") ? 'current' : ''}`}*/}
+                        {/*   onClick={() => dispatch(push('/blog'))}>BLOG</a>*/}
+                        {/*<a className={`navbar-item ${location.pathname.includes("/concerts") ? 'current' : ''}`}*/}
+                        {/*   onClick={() => dispatch(push('/concerts'))}>KONCERTY</a>*/}
                         <a className={`navbar-item ${location.pathname.includes("/events") ? 'current' : ''}`}
                            onClick={() => dispatch(replace('/events'))}>WYDARZENIA</a>
                         {

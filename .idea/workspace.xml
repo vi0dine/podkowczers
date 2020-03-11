@@ -2,26 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin-panel/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-panel/Dockerfile.dev" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Dockerfile.dev" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/development/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/Dockerfile.dev" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nginx/Dockerfile.dev" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nginx/default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/podkowczers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/podkowczers.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-panel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin-panel/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Gemfile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/generate_qr_code.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/generate_qr_code.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/cable.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/cable.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/database.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/initializers/cors.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/cors.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/initializers/jwt_sessions.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/jwt_sessions.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/initializers/wicked_pdf.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/wicked_pdf.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/axios/setup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/axios/setup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/user-page/UserPage.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/user-page/UserPage.component.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Dockerfile.dev" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/sign_up_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/sign_up_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile.dev" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/user/user.reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -50,7 +37,7 @@
       <recent name="$PROJECT_DIR$/backend" />
     </key>
   </component>
-  <component name="RunManager" selected="Rails.Development: podkowczers">
+  <component name="RunManager">
     <configuration name="Development: podkowczers" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="podkowczers" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
@@ -199,6 +186,8 @@
       <workItem from="1575063767196" duration="5249000" />
       <workItem from="1575108468964" duration="5583000" />
       <workItem from="1575124473802" duration="7486000" />
+      <workItem from="1575362508834" duration="102000" />
+      <workItem from="1575483453173" duration="3634000" />
     </task>
     <servers />
   </component>
@@ -227,6 +216,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="606" y="286" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1575054153704" />
+    <state x="656" y="295" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575487258126">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state x="656" y="295" width="424" height="484" key="FileChooserDialogImpl/67.27.1613.1023@67.27.1613.1023" timestamp="1575487258126" />
     <state x="521" y="273" width="704" height="528" key="find.popup" timestamp="1575115316948">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>

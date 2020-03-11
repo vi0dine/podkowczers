@@ -3,7 +3,8 @@ import { store } from "../redux/store";
 import { logout, refreshToken } from "../redux/user/user.actions";
 import { setLoaded, setLoading } from "../redux/app/app.actions";
 
-export const API_URL = "http://51.178.16.104:4000";
+// export const API_URL = "http://51.178.16.104:4000";
+export const API_URL = "http://localhost:4000";
 
 export const setupAxios = () => {
   axios.defaults.baseURL = API_URL;

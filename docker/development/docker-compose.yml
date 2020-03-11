@@ -1,0 +1,46 @@
+version: "3.4"
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - /var/lib/postgresql/data
+    env_file:
+      - ../../.env.dev
+  redis:
+    image: redis:latest
+    volumes:
+      - /var/lib/redis/data
+  sidekiq:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ../../backend
+    command: "bundle exec sidekiq -q default -q user_tickets "
+    volumes:
+      - ../../backend:/api
+    env_file:
+      - ../../.env.dev
+    depends_on:
+      - redis
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ../../backend
+    env_file:
+      - ../../.env.dev
+    command: sh -c "rails db:create && rails db:migrate && rails s -p 4000 -b 0.0.0.0"
+    volumes:
+      - ../../backend:/api
+    ports:
+      - 4000:4000
+    depends_on:
+      - db
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ../../frontend
+    env_file:
+      - ../../.env.dev
+    volumes:
+      - ../../frontend:/app
+    depends_on:
+      - api

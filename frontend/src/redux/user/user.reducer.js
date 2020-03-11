@@ -22,6 +22,7 @@ const INITIAL_STATE = {
 const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case AUTH_SUCCESS:
+            console.log(action);
             return {...state, id: action.id, role: action.role, token: action.token, csrf: action.csrf, loading: false };
         case AUTH_FAILED:
             return {...state, error: action.error };

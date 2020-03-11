@@ -5,10 +5,20 @@ module Api
     class SignUpController < ApplicationController
       def create
         user = User.new(user_params)
+        user.coins_count = 1
 
         if user.save
-          token = CreateCsrfTokenService.new(user, response).call
-          render json: { id: user.id, role: user.role, csrf: token }
+          tokens = CreateCsrfTokenService.new(user, response).call
+            render json: {
+              id: user.id,
+              email: user.email,
+              coins: user.coins_count,
+              # avatar: user.user_avatar,
+              reservations: user.user_reservations,
+              role: user.role,
+              csrf: tokens[:csrf],
+              access: tokens[:access]
+            }
         else
           render json: { error: user.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end

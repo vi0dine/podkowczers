@@ -1,6 +1,18 @@
-FROM node:alpine
-WORKDIR './app'
-COPY './package.json' './'
-RUN npm install
-COPY . .
-CMD ["npm", "run", "start"]
+# base image
+FROM node:12
+
+# set working directory
+WORKDIR /app
+
+# install and cache app dependencies
+COPY package.json /app/package.json
+COPY yarn.lock /app/yarn.lock
+
+RUN yarn
+RUN yarn global add react-scripts
+RUN yarn global add node-sass
+RUN npm rebuild node-sass
+
+COPY . /app
+
+CMD yarn start
