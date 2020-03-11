@@ -6,7 +6,7 @@ RSpec.describe 'Sign out', type: :request do
 
     before do
       post '/signin', params: { email: user.email, password: user.password }
-      delete '/signout', headers: { 'X-CSRF-TOKEN': json['csrf'] }
+      delete '/api/v1/signout', headers: { 'X-CSRF-TOKEN': json['csrf'] }
     end
 
     it 'respond with code 200' do

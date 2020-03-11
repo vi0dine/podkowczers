@@ -6,7 +6,8 @@ RSpec.describe 'Comments', type: :request do
     let(:post_id) { posts.first.id }
 
     before {
-      get "/api/v1/posts/#{post_id}/comments"
+      get "/api/v1/comments",
+      params: {post_id: post_id}
     }
 
     it 'respond with code 200' do
@@ -33,7 +34,7 @@ RSpec.describe 'Comments', type: :request do
       before {
         @tokens = session(user)
         cookies[JWTSessions.access_cookie] = @tokens[:access]
-        post "/api/v1/posts/#{post_id}/comments", params: { comment: new_comment },
+        post "/api/v1/comments", params: { comment: new_comment, post_id: post_id },
                                                   headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
@@ -53,7 +54,7 @@ RSpec.describe 'Comments', type: :request do
 
       it 'add new comment to db' do
         expect do
-          post "/api/v1/posts/#{post_id}/comments", params: { comment: another_comment },
+          post "/api/v1/comments", params: { comment: another_comment, post_id: post_id },
                                                     headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
         end .to change { Post.find(post_id).comments.size }.by(1)
       end
@@ -61,7 +62,7 @@ RSpec.describe 'Comments', type: :request do
 
     context 'as a quest' do
       before {
-        post "/api/v1/posts/#{post_id}/comments", params: { comment: new_comment }
+        post "/api/v1/comments", params: { comment: new_comment, post_id: post_id }
       }
 
       it 'respond with code 401' do
@@ -76,7 +77,7 @@ RSpec.describe 'Comments', type: :request do
 
       it 'does not add new comment to db' do
         expect do
-          post "/api/v1/posts/#{post_id}/comments", params: { comment: another_comment }
+          post "/api/v1/comments", params: { comment: another_comment, post_id: post_id }
         end .to_not change { Post.find(post_id).comments.size }
       end
     end
@@ -95,7 +96,7 @@ RSpec.describe 'Comments', type: :request do
       before {
         @tokens = session(admin)
         cookies[JWTSessions.access_cookie] = @tokens[:access]
-        delete "/api/v1/posts/#{post_id}/comments/#{comment_id}",
+        delete "/api/v1/comments/#{comment_id}",
                headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
@@ -107,7 +108,7 @@ RSpec.describe 'Comments', type: :request do
 
       it 'deletes comment from db' do
         expect do
-          delete "/api/v1/posts/#{post_id}/comments/#{another_comment_id}",
+          delete "/api/v1/comments/#{another_comment_id}",
                  headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
         end .to change { Post.find(post_id).comments.size }.by(-1)
       end
@@ -122,7 +123,7 @@ RSpec.describe 'Comments', type: :request do
       before {
         @tokens = session(user)
         cookies[JWTSessions.access_cookie] = @tokens[:access]
-        delete "/api/v1/posts/#{post_id}/comments/#{comment_id}",
+        delete "/api/v1/comments/#{comment_id}",
                headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
@@ -134,7 +135,7 @@ RSpec.describe 'Comments', type: :request do
 
       it 'deletes comment from db' do
         expect do
-          delete "/api/v1/posts/#{post_id}/comments/#{another_comment_id}",
+          delete "/api/v1/comments/#{another_comment_id}",
                  headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
         end .to change { Post.find(post_id).comments.size }.by(-1)
       end
@@ -149,7 +150,7 @@ RSpec.describe 'Comments', type: :request do
       before {
         @tokens = session(user)
         cookies[JWTSessions.access_cookie] = @tokens[:access]
-        delete "/api/v1/posts/#{post_id}/comments/#{comment_id}",
+        delete "/api/v1/comments/#{comment_id}",
                headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
       }
 
@@ -159,7 +160,7 @@ RSpec.describe 'Comments', type: :request do
 
       it 'does not delete comment from db' do
         expect do
-          delete "/api/v1/posts/#{post_id}/comments/#{another_comment_id}",
+          delete "/api/v1/comments/#{another_comment_id}",
                  headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
         end .to_not change { Post.find(post_id).comments.size }
       end
@@ -171,7 +172,7 @@ RSpec.describe 'Comments', type: :request do
       let(:another_comment_id) { comments.last.id }
 
       before {
-        delete "/api/v1/posts/#{post_id}/comments/#{comment_id}"
+        delete "/api/v1/comments/#{comment_id}"
       }
 
       it 'respond with code 401' do
@@ -184,7 +185,7 @@ RSpec.describe 'Comments', type: :request do
 
       it 'does not delete comment from db' do
         expect do
-          delete "/api/v1/posts/#{post_id}/comments/#{another_comment_id}"
+          delete "/api/v1/comments/#{another_comment_id}"
         end .to_not change { Post.find(post_id).comments.size }
       end
     end

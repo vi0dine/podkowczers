@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Sign up', type: :request do
   describe 'signing up user with valid data' do
-    before { post '/signup', params: attributes_for(:user) }
+    before { post '/api/v1/signup', params: attributes_for(:user) }
 
     it 'respond with code 200' do
       expect(response).to have_http_status(:ok)
@@ -21,7 +21,7 @@ RSpec.describe 'Sign up', type: :request do
     end
 
     it 'add user to the db' do
-      expect { post '/signup', params: attributes_for(:user) }.to change{ User.count }.by(1)
+      expect { post '/api/v1/signup', params: attributes_for(:user) }.to change{ User.count }.by(1)
     end
 
     it 'creates user with role :user' do
@@ -30,7 +30,7 @@ RSpec.describe 'Sign up', type: :request do
   end
 
   describe 'signing up user with invalid data' do
-    before { post '/signup', params: { email: 'jasadas@dasd', password: '12345678' } }
+    before { post '/api/v1/signup', params: { email: 'jasadas@dasd', password: '12345678' } }
 
     it 'respond with code 422' do
       expect(response).to have_http_status(:unprocessable_entity)
@@ -38,7 +38,7 @@ RSpec.describe 'Sign up', type: :request do
 
     it 'did not add user to the db' do
       expect do
-        post '/signup', params: { email: 'jasadas@dasd', password: '12345678' }
+        post '/api/v1/signup', params: { email: 'jasadas@dasd', password: '12345678' }
       end.to change { User.count }.by(0)
     end
   end

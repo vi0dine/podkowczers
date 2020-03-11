@@ -5,7 +5,7 @@ RSpec.describe 'Sign in', type: :request do
     let(:user) { create(:user) }
 
     context 'with correct credentials' do
-      before { post '/signin', params: {email: user.email, password: user.password} }
+      before { post '/api/v1/signin', params: {email: user.email, password: user.password} }
 
       it 'respond with code 200' do
         expect(response).to have_http_status(:ok)
@@ -21,7 +21,7 @@ RSpec.describe 'Sign in', type: :request do
     end
 
     context 'with incorrect password' do
-      before { post '/signin', params: { email: user.email, password: "#{user.password}asdasda" } }
+      before { post '/api/v1/signin', params: { email: user.email, password: "#{user.password}asdasda" } }
 
       it 'respond with code 404' do
         expect(response).to have_http_status(:not_found)
@@ -38,7 +38,7 @@ RSpec.describe 'Sign in', type: :request do
   end
 
   describe 'signing in user who does not exist' do
-    before { post '/signin', params: { email: 'asdasda@dsfsdfs.com', password: '12314345346456'} }
+    before { post '/api/v1/signin', params: { email: 'asdasda@dsfsdfs.com', password: '12314345346456'} }
 
     it 'respond with code 404' do
       expect(response).to have_http_status(:not_found)

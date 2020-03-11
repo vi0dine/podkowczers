@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  default_url_options host: 'http://51.178.16.104:4000'
+  # default_url_options host: 'http://51.178.16.104:4000'
 
   namespace :api do
     namespace :v1 do

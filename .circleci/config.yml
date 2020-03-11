@@ -5,8 +5,11 @@ jobs:
       - image: circleci/ruby:2.6.5-stretch-node
         environment:
           RAILS_ENV: test
+          REDIS_URL: redis://redis:6379/12
+          TICKETS_SECRET: f28ff3ec154055ab2c73f189af61e9bf12159836efc34f2e01bece85d66911ca 
           PGHOST: localhost
           PGUSER: postgres
+      - image: circleci/redis:rc-alpine3.11
       - image: postgres:9.5
         environment:
           POSTGRES_DB: podkowczers
