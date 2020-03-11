@@ -21,7 +21,13 @@ jobs:
       - run:
           name: 'Get dependencies'
           command: |
-                    sudo apt-get install -y wget && \
+                    sudo apt-get install -y wget xfonts-utils && \
+                    sudo wget http://mirrors.kernel.org/ubuntu/pool/main/x/xfonts-utils/xfonts-utils_7.7+3_amd64.deb -P /var/www/downloads && \
+                    sudo dpkg -i /var/www/downloads/xfonts-utils_7.7+3_amd64.deb && \
+                    sudo wget http://mirrors.kernel.org/ubuntu/pool/main/x/xfonts-base/xfonts-base_1.0.4+nmu1_all.deb -P /var/www/downloads && \
+                    sudo dpkg -i /var/www/downloads/xfonts-base_1.0.4+nmu1_all.deb && \
+                    sudo wget http://mirrors.kernel.org/ubuntu/pool/universe/x/xfonts-75dpi/xfonts-75dpi_1.0.4+nmu1_all.deb -P /var/www/downloads && \
+                    sudo dpkg -i /var/www/downloads/xfonts-75dpi_1.0.4+nmu1_all.deb && \
                     sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb -P /var/www && \
                     sudo dpkg -i  /var/www/wkhtmltox_0.12.5-1.stretch_amd64.deb
       - run: sudo gem update --system
