@@ -13,27 +13,22 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
     steps:
-      - checkout:
-          path: ~/podkowczers/backend
       - run: sudo gem update --system
       - run: sudo gem install bundler:2.0.2
       - run:
           name: Which bundler?
           command: bundle -v
       - run:
-          name: Check directory
-          command: sh -c ls
-      - run:
           name: Bundle Install
-          command: bundle check --path vendor/bundle || bundle install --deployment
+          command: cd ./backend && bundle install
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
-          command: bin/rails db:setup --trace
+          command: cd ./backend && bin/rails db:setup --trace
       - run: |
-          bundle exec rspec --profile 10 \
+          cd ./backend && bundle exec rspec --profile 10 \
                             --format RspecJunitFormatter \
                             --out test_results/rspec.xml \
                             --format progress \
