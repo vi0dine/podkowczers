@@ -5,8 +5,8 @@ jobs:
       - image: circleci/ruby:2.6.5-stretch-node
         environment:
           RAILS_ENV: test
-          REDIS_URL: redis://redis:6379/12
-          TICKETS_SECRET: f28ff3ec154055ab2c73f189af61e9bf12159836efc34f2e01bece85d66911ca 
+          REDIS_URL: redis://localhost:6397
+          TICKETS_SECRET: f28ff3ec154055ab2c73f189af61e9bf 
           PGHOST: localhost
           PGUSER: postgres
       - image: circleci/redis:rc-alpine3.11
@@ -18,6 +18,12 @@ jobs:
     steps:
       - checkout:
           path: ~/podkowczers
+      - run:
+          name: 'Get dependencies'
+          command: |
+                    apt-get install -y wget && \
+                    wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb -P /var/www" && \
+                    dpkg -i  /var/www/wkhtmltox_0.12.5-1.stretch_amd64.deb
       - run: sudo gem update --system
       - run: sudo gem install bundler:2.0.2
       - run:
