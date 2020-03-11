@@ -1,6 +1,6 @@
 jobs: 
   build: 
-    working_directory: ~/backend
+    working_directory: ~/podkowczers
     docker:
       - image: circleci/ruby:2.6.5-stretch-node
         environment:
@@ -14,7 +14,7 @@ jobs:
           POSTGRES_PASSWORD: password
     steps:
       - checkout:
-          path: ~/backend
+          path: ~/podkowczers/backend
       - run: sudo gem update --system
       - run: sudo gem install bundler:2.0.2
       - run:
@@ -25,7 +25,7 @@ jobs:
           command: sh -c ls
       - run:
           name: Bundle Install
-          command: bundle check --path ~/backend/vendor/bundle || bundle install --deployment
+          command: bundle check --path vendor/bundle || bundle install --deployment
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
