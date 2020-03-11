@@ -1,6 +1,6 @@
 jobs: 
   build: 
-    working_directory: ~/podkowczers
+    working_directory: ~/podkowczers/backend
     docker:
       - image: circleci/ruby:2.6.5-stretch-node
         environment:
@@ -13,6 +13,8 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
     steps:
+      - checkout:
+        path: ~/podkowczers
       - run: sudo gem update --system
       - run: sudo gem install bundler:2.0.2
       - run:
