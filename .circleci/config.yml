@@ -32,9 +32,9 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
-          command: bin/rails db:setup --trace
+          command: cd ./backend && bin/rails db:setup --trace
       - run: |
-          bundle exec rspec --profile 10 \
+          cd ./backend && bundle exec rspec --profile 10 \
                             --format RspecJunitFormatter \
                             --out test_results/rspec.xml \
                             --format progress \
