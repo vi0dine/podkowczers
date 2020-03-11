@@ -5,11 +5,10 @@ jobs:
       - image: circleci/ruby:2.6.5-stretch-node
         environment:
           RAILS_ENV: test
-          REDIS_URL: redis://localhost:6397
           TICKETS_SECRET: f28ff3ec154055ab2c73f189af61e9bf 
           PGHOST: localhost
           PGUSER: postgres
-      - image: circleci/redis:rc-alpine3.11
+      - image: redis
       - image: postgres:9.5
         environment:
           POSTGRES_DB: podkowczers
@@ -38,9 +37,9 @@ jobs:
       - run:
           name: Bundle Install
           command: bundle install
-      # - run:
-      #     name: Wait for Redis
-      #     command: dockerize -wait tcp://localhost:6397 -timeout 1m
+      - run:
+          name: Wait for Redis
+          command: dockerize -wait tcp://localhost:6379 -timeout 2m
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
