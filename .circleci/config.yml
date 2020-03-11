@@ -21,9 +21,9 @@ jobs:
       - run:
           name: 'Get dependencies'
           command: |
-                    apt-get install -y wget && \
-                    wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb -P /var/www && \
-                    dpkg -i  /var/www/wkhtmltox_0.12.5-1.stretch_amd64.deb
+                    sudo apt-get install -y wget && \
+                    sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb -P /var/www && \
+                    sudo dpkg -i  /var/www/wkhtmltox_0.12.5-1.stretch_amd64.deb
       - run: sudo gem update --system
       - run: sudo gem install bundler:2.0.2
       - run:
