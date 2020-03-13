@@ -19,6 +19,9 @@ RUN apt-get update -y
 
 WORKDIR /api
 COPY Gemfile /api/Gemfile
+
+RUN gem install bundler:2.0.2
 RUN bundle install --without development test
+
 ENV RAILS_ENV production
 RUN rails assets:precompile
