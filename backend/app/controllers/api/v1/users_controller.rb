@@ -1,59 +1,75 @@
 module Api
   module V1
-    class UsersController < ApplicationController
-      before_action :authorize_access_request!
-      before_action :admin?, only: %i[index]
+    class UsersController < Clearance::UsersController
+      before_action :doorkeeper_authorize!, except: [:create]
+      load_and_authorize_resource except: [:create]
 
-      def index
-        @users = User.all
-        render json: UserSerializer.new(@users).serializable_hash
+      api!
+      def index; end
+
+      def create
+        @user = user_from_params
+
+        if @user.save
+          sign_in(@user) do |status|
+            if status.success?
+              render 'api/v1/users/show'
+            end
+          end
+        else
+          render json: { errors: '' }, status: :unprocessable_entity
+        end
       end
 
-      def show
-        @user = current_user
-        render json: { user: { email: @user.email, coins: @user.coins_count, reservations: @user.user_reservations } }
-      end
+      api!
+      def show; end
 
+      api!
       def add_coin
-        @user = User.find(params[:user_id])
-        if @user.add_coins(1)
-          render json: {}, status: :created
-        else
-          render json: { error: @user.errors.full_messages.join(' ') }, status: :unprocessable_entity
-        end
-      end
-
-      def promote
-        @user = User.find(params[:user_id])
-        if @user.promote
-          render json: {}, status: :created
-        else
-          render json: { error: @user.errors.full_messages.join(' ') }, status: :unprocessable_entity
-        end
-      end
-
-      def demote
-        @user = User.find(params[:user_id])
-        if @user.demote
-          render json: {}, status: :created
-        else
-          render json: { error: @user.errors.full_messages.join(' ') }, status: :unprocessable_entity
-        end
-      end
-
-      def destroy
+        authorize! :add_coin, User
         @user = User.find(params[:id])
-        if @user.delete
-          render json: UserSerializer.new(@user).serializable_hash
+        if @user.add_coins(1)
+          render 'show'
         else
-          render json: { error: @user.errors.full_messages.join(' ') }, status: :unprocessable_entity
+          render json: {error: @user.errors.full_messages.join("\n")}, status: :unprocessable_entity
+        end
+      end
+
+      api!
+      def promote
+        authorize! :promote, User
+        @user = User.find(params[:id])
+        if @user.promote
+          render 'show'
+        else
+          render json: {error: @user.errors.full_messages.join(' ')}, status: :unprocessable_entity
+        end
+      end
+
+      api!
+      def demote
+        authorize! :demote, User
+        @user = User.find(params[:id])
+        if @user.demote
+          render 'show'
+        else
+          render json: {error: @user.errors.full_messages.join(' ')}, status: :unprocessable_entity
+        end
+      end
+
+      api!
+      def destroy
+        if @user.destroy
+          render 'show'
+        else
+          render json: {error: @user.errors.full_messages.join(' ')}, status: :unprocessable_entity
         end
       end
 
       private
 
       def user_params
-        params.require(:user).permit(%i[id user_id])
+        params.require(:user).permit(%i[id email password])
       end
     end
   end

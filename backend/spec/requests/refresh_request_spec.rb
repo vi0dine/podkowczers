@@ -5,9 +5,21 @@ RSpec.describe 'Refresh', type: :request do
     let(:user) { create(:user) }
 
     before do
-      post '/api/v1/signin', params: { email: user.email, password: user.password }
-      @old_token = json['csrf']
-      post '/api/v1/refresh', headers: { 'X-CSRF-TOKEN': @old_token }
+      post '/oauth/token', params: {
+          email: user.email,
+          password: user.password,
+          grant_type: 'password',
+          client_id: Doorkeeper::Application.last.uid,
+          client_secret: Doorkeeper::Application.last.secret
+      }
+      @refresh_token = json[:refresh_token]
+      @old_token = json[:access_token]
+      post '/oauth/token', params: {
+          grant_type: 'refresh_token',
+          refresh_token: @refresh_token,
+          client_id: Doorkeeper::Application.last.uid,
+          client_secret: Doorkeeper::Application.last.secret
+      }
     end
 
     it 'respond with code 200' do
@@ -18,12 +30,12 @@ RSpec.describe 'Refresh', type: :request do
       expect(response.content_type).to eq('application/json; charset=utf-8')
     end
 
-    it 'render csrf token' do
-      expect(json['csrf']).to_not be_empty
+    it 'render access token' do
+      expect(json[:access_token]).to_not be_empty
     end
 
     it 'render NEW csrf token' do
-      expect(json['csrf']).to_not eq(@old_token)
+      expect(json[:access_token]).to_not eq(@old_token)
     end
   end
 end

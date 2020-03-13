@@ -21,6 +21,12 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
+    Doorkeeper::Application.create(
+        name: 'Test App',
+        scopes: "read write",
+        confidential: false,
+        redirect_uri: "urn:ietf:wg:oauth:2.0:oob"
+    )
   end
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction

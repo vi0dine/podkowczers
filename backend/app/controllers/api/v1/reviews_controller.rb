@@ -10,12 +10,14 @@ module Api
       end
       before_action :set_review, only: %i[update destroy]
 
+      api!
       def index
         @reviews = Review.all
 
         render json: ReviewSerializer.new(@reviews).serializable_hash
       end
 
+      api!
       def create
         @event = Event.find(params[:event_id])
         @review = @event.reviews.new(review_params)
@@ -28,6 +30,7 @@ module Api
         end
       end
 
+      api!
       def update
         if @review.update(review_params)
           render json: ReviewSerializer.new(@review).serializable_hash, status: :ok
@@ -36,6 +39,7 @@ module Api
         end
       end
 
+      api!
       def destroy
         if @review.delete
           render json: ReviewSerializer.new(@review).serializable_hash, status: :ok

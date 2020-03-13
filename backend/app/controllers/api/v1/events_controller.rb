@@ -3,42 +3,41 @@
 module Api
   module V1
     class EventsController < ApplicationController
-      before_action :authorize_access_request!, only: %i[create update destroy]
-      before_action :admin?, only: %i[create update destroy]
-      before_action :set_event, only: %i[show update destroy]
+      before_action :doorkeeper_authorize!
+      load_and_authorize_resource except: [:create]
 
-      def index
-        @events = Event.all
-        render json: EventSerializer.new(@events).serializable_hash
-      end
+      api!
+      def index; end
 
-      def show
-        options = { include: [:tickets] }
-        render json: EventSerializer.new(@event, options).serializable_hash
-      end
+      api!
+      def show; end
 
+      api!
       def create
         @concert = Concert.find(params[:concert_id])
         @event = @concert.events.new(event_params)
 
+        authorize! :create, Event
         if @event.save
-          render json: EventSerializer.new(@event).serializable_hash, status: :created
+          render 'create', status: :created
         else
           render json: { error: @event.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
       end
 
+      api!
       def update
         if @event.update(event_params)
-          render json: EventSerializer.new(@event).serializable_hash, status: :ok
+          render 'create', status: :ok
         else
           render json: { error: @event.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
       end
 
+      api!
       def destroy
-        if @event.delete
-          render json: { message: 'Successfully deleted event' }, status: :no_content
+        if @event.destroy
+          render 'destroy'
         else
           render json: { error: @event.errors.full_messages.join(' ') }, status: :unprocessable_entity
         end
@@ -48,10 +47,6 @@ module Api
 
       def event_params
         params.require(:event).permit(:place, :starts_at, :estimated_length)
-      end
-
-      def set_event
-        @event = Event.find(params[:id])
       end
     end
   end

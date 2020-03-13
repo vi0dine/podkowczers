@@ -1,26 +1,13 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  include JWTSessions::RailsAuthorization
-  rescue_from JWTSessions::Errors::Unauthorized, with: :not_authorized
+  include Clearance::Controller
 
-  private
+  rescue_from CanCan::AccessDenied do |exception|
+    render json: {error: 'Nie masz uprawnień do tej akcji.'}, status: :forbidden
+  end
 
   def current_user
-    @current_user ||= User.find(payload['user_id'])
-  end
-
-  def admin?
-    unless current_user.role == 'admin'
-      head(401)
-    end
-  end
-
-  def owner_or_admin?(object)
-    head(401) unless (current_user == object.find(params[:id]).user || current_user.role == 'admin')
-  end
-
-  def not_authorized
-    render json: { error: 'Musisz być zalogowany' }, status: :unauthorized
+    @current_user ||= User.find(doorkeeper_token[:resource_owner_id])
   end
 end

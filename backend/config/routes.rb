@@ -1,15 +1,28 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # default_url_options host: 'http://51.178.16.104:4000'
+  resources :passwords, controller: "clearance/passwords", only: [:create, :new]
+  resource :session, controller: "clearance/sessions", only: [:create]
 
-  namespace :api do
+  get "/sign_in", controller: "api/v1/users", action: :new, as: "sign_in"
+  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+
+  use_doorkeeper
+  apipie
+
+  namespace :api, constraints: { format: 'json' } do
     namespace :v1 do
-      resources :users, only: %i[index show destroy] do
+      resources :users do
+        get '/login', controller: :sessions, action: :create
         post '/coin', controller: :users, action: :add_coin
         post '/promote', controller: :users, action: :promote
         post '/demote', controller: :users, action: :demote
+        resource :password,
+                 controller: "clearance/passwords",
+                 only: [:edit, :update]
       end
+
+
       resources :posts, only: %i[index show create update destroy]
       resources :comments, only: %i[index create destroy]
       resources :reviews, only: %i[index create update destroy]
@@ -18,10 +31,6 @@ Rails.application.routes.draw do
       resources :tickets, only: %i[index destroy]
 
       post :tickets, controller: :tickets, action: :reserve, as: 'reserve_tickets'
-      post '/signup', controller: :sign_up, action: :create
-      post '/signin', controller: :sign_in, action: :create
-      post '/refresh', controller: :refresh, action: :create
-      delete '/signout', controller: :sign_in, action: :destroy
     end
   end
 end

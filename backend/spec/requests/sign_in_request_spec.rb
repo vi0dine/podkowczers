@@ -5,7 +5,13 @@ RSpec.describe 'Sign in', type: :request do
     let(:user) { create(:user) }
 
     context 'with correct credentials' do
-      before { post '/api/v1/signin', params: {email: user.email, password: user.password} }
+      before { post '/oauth/token', params: {
+          email: user.email,
+          password: user.password,
+          grant_type: 'password',
+          client_id: Doorkeeper::Application.last.uid,
+          client_secret: Doorkeeper::Application.last.secret
+      } }
 
       it 'respond with code 200' do
         expect(response).to have_http_status(:ok)
@@ -15,16 +21,24 @@ RSpec.describe 'Sign in', type: :request do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
 
-      it 'render csrf token' do
-        expect(json['csrf']).to_not be_empty
+      it 'render response with access token' do
+        expect(json[:access_token]).to_not be_empty
+        expect(json[:email]).to eq(user.email)
+        expect(json[:role]).to eq(user.role)
       end
     end
 
     context 'with incorrect password' do
-      before { post '/api/v1/signin', params: { email: user.email, password: "#{user.password}asdasda" } }
+      before { post '/oauth/token', params: {
+          email: user.email,
+          password: user.password+"ssdfsdfsdf",
+          grant_type: 'password',
+          client_id: Doorkeeper::Application.last.uid,
+          client_secret: Doorkeeper::Application.last.secret
+      } }
 
-      it 'respond with code 404' do
-        expect(response).to have_http_status(:not_found)
+      it 'respond with code 401' do
+        expect(response).to have_http_status(:unauthorized)
       end
 
       it 'respond with JSON' do
@@ -32,16 +46,23 @@ RSpec.describe 'Sign in', type: :request do
       end
 
       it 'render errors' do
-        expect(json['error']).to eq('Nie znaleziono użytkownika o takich danych.')
+        $stderr.puts json
+        expect(json[:message]).to eq('Błędne dane logowania')
       end
     end
   end
 
   describe 'signing in user who does not exist' do
-    before { post '/api/v1/signin', params: { email: 'asdasda@dsfsdfs.com', password: '12314345346456'} }
+    before { post '/oauth/token', params: {
+        email: "fsdfsdfsdfsdf",
+        password: "sdfsdsdfsdfsd",
+        grant_type: 'password',
+        client_id: Doorkeeper::Application.last.uid,
+        client_secret: Doorkeeper::Application.last.secret
+    } }
 
-    it 'respond with code 404' do
-      expect(response).to have_http_status(:not_found)
+    it 'respond with code 401' do
+      expect(response).to have_http_status(:unauthorized)
     end
 
     it 'respond with JSON' do
@@ -49,7 +70,7 @@ RSpec.describe 'Sign in', type: :request do
     end
 
     it 'render errors' do
-      expect(json['error']).to eq('Nie znaleziono użytkownika o takich danych.')
+      expect(json[:message]).to eq('Błędne dane logowania')
     end
   end
 end

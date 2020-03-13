@@ -22,9 +22,11 @@ Bundler.require(*Rails.groups)
 module Podkowczers
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.autoload_paths << "#{Rails.root}/lib"
     config.load_defaults 6.0
     config.active_job.queue_adapter = :sidekiq
     config.action_mailer.asset_host = 'http://epodkowczers.pl'
+    config.action_mailer.default_url_options = { host: 'localhost:3000' }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

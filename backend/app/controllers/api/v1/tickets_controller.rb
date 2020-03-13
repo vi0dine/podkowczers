@@ -3,14 +3,13 @@
 module Api
   module V1
     class TicketsController < ApplicationController
-      before_action :authorize_access_request!
-      before_action :admin?, only: [:index]
-
+      api!
       def index
         @tickets = Ticket.all
         render json: TicketSerializer.new(@tickets).serializable_hash
       end
 
+      api!
       def reserve
         result = TicketReservation::MakeTicketsReservation.call(tickets_ids: params[:tickets], user: current_user)
         if result.success?
@@ -20,6 +19,7 @@ module Api
         end
       end
 
+      api!
       def destroy
         @ticket = Ticket.find(params[:id])
         if @ticket.delete

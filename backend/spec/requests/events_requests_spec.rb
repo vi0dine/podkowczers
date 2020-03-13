@@ -2,10 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'Events', type: :request do
   describe 'request list of all events' do
+    let(:user) { create(:user) }
+    let(:token) { get_access_token(user) }
     let!(:events) { create_list(:event, 2) }
 
     before {
-      get '/api/v1/events'
+      get '/api/v1/events', headers: {
+          "Authorization": "Bearer #{token}"
+      }
     }
 
     it 'respond with code 200' do
@@ -17,17 +21,21 @@ RSpec.describe 'Events', type: :request do
     end
 
     it 'render all events data' do
-      expect(json['data'].size).to eq(2)
+      expect(json[:events].size).to eq(2)
     end
   end
 
   describe 'request single event data' do
+    let(:user) { create(:user) }
+    let(:token) { get_access_token(user) }
     let!(:events) { create_list(:event, 2, :with_tickets) }
     let(:event_id) { events.last.id }
 
     before {
       Event.find(event_id).tickets.first.update(reserved: true)
-      get "/api/v1/events/#{event_id}"
+      get "/api/v1/events/#{event_id}", headers: {
+          "Authorization": "Bearer #{token}"
+      }
     }
 
     it 'respond with code 200' do
@@ -39,19 +47,19 @@ RSpec.describe 'Events', type: :request do
     end
 
     it 'render event data by given id' do
-      expect(json['data']['id'].to_i).to eq(event_id)
+      expect(json[:event][:id].to_i).to eq(event_id)
     end
 
     it 'render all tickets' do
-      expect(json['data']['relationships']['tickets']['data'].size).to eq(20)
+      expect(json[:event][:tickets].size).to eq(20)
     end
 
     it 'render place info' do
-      expect(json['data']['attributes']['place']).to_not be_empty
+      expect(json[:event][:place]).to_not be_empty
     end
 
     it 'render datetime info' do
-      expect(json['data']['attributes']['starts_at']).to_not be_empty
+      expect(json[:event][:starts_at]).to_not be_empty
     end
   end
 
@@ -61,12 +69,12 @@ RSpec.describe 'Events', type: :request do
 
     context 'as an admin' do
       let(:admin) { create(:user, :admin) }
+      let(:token) { get_access_token(admin) }
 
       before {
-        @tokens = session(admin)
-        cookies[JWTSessions.access_cookie] = @tokens[:access]
-        post '/api/v1/events', params: { event: event, concert_id: concert.id },
-                               headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        post '/api/v1/events', params: { event: event, concert_id: concert.id }, headers: {
+            "Authorization": "Bearer #{token}"
+        }
       }
 
       it 'respond with code 201' do
@@ -78,46 +86,48 @@ RSpec.describe 'Events', type: :request do
       end
 
       it 'render new event data' do
-        expect(json['data']).to_not be_empty
+        expect(json[:event]).to_not be_empty
       end
 
       let(:another_event) { attributes_for(:event) }
 
       it 'add new event to db' do
         expect do
-          post '/api/v1/events', params: { event: another_event, concert_id: concert.id },
-                                 headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+          post '/api/v1/events', params: { event: event, concert_id: concert.id }, headers: {
+              "Authorization": "Bearer #{token}"
+          }
         end .to change { Event.all.count }.by(1)
       end
     end
 
     context 'as a logged user (not admin)' do
       let(:user) { create(:user) }
+      let(:token) { get_access_token(user) }
 
       before {
-        @tokens = session(user)
-        cookies[JWTSessions.access_cookie] = @tokens[:access]
-        post '/api/v1/events', params: { event: event, concert_id: concert.id },
-                               headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        post '/api/v1/events', params: { event: event, concert_id: concert.id }, headers: {
+            "Authorization": "Bearer #{token}"
+        }
       }
 
-      it 'respond with code 401' do
-        expect(response).to have_http_status(:unauthorized)
+      it 'respond with code 403' do
+        expect(response).to have_http_status(:forbidden)
       end
 
       let(:another_event) { attributes_for(:event) }
 
       it 'did not add new event to db' do
         expect do
-          post '/api/v1/events', params: { event: another_event, concert_id: concert.id },
-                                 headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+          post '/api/v1/events', params: { event: event, concert_id: concert.id }, headers: {
+              "Authorization": "Bearer #{token}"
+          }
         end .to change { Event.all.count }.by(0)
       end
     end
 
     context 'as a quest' do
       before {
-        post '/api/v1/events', params: { event: event }
+        post '/api/v1/events', params: { event: event, concert_id: concert.id }
       }
 
       it 'respond with code 401' do
@@ -139,24 +149,25 @@ RSpec.describe 'Events', type: :request do
       let(:events) { create_list(:event, 3) }
       let(:event_id) { events.first.id }
       let(:admin) { create(:user, :admin) }
+      let(:token) { get_access_token(admin) }
 
       before {
-        @tokens = session(admin)
-        cookies[JWTSessions.access_cookie] = @tokens[:access]
-        delete "/api/v1/events/#{event_id}",
-               headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        delete "/api/v1/events/#{event_id}", headers: {
+            "Authorization": "Bearer #{token}"
+        }
       }
 
-      it 'respond with code 204' do
-        expect(response).to have_http_status(:no_content)
+      it 'respond with code 200' do
+        expect(response).to have_http_status(:ok)
       end
 
       let(:another_event_id) { events.last.id }
 
       it 'deletes event from db' do
         expect do
-          delete "/api/v1/events/#{another_event_id}",
-                 headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+          delete "/api/v1/events/#{another_event_id}", headers: {
+              "Authorization": "Bearer #{token}"
+          }
         end .to change { Event.all.count }.by(-1)
       end
     end
@@ -165,24 +176,25 @@ RSpec.describe 'Events', type: :request do
       let(:events) { create_list(:event, 3) }
       let(:event_id) { events.first.id }
       let(:user) { create(:user) }
+      let(:token) { get_access_token(user) }
 
       before {
-        @tokens = session(user)
-        cookies[JWTSessions.access_cookie] = @tokens[:access]
-        delete "/api/v1/events/#{event_id}",
-               headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        delete "/api/v1/events/#{event_id}", headers: {
+            "Authorization": "Bearer #{token}"
+        }
       }
 
-      it 'respond with code 401' do
-        expect(response).to have_http_status(:unauthorized)
+      it 'respond with code 403' do
+        expect(response).to have_http_status(:forbidden)
       end
 
       let(:another_event_id) { events.last.id }
 
       it 'did not deletes event from db' do
         expect do
-          delete "/api/v1/events/#{another_event_id}",
-                 headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+          delete "/api/v1/events/#{another_event_id}", headers: {
+              "Authorization": "Bearer #{token}"
+          }
         end .to change { Event.all.count }.by(0)
       end
     end
@@ -213,14 +225,14 @@ RSpec.describe 'Events', type: :request do
     context 'as an admin' do
       let(:event) { create(:event, :with_tickets) }
       let(:event_id) { event.id }
-      let(:event_updates) { attributes_for(:event) }
+      let(:event_updates) { {event: attributes_for(:event)} }
       let(:admin) { create(:user, :admin) }
+      let(:token) { get_access_token(admin) }
 
       before {
-        @tokens = session(admin)
-        cookies[JWTSessions.access_cookie] = @tokens[:access]
-        patch "/api/v1/events/#{event_id}", params: { event: event_updates },
-                                            headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        patch "/api/v1/events/#{event_id}", params: event_updates, headers: {
+            "Authorization": "Bearer #{token}"
+        }
       }
 
       it 'respond with code 200' do
@@ -228,19 +240,7 @@ RSpec.describe 'Events', type: :request do
       end
 
       it 'render updated event data' do
-        expect(json['data']).to_not be_empty
-      end
-
-      let(:another_event) { create(:event, :with_tickets) }
-      let(:another_event_id) { another_event.id }
-      let(:another_event_updates) { attributes_for(:event) }
-
-      it 'updates event in db' do
-        expect do
-        patch "/api/v1/events/#{another_event_id}", params: { event: another_event_updates },
-                                            headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
-        end .to change { Event.find(another_event_id).place }
-          .from(another_event.place).to(another_event_updates[:place])
+        expect(json[:event]).to_not be_empty
       end
     end
 
@@ -249,16 +249,16 @@ RSpec.describe 'Events', type: :request do
       let(:event_id) { event.id }
       let(:event_updates) { attributes_for(:event) }
       let(:user) { create(:user) }
+      let(:token) { get_access_token(user) }
 
       before {
-        @tokens = session(user)
-        cookies[JWTSessions.access_cookie] = @tokens[:access]
-        patch "/api/v1/events/#{event_id}", params: { event: event_updates },
-                                            headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+        patch "/api/v1/events/#{event_id}", params: { event: event_updates }, headers: {
+            "Authorization": "Bearer #{token}"
+        }
       }
 
-      it 'respond with code 401' do
-        expect(response).to have_http_status(:unauthorized)
+      it 'respond with code 403' do
+        expect(response).to have_http_status(:forbidden)
       end
 
       let(:another_event) { create(:event, :with_tickets) }
@@ -267,8 +267,9 @@ RSpec.describe 'Events', type: :request do
 
       it 'does not update event in db' do
         expect do
-          patch "/api/v1/events/#{another_event_id}", params: { event: another_event_updates },
-                                                      headers: { JWTSessions.csrf_header.to_s => @tokens[:csrf].to_s }
+          patch "/api/v1/events/#{another_event_id}", params: { event: another_event_updates }, headers: {
+              "Authorization": "Bearer #{token}"
+          }
         end .to_not change { Event.find(another_event_id).place }
       end
     end

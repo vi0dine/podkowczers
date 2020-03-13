@@ -7,16 +7,19 @@ module Api
       before_action :admin?, only: %i[create update destroy]
       before_action :set_post, only: %i[show update destroy]
 
+      api!
       def index
         @posts = Post.all
 
         render json: PostSerializer.new(@posts).serializable_hash, status: :ok
       end
 
+      api!
       def show
         render json: PostSerializer.new(@post).serializable_hash, status: :ok
       end
 
+      api!
       def create
         @post = current_user.posts.new(post_params)
 
@@ -27,6 +30,7 @@ module Api
         end
       end
 
+      api!
       def update
         if @post.update(post_params)
           render json: PostSerializer.new(@post).serializable_hash, status: :ok
@@ -35,6 +39,7 @@ module Api
         end
       end
 
+      api!
       def destroy
         if @post.destroy
           render json: { message: 'Successfully deleted event' }, status: :no_content

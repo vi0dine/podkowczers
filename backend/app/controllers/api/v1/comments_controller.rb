@@ -9,12 +9,14 @@ module Api
       end
       before_action :set_post, only: %i[index create]
 
+      api!
       def index
         @comments = @post.comments
 
         render json: CommentSerializer.new(@comments).serializable_hash, status: :ok
       end
 
+      api!
       def create
         @comment = @post.comments.new(comment_params)
         @comment.user = current_user
@@ -26,6 +28,7 @@ module Api
         end
       end
 
+      api!
       def destroy
         @comment = Comment.find(params[:id])
 
