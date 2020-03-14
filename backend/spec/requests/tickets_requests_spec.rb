@@ -23,7 +23,6 @@ RSpec.describe 'Tickets', type: :request do
       end
 
       it 'render all tickets data' do
-        warn response.body
         expect(json[:tickets].size).to eq(50)
       end
     end

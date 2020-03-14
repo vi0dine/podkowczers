@@ -1,19 +1,39 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import * as Font from 'expo-font';
+import {Provider} from "react-redux";
+import {PersistGate} from "redux-persist/integration/react";
+import {persistor, store} from "./redux/store";
+import {setupAxios} from "./config/axios";
+import {NavigationContainer} from "@react-navigation/native";
+import RootStack from "./navigator";
+import moment from "moment";
+import localization from 'moment/locale/pl';
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+  const [ready, setReady] = useState(false);
+
+  const loadFonts = async () => {
+    moment.updateLocale('pl', localization);
+    await Font.loadAsync({
+      'Alata Regular': require('./assets/Alata-Regular.ttf'),
+    })
+  };
+
+  useEffect(() => {
+    setupAxios();
+    loadFonts().then(() => {
+      setReady(true)
+    })
+  }, []);
+
+  return ready && (
+        <NavigationContainer>
+            <Provider store={store}>
+              <PersistGate persistor={persistor} loading={null}>
+                <RootStack/>
+              </PersistGate>
+            </Provider>
+        </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

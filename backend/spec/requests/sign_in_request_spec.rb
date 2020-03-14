@@ -46,7 +46,6 @@ RSpec.describe 'Sign in', type: :request do
       end
 
       it 'render errors' do
-        $stderr.puts json
         expect(json[:message]).to eq('Błędne dane logowania')
       end
     end

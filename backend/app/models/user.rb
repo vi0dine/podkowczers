@@ -81,7 +81,7 @@ class User < ApplicationRecord
   def user_reservations
     links = []
     reservations.blobs.sort_by { |reservation | reservation.created_at }.reverse.each do |reservation|
-      links << { date: reservation.created_at, link: polymorphic_url(reservation) }
+      links << { date: reservation.created_at, link: polymorphic_url(reservation, only_path: true) }
     end
     links
   end
