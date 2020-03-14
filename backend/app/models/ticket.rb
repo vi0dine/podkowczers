@@ -27,21 +27,21 @@ class Ticket < ApplicationRecord
   def mark_as_reserved
     with_lock do
       self.reserved = true
-      self.save!
+      save!
     end
   end
 
   def mark_as_free
     with_lock do
       self.reserved = false
-      self.save!
+      save!
     end
   end
 
   def mark_as_mailed
     with_lock do
       self.mailed = true
-      self.save!
+      save!
     end
   end
 end

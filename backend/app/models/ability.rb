@@ -7,7 +7,11 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can :read, :all
+      can :read, Event
+      can :read, Concert
+      can :read, Ticket, reserved: false
+      can :reserve, Ticket, reserved: false
+      can :return, Ticket, user_id: user.id
     end
   end
 end

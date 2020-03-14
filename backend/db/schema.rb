@@ -148,6 +148,8 @@ ActiveRecord::Schema.define(version: 2020_03_13_130245) do
     t.integer "seat"
     t.boolean "reserved", default: false
     t.boolean "mailed", default: false
+    t.string "hashed_data"
+    t.json "qr_code"
     t.bigint "user_id"
     t.bigint "event_id"
     t.datetime "created_at", precision: 6, null: false
@@ -159,7 +161,6 @@ ActiveRecord::Schema.define(version: 2020_03_13_130245) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "password_digest"
     t.integer "role", default: 0
     t.integer "coins_count", default: 0
     t.datetime "created_at", precision: 6, null: false

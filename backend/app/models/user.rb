@@ -46,9 +46,20 @@ class User < ApplicationRecord
   def dissociate_ticket(ticket)
     tickets.delete(ticket)
   end
+  
+  def return_ticket(ticket)
+    with_lock do
+      dissociate_ticket(ticket)
+      ticket.update(reserved: false, mailed: false)
+      # ticket.revoke_qr TODO: QR in database
+      add_coins(1)
+      save!
+    end
+  end
 
   def add_coins(amount)
-    self.coins_count += amount
+    update(coins_count: self.coins_count += amount)
+    save!
   end
 
   def decrement_coins_count

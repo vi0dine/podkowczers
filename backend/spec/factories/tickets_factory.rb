@@ -7,6 +7,7 @@ FactoryBot.define do
     seat { Faker::Number.between(from: 1, to: 99) }
     reserved { false }
     mailed { false }
+    qr_code { nil }
     user { nil }
     event
 

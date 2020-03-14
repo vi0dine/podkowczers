@@ -22,17 +22,22 @@ RSpec.describe TicketReservation::GenerateQrCode do
       end
 
       it 'adds qr code from hashed reservation to requested_tickets hash' do
-        pending('Fix it...')
         expect(context.requested_tickets)
           .to include(ticket: req_tickets[0][:ticket],
                       hash: req_tickets[0][:hash],
-                      qr_code: RQRCode::QRCode.new(req_tickets[0][:hash]).as_png(size: 220))
+                      qr_code: RQRCode::QRCode.new(
+                          "S#{req_tickets[0][:ticket][:sector]}/R#{req_tickets[0][:ticket][:row]}/St#{req_tickets[0][:ticket][:seat]}/H#{req_tickets[0][:hash]}"
+                      ).as_png(size: 220))
           .and include(ticket: req_tickets[1][:ticket],
                        hash: req_tickets[1][:hash],
-                       qr_code: RQRCode::QRCode.new(req_tickets[1][:hash]).as_png(size: 220))
+                       qr_code: RQRCode::QRCode.new(
+                           "S#{req_tickets[1][:ticket][:sector]}/R#{req_tickets[1][:ticket][:row]}/St#{req_tickets[1][:ticket][:seat]}/H#{req_tickets[1][:hash]}"
+                       ).as_png(size: 220))
           .and include(ticket: req_tickets[2][:ticket],
                        hash: req_tickets[2][:hash],
-                       qr_code: RQRCode::QRCode.new(req_tickets[2][:hash]).as_png(size: 220))
+                       qr_code: RQRCode::QRCode.new(
+                           "S#{req_tickets[2][:ticket][:sector]}/R#{req_tickets[2][:ticket][:row]}/St#{req_tickets[2][:ticket][:seat]}/H#{req_tickets[2][:hash]}"
+                       ).as_png(size: 220))
       end
     end
 

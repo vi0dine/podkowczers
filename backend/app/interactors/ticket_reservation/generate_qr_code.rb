@@ -10,7 +10,12 @@ module TicketReservation
           raise StandardError
         end
 
-        record.merge!(qr_code: RQRCode::QRCode.new("#{record[:ticket].inspect}/n#{record[:hash]}").as_png(size: 220))
+        qr_code = RQRCode::QRCode.new(
+            "S#{record[:ticket][:sector]}/R#{record[:ticket][:row]}/St#{record[:ticket][:seat]}/H#{record[:hash]}"
+        ).as_png(size: 220)
+
+        record.merge!(qr_code: qr_code)
+        record[:ticket].update(qr_code: Base64.encode64(qr_code.to_s))
       rescue
         context.fail!(message: 'Coś poszło nie tak. Spróbuj ponownie.')
       end

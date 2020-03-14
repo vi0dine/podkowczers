@@ -18,9 +18,9 @@ RSpec.describe TicketReservation::EncryptReservation do
 
       it 'adds hash key with hashed reservation to requested_tickets hash' do
         expect(context.requested_tickets)
-          .to include(ticket: req_tickets[0][:ticket], hash: signing_key.sign(req_tickets[0][:ticket].event_id.to_s))
-          .and include(ticket: req_tickets[1][:ticket], hash: signing_key.sign(req_tickets[1][:ticket].event_id.to_s))
-          .and include(ticket: req_tickets[2][:ticket], hash: signing_key.sign(req_tickets[2][:ticket].event_id.to_s))
+          .to include(ticket: req_tickets[0][:ticket], hash: signing_key.sign(req_tickets[0][:ticket].event_id.to_s).force_encoding('utf-8'))
+          .and include(ticket: req_tickets[1][:ticket], hash: signing_key.sign(req_tickets[1][:ticket].event_id.to_s).force_encoding('utf-8'))
+          .and include(ticket: req_tickets[2][:ticket], hash: signing_key.sign(req_tickets[2][:ticket].event_id.to_s).force_encoding('utf-8'))
       end
     end
 

@@ -23,12 +23,15 @@ Rails.application.routes.draw do
       end
 
 
-      resources :posts, only: %i[index show create update destroy]
-      resources :comments, only: %i[index create destroy]
+      resources :posts, only: %i[index show create update destroy] do
+        resources :comments, only: %i[index show create destroy]
+      end
       resources :reviews, only: %i[index create update destroy]
       resources :concerts, only: %i[index show create update destroy]
       resources :events, only: %i[index show create update destroy]
-      resources :tickets, only: %i[index destroy]
+      resources :tickets, only: %i[index destroy] do
+        post 'return', controller: :tickets, action: :return
+      end
 
       post :tickets, controller: :tickets, action: :reserve, as: 'reserve_tickets'
     end

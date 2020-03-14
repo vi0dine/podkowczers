@@ -6,6 +6,7 @@ class CreateTickets < ActiveRecord::Migration[6.0]
       t.integer :seat
       t.boolean :reserved, default: false
       t.boolean :mailed, default: false
+      t.string :qr_code
       t.belongs_to :user
       t.belongs_to :event
       t.timestamps
