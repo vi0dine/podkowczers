@@ -3,7 +3,7 @@
 class Event < ApplicationRecord
   belongs_to :concert
   has_many :reviews
-  has_many :tickets
+  has_many :tickets, dependent: :destroy
 
   validates :place,
             presence: true,
@@ -14,6 +14,9 @@ class Event < ApplicationRecord
             presence: true,
             numericality: { only_integers: true,
                             greater_than_or_equal_to: 900 }
+  validates :concert_id,
+            presence: true
+
   def available_tickets_count
     tickets.where(reserved: false).size
   end

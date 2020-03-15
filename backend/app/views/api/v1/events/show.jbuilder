@@ -1,6 +1,8 @@
 json.event do
   json.id @event.id
+  json.images @event.concert.photos_paths
   json.concert @event.concert.name
+  json.description @event.concert.description
   json.place @event.place
   json.starts_at @event.starts_at
   json.estimated_length @event.estimated_length

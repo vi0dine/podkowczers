@@ -8,15 +8,11 @@ const TicketScreen = ({route}) => {
     const id = route.params.id;
     const ticket = useSelector(state => state.UserState.tickets.find(ticket => ticket.id === id));
 
-    useEffect(() => {
-        console.log(ticket)
-    });
-
     return (
         <Container style={TicketScreenStyles.mainContainer}>
             <Content contentContainerStyle={TicketScreenStyles.content}>
                 <View style={TicketScreenStyles.qrCodeContainer}>
-                    <Image style={TicketScreenStyles.qrCode} source={{uri: `${ticket.code}`}} />
+                    <Image style={TicketScreenStyles.qrCode} source={{uri: `data:image/png;base64,${ticket.code}`}} />
                 </View>
                 <View style={TicketScreenStyles.infoContainer}>
                     <View style={TicketScreenStyles.concertContainer}>

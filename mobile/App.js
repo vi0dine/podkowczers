@@ -7,6 +7,7 @@ import {setupAxios} from "./config/axios";
 import {NavigationContainer} from "@react-navigation/native";
 import RootStack from "./navigator";
 import moment from "moment";
+import {Root} from "native-base";
 import localization from 'moment/locale/pl';
 
 
@@ -28,12 +29,14 @@ export default function App() {
   }, []);
 
   return ready && (
+      <Root>
         <NavigationContainer>
-            <Provider store={store}>
-              <PersistGate persistor={persistor} loading={null}>
-                <RootStack/>
-              </PersistGate>
-            </Provider>
+          <Provider store={store}>
+            <PersistGate persistor={persistor} loading={null}>
+              <RootStack/>
+            </PersistGate>
+          </Provider>
         </NavigationContainer>
+      </Root>
   );
 }

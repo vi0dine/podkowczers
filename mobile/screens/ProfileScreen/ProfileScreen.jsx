@@ -38,7 +38,7 @@ const ProfileScreen = () => {
                     </View>
                     {
                         user.tickets.map(ticket => (
-                            <TicketItem ticket={ticket} />
+                            <TicketItem key={ticket.id} ticket={ticket} />
                         ))
                     }
                 </View>

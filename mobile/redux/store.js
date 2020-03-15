@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import { AsyncStorage } from "react-native";
 import rootReducer from "./rootReducer";
 import {watchUserSaga} from "./Users/Users.sagas";
+import {watchEventsSaga} from "./Events/Events.sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -18,3 +19,4 @@ export const store = createStore(persistedReducer, applyMiddleware(sagaMiddlewar
 export const persistor = persistStore(store);
 
 sagaMiddleware.run(watchUserSaga);
+sagaMiddleware.run(watchEventsSaga);

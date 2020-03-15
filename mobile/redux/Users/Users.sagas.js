@@ -34,7 +34,6 @@ function* getUserData(action) {
             url: `/api/v1/users/${action.id}`,
             method: 'GET'
         }));
-        console.log(data);
         yield put(fetchUserSuccess(data.user));
     } catch (error) {
         yield put(fetchUserFail(error))

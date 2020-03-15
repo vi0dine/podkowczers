@@ -10,6 +10,8 @@ import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import {MAIN_FONT} from "./variables";
 import {Dimensions} from "react-native-web";
 import TicketScreen from "./screens/TicketScreen/TicketScreen";
+import EventScreen from "./screens/EventScreen/EventScreen";
+import ReservationScreen from "./screens/ReservationScreen/ReservationScreen";
 
 const HomeStack = createStackNavigator();
 
@@ -29,8 +31,29 @@ function EventsStackScreen() {
     return (
         <EventsStack.Navigator
             headerMode={'none'}
+            mode={'modal'}
         >
-            <EventsStack.Screen name="Wydarzenia" component={EventsScreen} />
+            <EventsStack.Screen
+                name="Wydarzenia"
+                component={EventsScreen}
+                options={{
+                    unmountOnBlur: true
+                }}
+            />
+            <EventsStack.Screen
+                name="Event"
+                component={EventScreen}
+                options={{
+                    unmountOnBlur: true
+                }}
+            />
+            <EventsStack.Screen
+                name="Reserve"
+                component={ReservationScreen}
+                options={{
+                    unmountOnBlur: true
+                }}
+            />
         </EventsStack.Navigator>
     );
 }
@@ -54,6 +77,7 @@ function ProfileStackScreen() {
         <ProfileStack.Navigator
             headerMode={'none'}
             mode={"modal"}
+            unmountInactiveRoutes={true}
         >
             <ProfileStack.Screen name="Profil" component={ProfileScreen} />
             <ProfileStack.Screen
@@ -123,10 +147,25 @@ const MainStack = () => {
                 inactiveTintColor: 'rgba(152,68,71,0.40)',
             }}
         >
-            <Tab.Screen name="Home" component={HomeStackScreen} />
-            <Tab.Screen name="Wydarzenia" component={EventsStackScreen} />
-            <Tab.Screen name="Koncerty" component={ConcertsStackScreen} />
-            <Tab.Screen name="Profil" component={ProfileStackScreen} />
+            <Tab.Screen
+                name="Home"
+                component={HomeStackScreen}
+            />
+            <Tab.Screen
+                name="Wydarzenia"
+                component={EventsStackScreen}
+            />
+            <Tab.Screen
+                name="Koncerty"
+                component={ConcertsStackScreen}
+            />
+            <Tab.Screen
+                name="Profil"
+                component={ProfileStackScreen}
+                options={{
+                    unmountOnBlur: true
+                }}
+            />
         </Tab.Navigator>
     );
 };

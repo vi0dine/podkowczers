@@ -27,17 +27,17 @@ RSpec.describe TicketReservation::GenerateQrCode do
                       hash: req_tickets[0][:hash],
                       qr_code: RQRCode::QRCode.new(
                           "S#{req_tickets[0][:ticket][:sector]}/R#{req_tickets[0][:ticket][:row]}/St#{req_tickets[0][:ticket][:seat]}/H#{req_tickets[0][:hash]}"
-                      ).as_png(size: 220))
+                      ).as_png(size: 300))
           .and include(ticket: req_tickets[1][:ticket],
                        hash: req_tickets[1][:hash],
                        qr_code: RQRCode::QRCode.new(
                            "S#{req_tickets[1][:ticket][:sector]}/R#{req_tickets[1][:ticket][:row]}/St#{req_tickets[1][:ticket][:seat]}/H#{req_tickets[1][:hash]}"
-                       ).as_png(size: 220))
+                       ).as_png(size: 300))
           .and include(ticket: req_tickets[2][:ticket],
                        hash: req_tickets[2][:hash],
                        qr_code: RQRCode::QRCode.new(
                            "S#{req_tickets[2][:ticket][:sector]}/R#{req_tickets[2][:ticket][:row]}/St#{req_tickets[2][:ticket][:seat]}/H#{req_tickets[2][:hash]}"
-                       ).as_png(size: 220))
+                       ).as_png(size: 300))
       end
     end
 

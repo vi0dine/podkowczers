@@ -76,19 +76,27 @@ RSpec.describe 'Tickets', type: :request do
     it 'render correct tickets data' do
       expect(json[:tickets].first).to include(
                                           id: tickets.first.id,
-                                          event: tickets.first.event_id,
+                                          concert: tickets.first.event.concert.name,
                                           sector: tickets.first.sector,
                                           row: tickets.first.row,
                                           seat: tickets.first.seat,
-                                          qr: be_present
+                                          code: be_present,
+                                          reserved: true,
+                                          reserved_at: be_present,
+                                          date: be_present,
+                                          place: be_present
                                       )
       expect(json[:tickets][1]).to include(
                                          id: tickets[1].id,
-                                         event: tickets[1].event_id,
+                                         concert: tickets[1].event.concert.name,
                                          sector: tickets[1].sector,
                                          row: tickets[1].row,
                                          seat: tickets[1].seat,
-                                         qr: be_present
+                                         code: be_present,
+                                         reserved: true,
+                                         reserved_at: be_present,
+                                         date: be_present,
+                                         place: be_present
                                        )
     end
 

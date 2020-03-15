@@ -19,7 +19,7 @@ module Api
         result = TicketReservation::MakeTicketsReservation.call(tickets_ids: params[:tickets], user: current_user)
 
         if result.success?
-          @tickets = result.requested_tickets
+          @tickets = Ticket.where(id: params[:tickets])
           render 'reserve', status: :ok
         else
           render json: {error: result.message}, status: :unprocessable_entity

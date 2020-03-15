@@ -2,14 +2,6 @@ import {StyleSheet } from "react-native";
 import {MAIN_FONT, MUSTARD, RED, WHITE} from "../../../variables";
 
 const TicketItemStyles = StyleSheet.create({
-    ticketsTitleContainer: {
-        padding: 10
-    },
-    ticketsTitle: {
-        color: WHITE,
-        fontFamily: MAIN_FONT,
-        fontSize: 21
-    },
     ticketBox: {
         flexDirection: 'row',
         margin: 7,

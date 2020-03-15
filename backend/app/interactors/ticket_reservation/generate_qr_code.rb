@@ -12,7 +12,7 @@ module TicketReservation
 
         qr_code = RQRCode::QRCode.new(
             "S#{record[:ticket][:sector]}/R#{record[:ticket][:row]}/St#{record[:ticket][:seat]}/H#{record[:hash]}"
-        ).as_png(size: 220)
+        ).as_png(size: 300)
 
         record.merge!(qr_code: qr_code)
         record[:ticket].update(qr_code: Base64.encode64(qr_code.to_s))

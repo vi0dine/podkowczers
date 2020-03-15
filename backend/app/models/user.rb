@@ -19,7 +19,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :reviews
-  has_many :tickets
+  has_many :tickets, -> { order(updated_at: :desc) }
 
   enum role: %i[user manager admin].freeze
 
