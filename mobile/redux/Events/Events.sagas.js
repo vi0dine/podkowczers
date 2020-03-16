@@ -50,7 +50,6 @@ function* makeReservation(action) {
             },
             method: "POST"
         }));
-        console.log(data.tickets);
         yield put(bookTicketsSuccess(action.event_id, data.tickets))
     } catch (error) {
         yield put(bookTicketsFail(error))

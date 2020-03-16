@@ -12,6 +12,7 @@ import {Dimensions} from "react-native-web";
 import TicketScreen from "./screens/TicketScreen/TicketScreen";
 import EventScreen from "./screens/EventScreen/EventScreen";
 import ReservationScreen from "./screens/ReservationScreen/ReservationScreen";
+import ConcertScreen from "./screens/ConcertScreen/ConcertScreen";
 
 const HomeStack = createStackNavigator();
 
@@ -66,6 +67,7 @@ function ConcertsStackScreen() {
             headerMode={'none'}
         >
             <ConcertsStack.Screen name="Koncerty" component={ConcertsScreen} />
+            <ConcertsStack.Screen name="Concert" component={ConcertScreen} />
         </ConcertsStack.Navigator>
     );
 }

@@ -6,6 +6,7 @@ import EventScreenStyles from "./EventScreen.styles";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchEvent} from "../../redux/Events/Events.actions";
 import moment from "moment";
+import {apiURL} from "../../config/server";
 
 const EventScreen = ({route}) => {
     const dispatch = useDispatch();
@@ -20,11 +21,15 @@ const EventScreen = ({route}) => {
     return event && (
         <Container style={EventScreenStyles.mainContainer}>
             <Content contentContainerStyle={EventScreenStyles.content}>
-                <View style={EventScreenStyles.imageContainer}>
-                    <Image
-                        style={EventScreenStyles.image}
-                        source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}} />
-                </View>
+                {
+                    event.images && event.images.length > 0 && (
+                        <View style={EventScreenStyles.imageContainer}>
+                            <Image
+                                style={EventScreenStyles.image}
+                                source={{uri: `${apiURL()}${event.images[0]}`}} />
+                        </View>
+                    )
+                }
                 <View style={EventScreenStyles.titleContainer}>
                     <Text style={EventScreenStyles.title}>{event.concert}</Text>
                 </View>

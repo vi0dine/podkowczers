@@ -22,7 +22,7 @@ class Concert < ApplicationRecord
   def photos_paths
     paths = []
     self.photos.blobs.each do |photo|
-      paths << polymorphic_url(photo)
+      paths << polymorphic_url(photo, only_path: true)
     end
     paths
   end

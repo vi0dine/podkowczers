@@ -13,13 +13,10 @@ const INITIAL_STATE = {
 
 const updateEventTickets = (state, action) => {
     let tickets_ids = action.tickets.map(ticket => ticket.id);
-    console.log(tickets_ids);
     let updated = state.events.find(event => event.id === action.event_id);
-    console.log(updated);
     let rest = state.events.filter(event => event.id !== action.event_id);
 
     updated.tickets = updated.tickets.filter(ticket => !tickets_ids.includes(ticket.id)).concat(action.tickets);
-    console.log(updated.tickets.filter(ticket => ticket.reserved));
 
     return [...rest, updated]
 };
