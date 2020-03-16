@@ -51,7 +51,7 @@ const ConcertScreenStyles = StyleSheet.create({
     },
     descriptionContainer: {
         padding: 10,
-        marginBottom: 55
+        marginBottom: 95
     },
     description: {
         fontFamily: MAIN_FONT,

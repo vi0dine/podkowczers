@@ -22,7 +22,8 @@ const EventsScreenStyles = StyleSheet.create({
         fontSize: 20
     },
     eventsContainer: {
-        width: Dimensions.get('window').width*0.9
+        width: Dimensions.get('window').width*0.9,
+        marginBottom: 95
     }
 });
 

@@ -6,6 +6,7 @@ import rootReducer from "./rootReducer";
 import {watchUserSaga} from "./Users/Users.sagas";
 import {watchEventsSaga} from "./Events/Events.sagas";
 import {watchConcertsSaga} from "./Concerts/Concerts.sagas";
+import {watchPostsSaga} from "./Posts/Posts.sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -22,3 +23,4 @@ export const persistor = persistStore(store);
 sagaMiddleware.run(watchUserSaga);
 sagaMiddleware.run(watchEventsSaga);
 sagaMiddleware.run(watchConcertsSaga);
+sagaMiddleware.run(watchPostsSaga);

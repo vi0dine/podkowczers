@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { Toast } from 'native-base';
 import {MUSTARD, PURPLE, WHITE} from "../variables";
 import {BOOK_TICKETS_FAIL, BOOK_TICKETS_SUCCESS, FETCH_EVENT_FAIL} from "./Events/Events.types";
-import {FETCH_USER_FAIL} from "./Users/Users.types";
+import {FETCH_USER_FAIL, REGISTER_USER_SUCCESS} from "./Users/Users.types";
 
 const INITIAL_STATE = {
 };
@@ -62,6 +62,15 @@ export const notificationsReducer = (state=INITIAL_STATE, action) => {
                 style: notificationsStyle.error,
                 textStyle: notificationsStyle.errorText,
                 type: 'danger'
+            });
+            return null;
+        case REGISTER_USER_SUCCESS:
+            Toast.show({
+                text: 'Pomyślnie utworzono konto.',
+                position: 'top',
+                style: notificationsStyle.success,
+                textStyle: notificationsStyle.successText,
+                type: 'success'
             });
             return null;
         default:

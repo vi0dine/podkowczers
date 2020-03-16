@@ -51,11 +51,26 @@ const ProfileScreenStyles = StyleSheet.create({
     },
     ticketsContainer: {
         width: Dimensions.get('window').width*0.9,
+        marginBottom: 115
     },
     ticketsTitleContainer: {
         padding: 10
     },
     ticketsTitle: {
+        color: WHITE,
+        fontFamily: MAIN_FONT,
+        fontSize: 21
+    },
+    logoutButton: {
+        backgroundColor: RED,
+        padding: 15,
+        borderRadius: 20,
+        width: Dimensions.get('window').width*0.9,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    logoutText: {
         color: WHITE,
         fontFamily: MAIN_FONT,
         fontSize: 21

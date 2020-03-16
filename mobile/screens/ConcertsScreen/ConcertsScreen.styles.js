@@ -22,7 +22,8 @@ const ConcertsScreenStyles = StyleSheet.create({
         fontSize: 20
     },
     ConcertsContainer: {
-        width: Dimensions.get('window').width*0.9
+        width: Dimensions.get('window').width*0.9,
+        marginBottom: 95
     }
 });
 

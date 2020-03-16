@@ -66,6 +66,12 @@ module Api
         end
       end
 
+      api!
+      def logout
+        authorize! :logout, User
+        sign_out
+      end
+
       private
 
       def user_params

@@ -36,16 +36,6 @@ ActiveRecord::Schema.define(version: 2020_03_13_130245) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.text "body"
-    t.bigint "user_id"
-    t.bigint "post_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_comments_on_post_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
   create_table "concerts", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -106,21 +96,12 @@ ActiveRecord::Schema.define(version: 2020_03_13_130245) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
     t.text "body"
-    t.bigint "user_id"
+    t.json "attachments"
+    t.string "permalink"
+    t.datetime "created_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "posts_tags", force: :cascade do |t|
-    t.bigint "post_id"
-    t.bigint "tag_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_posts_tags_on_post_id"
-    t.index ["tag_id"], name: "index_posts_tags_on_tag_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -136,20 +117,13 @@ ActiveRecord::Schema.define(version: 2020_03_13_130245) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "tickets", force: :cascade do |t|
     t.string "sector"
     t.integer "row"
     t.integer "seat"
     t.boolean "reserved", default: false
     t.boolean "mailed", default: false
-    t.string "hashed_data"
-    t.json "qr_code"
+    t.string "qr_code"
     t.bigint "user_id"
     t.bigint "event_id"
     t.datetime "created_at", precision: 6, null: false

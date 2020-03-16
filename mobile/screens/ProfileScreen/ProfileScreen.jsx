@@ -2,12 +2,11 @@ import React, {useEffect} from 'react';
 import {Container, Content, Icon} from "native-base";
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useDispatch, useSelector} from "react-redux";
-import {fetchUser} from "../../redux/Users/Users.actions";
+import {fetchUser, logoutUser} from "../../redux/Users/Users.actions";
 import ProfileScreenStyles from "./ProfileScreen.styles";
-import moment from "moment";
 import TicketItem from "../../components/Profile/TicketItem/TicketItem.component";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.UserState);
 
@@ -42,6 +41,9 @@ const ProfileScreen = () => {
                         ))
                     }
                 </View>
+                <TouchableOpacity style={ProfileScreenStyles.logoutButton} onPress={() => dispatch(logoutUser(navigation))}>
+                    <Text style={ProfileScreenStyles.logoutText}>WYLOGUJ</Text>
+                </TouchableOpacity>
             </Content>
         </Container>
     );

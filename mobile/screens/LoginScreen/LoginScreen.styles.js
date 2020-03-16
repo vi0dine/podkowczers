@@ -1,10 +1,11 @@
 import {StyleSheet, Dimensions} from "react-native";
-import {BLACK, MAIN_FONT, RED, WHITE} from "../../variables";
+import {BLACK, MAIN_FONT, MUSTARD, RED, WHITE} from "../../variables";
+import Constants from "expo-constants";
 
 const LoginScreenStyles = StyleSheet.create({
     mainContainer: {
         backgroundColor: BLACK,
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
     logoContainer: {
         flexDirection: 'row',
@@ -12,27 +13,30 @@ const LoginScreenStyles = StyleSheet.create({
         marginTop: Dimensions.get('window').height*0.1
     },
     logo: {
-        height: Dimensions.get('window').height*0.5,
+        height: Dimensions.get('window').height*0.4,
         width: Dimensions.get('window').width
     },
-    formContainer: {
-        padding: 25
+    switchContainer: {
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    input: {
-        marginBottom: 10,
-        backgroundColor: WHITE,
-        borderRadius: 25,
-        height: Dimensions.get('window').height*0.07
+    switchText: {
+        fontFamily: MAIN_FONT,
+        color: MUSTARD,
+        fontSize: 16
     },
-    submitButton: {
-        backgroundColor: RED,
-        borderRadius: 25,
-        justifyContent: 'center'
+    loader: {
+        paddingLeft: 5,
+        paddingRight: 5,
+        marginTop: Constants.statusBarHeight + 20,
+        justifyContent: 'center',
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height*0.7
     },
-    submitButtonText: {
+    loadingText: {
         fontFamily: MAIN_FONT,
         color: WHITE,
-        fontWeight: 'bold'
+        fontSize: 16
     }
 });
 

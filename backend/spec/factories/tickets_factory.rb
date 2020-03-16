@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :ticket do
     sector { Faker::Lorem.characters(number: 1) }
     row { Faker::Number.between(from: 1, to: 50) }
-    seat { Faker::Number.between(from: 1, to: 99) }
+    sequence(:seat) { |n| n }
     reserved { false }
     mailed { false }
     qr_code { nil }

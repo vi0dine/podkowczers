@@ -13,6 +13,7 @@ import TicketScreen from "./screens/TicketScreen/TicketScreen";
 import EventScreen from "./screens/EventScreen/EventScreen";
 import ReservationScreen from "./screens/ReservationScreen/ReservationScreen";
 import ConcertScreen from "./screens/ConcertScreen/ConcertScreen";
+import PostScreen from "./screens/PostScreen/PostScreen";
 
 const HomeStack = createStackNavigator();
 
@@ -22,6 +23,7 @@ function HomeStackScreen() {
             headerMode={'none'}
         >
             <HomeStack.Screen name="Home" component={HomeScreen} />
+            <HomeStack.Screen name="Post" component={PostScreen} />
         </HomeStack.Navigator>
     );
 }

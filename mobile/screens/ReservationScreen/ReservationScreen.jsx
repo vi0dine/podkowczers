@@ -14,12 +14,12 @@ const ReservationScreen = ({route}) => {
             {
                 !mode && (
                     <View style={ReservationScreenStyles.content}>
-                        <TouchableOpacity
-                            onPress={() => setMode('random')}
-                            style={ReservationScreenStyles.buttonContainer}
-                        >
-                            <Text style={ReservationScreenStyles.buttonText}>LOSOWE MIEJSCA</Text>
-                        </TouchableOpacity>
+                        {/*<TouchableOpacity*/}
+                        {/*    onPress={() => setMode('random')}*/}
+                        {/*    style={ReservationScreenStyles.buttonContainer}*/}
+                        {/*>*/}
+                        {/*    <Text style={ReservationScreenStyles.buttonText}>LOSOWE MIEJSCA</Text>*/}
+                        {/*</TouchableOpacity>*/}
                         <TouchableOpacity
                             onPress={() => setMode('manual')}
                             style={ReservationScreenStyles.buttonContainer}

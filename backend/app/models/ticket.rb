@@ -17,8 +17,8 @@ class Ticket < ApplicationRecord
             presence: true,
             uniqueness: { scope: %i[sector row event_id] },
             numericality: { only_integers: true,
-                            greater_than: 0,
-                            less_than: 100 }
+                            greater_than: 0
+                          }
   validates :reserved,
             inclusion: { in: [true, false] }
   validates :mailed,

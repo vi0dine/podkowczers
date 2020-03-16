@@ -27,7 +27,7 @@ const EventScreenStyles = StyleSheet.create({
     descriptionContainer: {
         paddingLeft: 10,
         paddingRight: 10,
-        paddingBottom: 15,
+        paddingBottom: 95,
     },
     description: {
         fontFamily: MAIN_FONT,
