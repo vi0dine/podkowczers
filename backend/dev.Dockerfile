@@ -19,5 +19,7 @@ RUN apt-get update -y
 
 WORKDIR /api
 COPY Gemfile /api/Gemfile
-RUN bundle install
+
+RUN gem install bundler:2.0.2
+RUN bundle install --path vendor/bundle
 COPY . /api

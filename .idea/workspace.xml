@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/podkowczers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/podkowczers.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Dockerfile.dev" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile.dev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/sign_up_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/sign_up_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile.dev" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile.dev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/history.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/user/user.reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/.generators" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Gemfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dev.Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dev.Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/production/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/production/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +28,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -37,7 +38,7 @@
       <recent name="$PROJECT_DIR$/backend" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Rails.Development: podkowczers">
     <configuration name="Development: podkowczers" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="podkowczers" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
@@ -188,6 +189,8 @@
       <workItem from="1575124473802" duration="7486000" />
       <workItem from="1575362508834" duration="102000" />
       <workItem from="1575483453173" duration="3634000" />
+      <workItem from="1584442575023" duration="612000" />
+      <workItem from="1584445935199" duration="511000" />
     </task>
     <servers />
   </component>

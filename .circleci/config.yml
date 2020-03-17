@@ -54,3 +54,9 @@ jobs:
               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
       - store_test_results:
           path: test_results
+  deploy-job:
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "5d:66:7d:b3:54:7a:85:64:5e:c5:61:77:f1:fa:51:78"
+      - run: ssh root@51.178.16.104 '/apps/podkowczers/deploy.sh'

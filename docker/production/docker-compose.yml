@@ -14,7 +14,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ../../backend
-    command: "bundle exec sidekiq -q default -q user_tickets "
+    command: sh -c "bundle install && bundle exec sidekiq -q default -q user_tickets "
     volumes:
       - ../../backend:/api
     env_file:
@@ -27,7 +27,7 @@ services:
       context: ../../backend
     env_file:
       - ../../.env.prod
-    command: sh -c "rails db:create && rails db:migrate && rails s -p 4000 -b 0.0.0.0"
+    command: sh -c "bundle install && rails db:create && rails db:migrate && rails s -p 4000 -b 0.0.0.0"
     volumes:
       - ../../backend:/api
     ports:
