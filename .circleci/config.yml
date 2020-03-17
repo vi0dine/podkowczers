@@ -1,62 +1,72 @@
-jobs: 
-  build: 
-    working_directory: ~/podkowczers/backend
-    docker:
-      - image: circleci/ruby:2.6.5-stretch-node
-        environment:
-          RAILS_ENV: test
-          TICKETS_SECRET: f28ff3ec154055ab2c73f189af61e9bf 
-          PGHOST: localhost
-          PGUSER: postgres
-      - image: redis
-      - image: postgres:9.5
-        environment:
-          POSTGRES_DB: podkowczers
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
-    steps:
-      - checkout:
-          path: ~/podkowczers
-      - run:
-          name: 'Get dependencies'
-          command: |
-                    sudo apt-get install -y wget xfonts-utils && \
-                    sudo wget http://mirrors.kernel.org/ubuntu/pool/main/x/xfonts-utils/xfonts-utils_7.7+3_amd64.deb -P /var/www/downloads && \
-                    sudo dpkg -i /var/www/downloads/xfonts-utils_7.7+3_amd64.deb && \
-                    sudo wget http://mirrors.kernel.org/ubuntu/pool/main/x/xfonts-base/xfonts-base_1.0.4+nmu1_all.deb -P /var/www/downloads && \
-                    sudo dpkg -i /var/www/downloads/xfonts-base_1.0.4+nmu1_all.deb && \
-                    sudo wget http://mirrors.kernel.org/ubuntu/pool/universe/x/xfonts-75dpi/xfonts-75dpi_1.0.4+nmu1_all.deb -P /var/www/downloads && \
-                    sudo dpkg -i /var/www/downloads/xfonts-75dpi_1.0.4+nmu1_all.deb && \
-                    sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb -P /var/www && \
-                    sudo dpkg -i  /var/www/wkhtmltox_0.12.5-1.stretch_amd64.deb
-      - run: sudo gem update --system
-      - run: sudo gem install bundler:2.0.2
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - run:
-          name: Bundle Install
-          command: bundle install
-      - run:
-          name: Wait for Redis
-          command: dockerize -wait tcp://localhost:6379 -timeout 2m
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run:
-          name: Database setup
-          command: bin/rails db:setup --trace
-      - run: |
-              bundle exec rspec --profile 10 \
-              --format RspecJunitFormatter \
-              --out test_results/rspec.xml \
-              --format progress \
-              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-      - store_test_results:
-          path: test_results
-  deploy-job:
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "5d:66:7d:b3:54:7a:85:64:5e:c5:61:77:f1:fa:51:78"
-      - run: ssh root@51.178.16.104 '/apps/podkowczers/deploy.sh'
+version: 2.1
+  workflows:
+    build_and_deploy:
+      jobs:
+          - build
+            - deploy:
+            requires:
+              - build
+  jobs:
+    build:
+      working_directory: ~/podkowczers/backend
+      docker:
+        - image: circleci/ruby:2.6.5-stretch-node
+          environment:
+            RAILS_ENV: test
+            TICKETS_SECRET: f28ff3ec154055ab2c73f189af61e9bf
+            PGHOST: localhost
+            PGUSER: postgres
+        - image: redis
+        - image: postgres:9.5
+          environment:
+            POSTGRES_DB: podkowczers
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: password
+      steps:
+        - checkout:
+            path: ~/podkowczers
+        - run:
+            name: 'Get dependencies'
+            command: |
+              sudo apt-get install -y wget xfonts-utils && \
+              sudo wget http://mirrors.kernel.org/ubuntu/pool/main/x/xfonts-utils/xfonts-utils_7.7+3_amd64.deb -P /var/www/downloads && \
+              sudo dpkg -i /var/www/downloads/xfonts-utils_7.7+3_amd64.deb && \
+              sudo wget http://mirrors.kernel.org/ubuntu/pool/main/x/xfonts-base/xfonts-base_1.0.4+nmu1_all.deb -P /var/www/downloads && \
+              sudo dpkg -i /var/www/downloads/xfonts-base_1.0.4+nmu1_all.deb && \
+              sudo wget http://mirrors.kernel.org/ubuntu/pool/universe/x/xfonts-75dpi/xfonts-75dpi_1.0.4+nmu1_all.deb -P /var/www/downloads && \
+              sudo dpkg -i /var/www/downloads/xfonts-75dpi_1.0.4+nmu1_all.deb && \
+              sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb -P /var/www && \
+              sudo dpkg -i  /var/www/wkhtmltox_0.12.5-1.stretch_amd64.deb
+        - run: sudo gem update --system
+        - run: sudo gem install bundler:2.0.2
+        - run:
+            name: Which bundler?
+            command: bundle -v
+        - run:
+            name: Bundle Install
+            command: bundle install
+        - run:
+            name: Wait for Redis
+            command: dockerize -wait tcp://localhost:6379 -timeout 2m
+        - run:
+            name: Wait for DB
+            command: dockerize -wait tcp://localhost:5432 -timeout 1m
+        - run:
+            name: Database setup
+            command: bin/rails db:setup --trace
+        - run: |
+            bundle exec rspec --profile 10 \
+            --format RspecJunitFormatter \
+            --out test_results/rspec.xml \
+            --format progress \
+            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+        - store_test_results:
+            path: test_results
+    deploy:
+      docker:
+        - image: circleci/golang:1.10
+      steps:
+        - add_ssh_keys:
+            fingerprints:
+              - "5d:66:7d:b3:54:7a:85:64:5e:c5:61:77:f1:fa:51:78"
+        - run: ssh root@51.178.16.104 '/apps/podkowczers/deploy.sh'
