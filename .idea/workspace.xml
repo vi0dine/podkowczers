@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +24,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -183,7 +185,7 @@
       <workItem from="1575362508834" duration="102000" />
       <workItem from="1575483453173" duration="3634000" />
       <workItem from="1584442575023" duration="612000" />
-      <workItem from="1584445935199" duration="1389000" />
+      <workItem from="1584445935199" duration="1611000" />
     </task>
     <servers />
   </component>
@@ -204,21 +206,9 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="553" y="342" width="630" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575064001969">
-      <screen x="67" y="27" width="1613" height="1023" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1584447785521">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="553" y="342" width="630" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1613.1023@67.27.1613.1023" timestamp="1575064001969" />
-    <state x="606" y="286" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575054153704">
-      <screen x="67" y="27" width="1613" height="1023" />
-    </state>
-    <state x="606" y="286" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1575054153704" />
-    <state x="656" y="295" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575487258126">
-      <screen x="67" y="27" width="1613" height="1023" />
-    </state>
-    <state x="656" y="295" width="424" height="484" key="FileChooserDialogImpl/67.27.1613.1023@67.27.1613.1023" timestamp="1575487258126" />
-    <state x="521" y="273" width="704" height="528" key="find.popup" timestamp="1575115316948">
-      <screen x="67" y="27" width="1613" height="1023" />
-    </state>
-    <state x="521" y="273" width="704" height="528" key="find.popup/67.27.1613.1023@67.27.1613.1023" timestamp="1575115316948" />
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1584447785521" />
   </component>
 </project>
