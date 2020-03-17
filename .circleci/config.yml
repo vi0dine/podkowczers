@@ -1,4 +1,4 @@
-version: 2.0
+version: 2.1
 workflows:
   build_and_deploy:
     jobs:
@@ -70,6 +70,6 @@ jobs:
           fingerprints:
             - "d0:70:0e:26:ef:95:63:bc:29:e7:22:ee:11:ed:c1:f8"
       - run: |
-          ssh -oStrictHostKeyChecking=no podkowczers@51.178.16.104 <<'ENDSSH'
+          ssh -oStrictHostKeyChecking=no podkowczers@51.178.16.104 \<<'ENDSSH'
           cd ./app/podkowczers && bash deploy.sh
           ENDSSH
