@@ -37,6 +37,8 @@ class User < ApplicationRecord
             numericality: { only_integers: true,
                             greater_than_or_equal_to: 0 }
 
+  after_create :add_coins
+
   def assign_ticket(ticket)
     tickets << ticket
   end
@@ -55,7 +57,7 @@ class User < ApplicationRecord
     end
   end
 
-  def add_coins(amount)
+  def add_coins(amount = 3)
     update(coins_count: self.coins_count += amount)
     save!
   end

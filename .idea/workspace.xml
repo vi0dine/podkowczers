@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/.generators" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/backend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/jobs/fetch_fb_posts_job.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/production/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/production/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/config/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/config/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +193,9 @@
       <workItem from="1575362508834" duration="102000" />
       <workItem from="1575483453173" duration="3634000" />
       <workItem from="1584442575023" duration="612000" />
-      <workItem from="1584445935199" duration="5947000" />
+      <workItem from="1584445935199" duration="6609000" />
+      <workItem from="1584461244314" duration="513000" />
+      <workItem from="1584547985417" duration="211000" />
     </task>
     <servers />
   </component>
@@ -209,5 +220,9 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1584447785521" />
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup" timestamp="1584548148609">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584548148609" />
   </component>
 </project>
