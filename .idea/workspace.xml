@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/make_pdf_attachment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/make_pdf_attachment.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/services/facebook_api_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/facebook_api_service.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/production/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/production/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +188,7 @@
       <workItem from="1584445935199" duration="6609000" />
       <workItem from="1584461244314" duration="513000" />
       <workItem from="1584547985417" duration="211000" />
-      <workItem from="1584549238780" duration="3853000" />
+      <workItem from="1584549238780" duration="4615000" />
     </task>
     <servers />
   </component>
