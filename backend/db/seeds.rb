@@ -14,4 +14,6 @@ for i in 1..10 do
 end
 
 FacebookApiService.new.call
-puts Doorkeeper::Application.last.pluck(:uid, :secret)
+puts "NAME: #{Doorkeeper::Application.last.name}"
+puts "ID: #{Doorkeeper::Application.last.uid}"
+puts "SECRET: #{Doorkeeper::Application.last.secret}"
