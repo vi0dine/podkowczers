@@ -53,7 +53,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
-          command: bin/rails db:setup --trace
+          command: bin/rails db:create --trace && bin/rails db:migrate --trace
       - run: |
           bundle exec rspec --profile 10 \
           --format RspecJunitFormatter \

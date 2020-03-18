@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/.generators" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/jobs/fetch_fb_posts_job.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/production/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/production/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/config/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/config/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,6 +187,7 @@
       <workItem from="1584445935199" duration="6609000" />
       <workItem from="1584461244314" duration="513000" />
       <workItem from="1584547985417" duration="211000" />
+      <workItem from="1584549238780" duration="27000" />
     </task>
     <servers />
   </component>
