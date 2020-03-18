@@ -3,6 +3,9 @@ workflows:
   build_and_deploy:
     jobs:
       - build
+      - upload_coverage
+          requires:
+            - build
       - deploy:
           requires:
             - build
@@ -25,6 +28,20 @@ jobs:
     steps:
       - checkout:
           path: ~/podkowczers
+      - run:
+          name: Setup dependencies
+          command: |
+            sudo composer self-update
+            composer install -n --prefer-dist
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - cc-test-reporter
       - run:
           name: 'Get dependencies'
           command: |
@@ -54,14 +71,30 @@ jobs:
       - run:
           name: Database setup
           command: bin/rails db:create --trace && bin/rails db:migrate --trace
-      - run: |
-          bundle exec rspec --profile 10 \
-          --format RspecJunitFormatter \
-          --out test_results/rspec.xml \
-          --format progress \
-          $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+      - run:
+          name: Run backend tests
+          command: |
+            bundle exec rake
+            ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.backend.json
       - store_test_results:
           path: test_results
+      - store_artifacts:
+          path: coverage
+  upload-coverage:
+    environment:
+      - CC_TEST_REPORTER_ID: b73d0b37c132d1b5d5d4a98998249a549e77b924f78ecc79e6605453dd44cabc
+    steps:
+      - attach_workspace:
+          at: ~/repo/tmp
+      - run:
+          name: Upload coverage results to Code Climate
+          command: |
+            ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
+            ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
   deploy:
     docker:
       - image: circleci/golang:1.10

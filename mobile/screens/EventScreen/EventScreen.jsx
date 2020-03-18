@@ -40,8 +40,7 @@ const EventScreen = ({route}) => {
                                 <Text style={EventScreenStyles.place}>{event.place}</Text>
                                 <Text style={EventScreenStyles.starts_at}>{moment(event.starts_at).format('LLL')}</Text>
                                 <Text style={EventScreenStyles.duration}>
-                                    Czas
-                                    trwania: {Math.ceil(moment.duration(event.estimated_length, 'seconds').asMinutes())} minuty
+                                    Czas trwania: {Math.ceil(moment.duration(event.estimated_length, 'seconds').asMinutes())} minuty
                                 </Text>
                             </View>
                             <TouchableOpacity

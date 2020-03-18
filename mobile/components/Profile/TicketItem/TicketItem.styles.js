@@ -5,6 +5,7 @@ const TicketItemStyles = StyleSheet.create({
     ticketBox: {
         flexDirection: 'row',
         margin: 7,
+        paddingBottom: 5,
         backgroundColor: RED,
         borderRadius: 10
     },
@@ -16,6 +17,8 @@ const TicketItemStyles = StyleSheet.create({
     },
     ticketInfoContainer: {
         flexDirection: 'column',
+        width: '90%'
+
     },
     ticketConcert: {
         fontFamily: MAIN_FONT,

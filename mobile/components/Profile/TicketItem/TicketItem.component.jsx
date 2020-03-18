@@ -20,7 +20,7 @@ const TicketItem = ({ticket}) => {
             </View>
             <View style={TicketItemStyles.ticketInfoContainer}>
                 <Text style={TicketItemStyles.ticketConcert}>{ticket.concert}</Text>
-                <Text style={TicketItemStyles.ticketPlace}>{ticket.place} - {moment(ticket.date).format('LL')}</Text>
+                <Text style={TicketItemStyles.ticketPlace}>{ticket.place}{"\n"}{moment(ticket.date).format('LL')}</Text>
             </View>
         </TouchableOpacity>
     );

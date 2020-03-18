@@ -32,6 +32,9 @@ const EventItemStyles = StyleSheet.create({
         color: MUSTARD,
         fontSize: 15
     },
+    placeContainer: {
+        width: '85%'
+    },
     place: {
         fontFamily: MAIN_FONT,
         color: MUSTARD,

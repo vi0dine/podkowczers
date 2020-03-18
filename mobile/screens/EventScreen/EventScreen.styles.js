@@ -58,6 +58,7 @@ const EventScreenStyles = StyleSheet.create({
         fontSize: 14,
     },
     infoContainer: {
+        width: '60%',
         padding: 10
     },
     place: {
