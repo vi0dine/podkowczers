@@ -85,6 +85,9 @@ jobs:
       - store_artifacts:
           path: coverage
   upload-coverage:
+    working_directory: ~/podkowczers/backend
+    docker:
+      - image: circleci/ruby:2.4.2-jessie-node-browsers
     environment:
       - CC_TEST_REPORTER_ID: b73d0b37c132d1b5d5d4a98998249a549e77b924f78ecc79e6605453dd44cabc
     steps:
