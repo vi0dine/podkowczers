@@ -3,7 +3,7 @@ workflows:
   build_and_deploy:
     jobs:
       - build
-      - upload_coverage
+      - upload_coverage:
           requires:
             - build
       - deploy:

@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/podkowczers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/podkowczers.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/spec/rails_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/rails_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/components/Events/EventItem/EventItem.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/components/Events/EventItem/EventItem.styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/components/Profile/TicketItem/TicketItem.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/components/Profile/TicketItem/TicketItem.component.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/components/Profile/TicketItem/TicketItem.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/components/Profile/TicketItem/TicketItem.styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/redux/Events/Events.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/redux/Events/Events.sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/screens/EventScreen/EventScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/screens/EventScreen/EventScreen.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/screens/EventScreen/EventScreen.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/screens/EventScreen/EventScreen.styles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +188,7 @@
       <workItem from="1584461244314" duration="513000" />
       <workItem from="1584547985417" duration="211000" />
       <workItem from="1584549238780" duration="5215000" />
-      <workItem from="1584556988132" duration="2386000" />
+      <workItem from="1584556988132" duration="2492000" />
     </task>
     <servers />
   </component>
