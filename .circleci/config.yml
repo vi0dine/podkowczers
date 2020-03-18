@@ -29,15 +29,10 @@ jobs:
       - checkout:
           path: ~/podkowczers
       - run:
-          name: Setup Code Climate test-reporter
+          name: Install Code Climate Test Reporter
           command: |
-            mkdir -p tmp/
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
-            chmod +x ./tmp/cc-test-reporter
-      - persist_to_workspace:
-          root: tmp
-          paths:
-            - cc-test-reporter
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
       - run:
           name: 'Get dependencies'
           command: |
@@ -52,9 +47,6 @@ jobs:
             sudo dpkg -i  /var/www/wkhtmltox_0.12.5-1.stretch_amd64.deb
       - run: sudo gem update --system
       - run: sudo gem install bundler:2.0.2
-      - run:
-          name: Which bundler?
-          command: bundle -v
       - run:
           name: Bundle Install
           command: bundle install
