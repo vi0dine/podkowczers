@@ -13,11 +13,9 @@ class FacebookApiService
       post[:attachments][:data].each do |attachment|
         if attachment[:subattachments]
           attachment[:subattachments][:data].each do |attachment|
-            puts attachment
             attachments << { type: attachment.dig(:type), src: attachment.dig(:media, :image, :src) }
           end
         else
-          puts attachment
           attachments << { type: attachment.dig(:type), src: attachment.dig(:media, :source) || attachment.dig(:media, :image, :src) }
         end
       end

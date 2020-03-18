@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/make_pdf_attachment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/interactors/ticket_reservation/make_pdf_attachment.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/facebook_api_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/facebook_api_service.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/production/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/production/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +190,7 @@
       <workItem from="1584445935199" duration="6609000" />
       <workItem from="1584461244314" duration="513000" />
       <workItem from="1584547985417" duration="211000" />
-      <workItem from="1584549238780" duration="2851000" />
+      <workItem from="1584549238780" duration="3853000" />
     </task>
     <servers />
   </component>
@@ -212,6 +215,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1584447785521" />
+    <state x="641" y="263" width="704" height="578" key="find.popup" timestamp="1584553950239">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="641" y="263" width="704" height="578" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584553950239" />
     <state x="657" y="253" width="672" height="677" key="run.anything.popup" timestamp="1584548148609">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

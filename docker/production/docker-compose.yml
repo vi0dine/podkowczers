@@ -27,9 +27,9 @@ services:
       context: ../../backend
     env_file:
       - ../../.env.prod
-    command: sh -c "bundle install && whenever --update-crontab && rails db:create && rails db:migrate && rm -f /rails/tmp/pids/server.pid && rails s -p 4000 -b 0.0.0.0"
+    command: sh -c "bundle install && whenever --update-crontab && rails db:create && rails db:migrate && rm -f /api/tmp/pids/server.pid && rails s -p 4000 -b 0.0.0.0"
     volumes:
-      - ../../backend:/api
+      - ../../backend/storage:/api/storage
     ports:
       - 4000:4000
     depends_on:

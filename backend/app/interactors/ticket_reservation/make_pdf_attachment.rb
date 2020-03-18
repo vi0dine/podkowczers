@@ -17,7 +17,6 @@ module TicketReservation
             io: StringIO.new(pdf), filename: 'tickets.pdf', content_type: 'application/pdf'
           )
       rescue Exception => e
-        puts e.message
         context.fail!(message: 'Nie można było utworzyć pliku PDF z biletami. Rezerwacja została anulowana.
                        Prosimy spróbować później lub powiadomić administratora o występującym problemie')
       end
