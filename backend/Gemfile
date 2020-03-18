@@ -40,7 +40,7 @@ group :test do
   gem 'rspec_junit_formatter'
   gem 'rack-test'
   gem 'shoulda-matchers'
-  gem 'simplecov', '~> 0.17.1'
+  gem 'simplecov', '~> 0.10', '< 0.18'
 end
 
 group :development do
