@@ -3,13 +3,13 @@ services:
   db:
     image: postgres:latest
     volumes:
-      - /var/lib/postgresql/
+      - ../../postgres-data:/var/lib/postgresql/data
     env_file:
       - ../../.env.prod
   redis:
     image: redis:latest
     volumes:
-      - /var/lib/redis/data
+      - ../../redis-data:/var/lib/redis/data
   sidekiq:
     build:
       dockerfile: Dockerfile
