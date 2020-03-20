@@ -5,6 +5,8 @@ class FacebookApiService
   end
 
   def call
+    Post.destroy_all
+
     @feed.each do |post|
       post.deep_symbolize_keys!
 

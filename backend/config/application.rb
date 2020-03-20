@@ -25,8 +25,8 @@ module Podkowczers
     config.autoload_paths << "#{Rails.root}/lib"
     config.load_defaults 6.0
     config.active_job.queue_adapter = :sidekiq
-    config.action_mailer.asset_host = 'http://epodkowczers.pl'
-    config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    config.action_mailer.asset_host = 'depodkowczers.walbrzych.pl'
+    config.action_mailer.default_url_options = { host: 'depodkowczers.walbrzych.pl' }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

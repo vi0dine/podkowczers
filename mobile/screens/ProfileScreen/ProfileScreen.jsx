@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Container, Content, Icon} from "native-base";
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, RefreshControl} from 'react-native';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser, logoutUser} from "../../redux/Users/Users.actions";
 import ProfileScreenStyles from "./ProfileScreen.styles";
@@ -16,7 +16,10 @@ const ProfileScreen = ({navigation}) => {
 
     return (
         <Container style={ProfileScreenStyles.mainContainer}>
-            <Content contentContainerStyle={ProfileScreenStyles.content}>
+            <Content
+                refreshControl={<RefreshControl refreshing={user.processing} onRefresh={() => {dispatch(fetchUser(user.id))}} />}
+                contentContainerStyle={ProfileScreenStyles.content}
+            >
                 <View style={ProfileScreenStyles.iconContainer}>
                     <Icon type={'AntDesign'} name={'user'} style={ProfileScreenStyles.icon}/>
                 </View>

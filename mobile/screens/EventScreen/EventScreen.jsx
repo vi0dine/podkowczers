@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, RefreshControl} from 'react-native';
 import {Container, Content, Icon} from "native-base";
 import EventScreenStyles from "./EventScreen.styles";
 import {useDispatch, useSelector} from "react-redux";
@@ -13,6 +13,7 @@ const EventScreen = ({route}) => {
     const navigation = useNavigation();
     const id = route.params.id;
     const event = useSelector(state => state.EventsState.events.find(event => event.id === id));
+    const fetching = useSelector(state => state.EventsState.fetching);
 
     useEffect(() => {
         dispatch(fetchEvent(id));
@@ -22,7 +23,10 @@ const EventScreen = ({route}) => {
         <Container style={EventScreenStyles.mainContainer}>
             {
                 event.images && (
-                    <Content contentContainerStyle={EventScreenStyles.content}>
+                    <Content
+                        contentContainerStyle={EventScreenStyles.content}
+                        refreshControl={<RefreshControl refreshing={fetching} onRefresh={() => dispatch(fetchEvent(id))}/>}
+                    >
                         {
                             event.images && event.images.length > 0 && (
                                 <View style={EventScreenStyles.imageContainer}>

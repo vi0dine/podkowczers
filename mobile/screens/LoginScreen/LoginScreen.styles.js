@@ -14,7 +14,8 @@ const LoginScreenStyles = StyleSheet.create({
     },
     logo: {
         height: Dimensions.get('window').height*0.4,
-        width: Dimensions.get('window').width
+        width: Dimensions.get('window').width,
+        resizeMode: 'contain'
     },
     switchContainer: {
         justifyContent: 'center',

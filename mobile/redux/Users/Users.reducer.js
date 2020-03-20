@@ -1,6 +1,6 @@
 import {
     AUTH_USER, AUTH_USER_FAIL,
-    AUTH_USER_SUCCESS,
+    AUTH_USER_SUCCESS, FETCH_USER, FETCH_USER_FAIL,
     FETCH_USER_SUCCESS, LOGOUT_USER_SUCCESS,
     REGISTER_USER,
     REGISTER_USER_FAIL,
@@ -58,11 +58,22 @@ export const userReducer = (state=INITIAL_STATE, action) => {
                 ...state,
                 authenticating: false
             };
+        case FETCH_USER:
+            return {
+                ...state,
+                processing: true
+            };
         case FETCH_USER_SUCCESS:
             return {
                 ...state,
                 coins: action.coins,
-                tickets: action.tickets
+                tickets: action.tickets,
+                processing: false
+            };
+        case FETCH_USER_FAIL:
+            return {
+                ...state,
+                processing: false
             };
         case LOGOUT_USER_SUCCESS:
             return INITIAL_STATE;
