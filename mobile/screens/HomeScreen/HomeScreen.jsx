@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import * as _ from 'lodash';
 import {View, Text, RefreshControl} from "react-native";
 import {Container, Content} from "native-base";
 import HomeScreenStyles from "./HomeScreen.styles";
@@ -26,7 +27,7 @@ const HomeScreen = () => {
                 </View>
                 <View style={HomeScreenStyles.postsContainer}>
                     {
-                        posts.length > 0 && posts.map(post => (
+                        posts.length > 0 && _.sortBy(posts, 'created_at').reverse().map(post => (
                             <PostItem key={post.id} post={post} />
                         ))
                     }

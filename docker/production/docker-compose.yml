@@ -34,3 +34,14 @@ services:
       - 4000:4000
     depends_on:
       - db
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: ../../frontend
+    env_file:
+      - ../../.env.prod
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+      - api

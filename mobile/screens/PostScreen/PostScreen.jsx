@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, Text, Image} from "react-native";
 import {Container, Content, DeckSwiper} from "native-base";
 import PostScreenStyles from "./PostScreen.styles";

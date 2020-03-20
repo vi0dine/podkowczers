@@ -7,27 +7,27 @@ Doorkeeper::Application.create(
 
 concert = Concert.create(name: 'Mamma Mia', description: Faker::Lorem.paragraph_by_chars(number: 1200))
 image = open('https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/14064161_889336681172605_6742123849404741008_n.jpg?_nc_cat=105&_nc_sid=dd9801&_nc_ohc=5Gv5n5n5y7EAX9GZPLn&_nc_ht=scontent-frx5-1.xx&oh=f61662d419d53cbe1b84525076bb421a&oe=5E98FBAE');
-concert.image.attach(io: image, filename: 'test_image.jpg')
+concert.photos.attach(io: image, filename: 'test_image.jpg')
 
 event1 = Event.create(place: 'II Liceum Ogólnokształcące, Al. Wyzwolenia 34', starts_at: '2020-09-03', estimated_length: 9000, concert: concert)
 
 concert = Concert.create(name: 'Romeo i Julia', description: Faker::Lorem.paragraph_by_chars(number: 1200))
 image = open('https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/14064161_889336681172605_6742123849404741008_n.jpg?_nc_cat=105&_nc_sid=dd9801&_nc_ohc=5Gv5n5n5y7EAX9GZPLn&_nc_ht=scontent-frx5-1.xx&oh=f61662d419d53cbe1b84525076bb421a&oe=5E98FBAE');
-concert.image.attach(io: image, filename: 'test_image.jpg')
+concert.photos.attach(io: image, filename: 'test_image.jpg')
 
-event2 = Event.create(place: 'II Liceum Ogólnokształcące, Al. Wyzwolenia 34', starts_at: '2020-09-03', estimated_length: 9000, concert: concert)
+event2 = Event.create(place: 'II Liceum Ogólnokształcące, Al. Wyzwolenia 34', starts_at: '2020-10-13', estimated_length: 7000, concert: concert)
 
 concert = Concert.create(name: 'Osiecka w II LO', description: Faker::Lorem.paragraph_by_chars(number: 1200))
 image = open('https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/14064161_889336681172605_6742123849404741008_n.jpg?_nc_cat=105&_nc_sid=dd9801&_nc_ohc=5Gv5n5n5y7EAX9GZPLn&_nc_ht=scontent-frx5-1.xx&oh=f61662d419d53cbe1b84525076bb421a&oe=5E98FBAE');
-concert.image.attach(io: image, filename: 'test_image.jpg')
+concert.photos.attach(io: image, filename: 'test_image.jpg')
 
-event3 = Event.create(place: 'II Liceum Ogólnokształcące, Al. Wyzwolenia 34', starts_at: '2020-09-03', estimated_length: 9000, concert: concert)
+event3 = Event.create(place: 'II Liceum Ogólnokształcące, Al. Wyzwolenia 34', starts_at: '2021-03-03', estimated_length: 6000, concert: concert)
 
 concert = Concert.create(name: 'Metro', description: Faker::Lorem.paragraph_by_chars(number: 1200))
 image = open('https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/14064161_889336681172605_6742123849404741008_n.jpg?_nc_cat=105&_nc_sid=dd9801&_nc_ohc=5Gv5n5n5y7EAX9GZPLn&_nc_ht=scontent-frx5-1.xx&oh=f61662d419d53cbe1b84525076bb421a&oe=5E98FBAE');
-concert.image.attach(io: image, filename: 'test_image.jpg')
+concert.photos.attach(io: image, filename: 'test_image.jpg')
 
-event4 = Event.create(place: 'II Liceum Ogólnokształcące, Al. Wyzwolenia 34', starts_at: '2020-09-03', estimated_length: 9000, concert: concert)
+event4 = Event.create(place: 'II Liceum Ogólnokształcące, Al. Wyzwolenia 34', starts_at: '2021-06-03', estimated_length: 4500, concert: concert)
 
 for i in 1..10 do
   for j in 1..20 do
