@@ -25,25 +25,5 @@ describe TicketMailer do
         expect(mail.from).to include('depodkowczers@gmail.com')
       end
     end
-
-    context 'body' do
-      let(:user) { create(:user) }
-      let(:event) { create(:event, :with_tickets) }
-
-      before {
-        user.reservations.attach(io: StringIO.new(WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>')), filename: 'tickets.pdf', content_type: 'application/pdf')
-      }
-
-      let(:attachment) { user.reservations.last }
-      let(:mail) { TicketMailer.reservation(user, event, attachment) }
-
-      it 'includes event place' do
-        expect(mail.body.encoded).to include(event.place)
-      end
-
-      it 'includes event starts at' do
-        expect(mail.body.encoded).to include(event.starts_at.strftime("%d/%m/%Y %H:%M"))
-      end
-    end
   end
 end
