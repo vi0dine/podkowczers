@@ -3,95 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/podkowczers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/podkowczers.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/seeds.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/production/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/production/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.dockerignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/frontend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/debug.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/dev.Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/nginx/default.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/axios/setup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/concert-tile/ConcertTile.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/concert-tile/ConcertTile.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/event-list-item/EventsListItem.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/event-list-item/EventsListItem.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/events-calendar/EventsCalendar.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/events-calendar/EventsCalendar.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/events-list/EventsList.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/events-list/EventsList.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/header/Header.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/header/Header.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/notifier/Notifier.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/notifier/Notifier.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pageloader/Pageloader.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pageloader/Pageloader.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/post-tile/PostTile.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/post-tile/PostTile.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/seat/Seat.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/seat/Seat.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sign-in-form/SignInForm.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sign-in-form/SignInForm.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/slideshow/Slideshow.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/slideshow/Slideshow.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/tickets-selector/TicketsSelector.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/tickets-selector/TicketsSelector.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/history.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/blog-page/BlogPage.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/blog-page/BlogPage.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/concert-details-page/ConcertDetailsPage.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/concert-details-page/ConcertDetailsPage.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/concerts-page/ConcertsPage.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/concerts-page/ConcertsPage.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/event-details-page/EventDetailsPage.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/event-details-page/EventDetailsPage.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/events-page/EventsPage.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/events-page/EventsPage.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home-page/Homepage.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home-page/Homepage.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/post-details-page/PostDetailsPage.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/post-details-page/PostDetailsPage.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/signup-page/SignUpPage.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/signup-page/SignUpPage.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/user-page/UserPage.component.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/user-page/UserPage.styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/app/app.actions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/app/app.reducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/app/app.types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/root-reducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.actions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.reducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.sagas.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/user/user.types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/routes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/screens/HomeScreen/HomeScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/screens/HomeScreen/HomeScreen.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/screens/PostScreen/PostScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/screens/PostScreen/PostScreen.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/Dockerfile.dev" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/default.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1T0iiwkY2OS5iBmN7ddwg8olCaY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -281,7 +194,7 @@
       <workItem from="1584556988132" duration="6509000" />
       <workItem from="1584619115676" duration="143000" />
       <workItem from="1584640178120" duration="611000" />
-      <workItem from="1584726598171" duration="2101000" />
+      <workItem from="1584726598171" duration="2893000" />
     </task>
     <servers />
   </component>
