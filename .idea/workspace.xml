@@ -4,7 +4,8 @@
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/production/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/production/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/default.conf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +195,8 @@
       <workItem from="1584556988132" duration="6509000" />
       <workItem from="1584619115676" duration="143000" />
       <workItem from="1584640178120" duration="611000" />
-      <workItem from="1584726598171" duration="2893000" />
+      <workItem from="1584726598171" duration="3493000" />
+      <workItem from="1584782449983" duration="1954000" />
     </task>
     <servers />
   </component>
