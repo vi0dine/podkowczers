@@ -21,17 +21,18 @@ services:
       - ../../.env.prod
     depends_on:
       - redis
-  nginx:
-    build:
-      dockerfile: Dockerfile
-      context: ../../nginx
+  nginx-proxy:
+    image: jwilder/nginx-proxy
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
   api:
     build:
       dockerfile: Dockerfile
       context: ../../backend
+    environment:
+      - VIRTUAL_HOST=api.depodkowczers.walbrzych.pl
     env_file:
       - ../../.env.prod
     command: sh -c "bundle install && whenever --update-crontab && rails db:create && rails db:migrate && rm -f /api/tmp/pids/server.pid && rails s -p 4000 -b 0.0.0.0"
@@ -45,6 +46,8 @@ services:
     build:
       dockerfile: Dockerfile
       context: ../../frontend
+    environment:
+      - VIRTUAL_HOST=depodkowczers.walbrzych.pl
     env_file:
       - ../../.env.prod
     ports:
