@@ -13,7 +13,6 @@ function* getPosts() {
             url: '/api/v1/posts',
             method: "GET"
         }));
-        console.log(data.posts);
         yield put(fetchPostsSuccess(data.posts))
     } catch (error) {
         yield put(fetchPostsFail(error))

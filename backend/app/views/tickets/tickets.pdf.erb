@@ -1,7 +1,7 @@
 <div style="display: flex; flex: 1; flex-direction: column;">
   <% tickets.each do |record| %>
     <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; max-height: 300px;">
-      <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start">
+      <div style="display: flex; flex: 0.7; flex-wrap: wrap; flex-direction: column; justify-content: flex-start; align-items: flex-start">
         <div>
           <h1><%= record[:ticket].event.concert.name %></h1>
         </div>
@@ -17,7 +17,7 @@
           <p>Miejsce:<%= record[:ticket].seat %></p>
         </div>
       </div>
-      <div style="display: flex;">
+      <div style="display: flex; flex: 0.3">
         <%= image_tag(record[:qr_code].to_data_url) %>
       </div>
     </div>

@@ -6,25 +6,6 @@ import {Icon} from "native-base";
 import {useNavigation} from '@react-navigation/native';
 import {apiURL} from "../../../config/server";
 
-const FadeImage = (props) => {
-    const opacity = new Animated.Value(0);
-
-    useEffect(() => {
-        Animated.timing(opacity, {
-            toValue: 1,
-            duration: 1000,
-            useNativeDriver: true
-        }).start();
-    }, []);
-
-    return (
-        <Animated.Image
-            {...props}
-            style={{...props.style, opacity}}
-        />
-    );
-};
-
 const ConcertItem = ({concert}) => {
     const navigation = useNavigation();
 
@@ -36,9 +17,9 @@ const ConcertItem = ({concert}) => {
             }}
         >
             <View style={ConcertItemStyles.imageContainer}>
-                <FadeImage
+                <Image
                     style={ConcertItemStyles.image}
-                    source={{uri: `${apiURL()}${concert.images[_.random(0, concert.images.length-1)]}`}}
+                    source={{uri: `${apiURL()}${concert.images[0]}`}}
                 />
             </View>
             <View style={ConcertItemStyles.content}>
