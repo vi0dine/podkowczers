@@ -45,8 +45,8 @@ function* authenticateUser(action) {
                 email: action.email,
                 password: action.password,
                 grant_type: "password",
-                client_id: "54EcmVL938fq8G8m-Xdttt3LEbOG3jO4idjaHNjZlSw",
-                client_secret: "EzX19bGzLqrCyoUn94obgyLMWUwfqYjmak4WLJyqNDU"
+                client_id: "ZMyNFekj1F7ehLowwb1sx1DAKYIhOqTGQzeznyd2_ik",
+                client_secret: "7hRqQ9WApXSuZ2CH4xygSGUSSn6OnUDb-pVPjDthPRY"
             },
             method: 'POST'
         }));

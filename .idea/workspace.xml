@@ -4,8 +4,9 @@
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/default.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/components/Events/EventItem/EventItem.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/components/Events/EventItem/EventItem.styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/config/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/config/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,6 +198,7 @@
       <workItem from="1584640178120" duration="611000" />
       <workItem from="1584726598171" duration="3493000" />
       <workItem from="1584782449983" duration="1954000" />
+      <workItem from="1584792142560" duration="681000" />
     </task>
     <servers />
   </component>

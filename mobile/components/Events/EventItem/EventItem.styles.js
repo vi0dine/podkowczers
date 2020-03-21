@@ -30,14 +30,14 @@ const EventItemStyles = StyleSheet.create({
     concert: {
         fontFamily: MAIN_FONT,
         color: MUSTARD,
-        fontSize: 15
+        fontSize: 17,
     },
     placeContainer: {
         width: '85%'
     },
     place: {
         fontFamily: MAIN_FONT,
-        color: MUSTARD,
+        color: `${MUSTARD}bf`,
         fontSize: 14
     },
     starts_at: {

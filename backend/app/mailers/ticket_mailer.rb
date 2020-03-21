@@ -3,7 +3,6 @@
 class TicketMailer < ApplicationMailer
   def reservation(user, event, attachment)
     @event = event
-    attachments.inline['bg.jpg'] = File.read("#{Rails.root}/app/views/ticket_mailer/images/bg-shade.jpg")
     attachments.inline['deco.png'] = File.read("#{Rails.root}/app/views/ticket_mailer/images/deco.png")
     attachments.inline['logo.png'] = File.read("#{Rails.root}/app/views/ticket_mailer/images/logo.png")
 
