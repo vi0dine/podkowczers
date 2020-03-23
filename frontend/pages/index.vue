@@ -16,6 +16,7 @@
   import NavBar from '~/components/index/NavBar.vue'
 
   export default {
+    auth: false,
     components: {
       NavBar: NavBar
     },

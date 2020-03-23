@@ -2,6 +2,9 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   mode: 'universal',
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://api.depodkowczers.walbrzych.pl'
+  },
   /*
   ** Headers of the page
   */
@@ -30,6 +33,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/vuex-persist', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -45,12 +49,35 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    '@nuxtjs/auth'
   ],
+  auth: {
+    redirect: {
+      login: '/app/login',
+      home: false,
+      rewriteRedirects: true
+    },
+    localStorage: false,
+    cookie: true,
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/oauth/token', method: 'post', propertyName: false },
+          logout: false,
+          user: false
+        }
+      }
+    }
+  },
+  router: {
+    middleware: ['auth']
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: 'http://api.depodkowczers.walbrzych.pl'
   },
   /*
   ** vuetify module configuration
@@ -67,7 +94,7 @@ export default {
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
+          error: '#984447',
           success: colors.green.accent3
         }
       }
