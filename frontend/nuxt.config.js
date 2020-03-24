@@ -3,7 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   mode: 'universal',
   env: {
-    baseUrl: process.env.BASE_URL || 'http://api.depodkowczers.walbrzych.pl'
+    baseUrl: 'http://localhost:4000'
+    // baseUrl: 'http://api.depodkowczers.walbrzych.pl'
   },
   /*
   ** Headers of the page
@@ -40,6 +41,7 @@ export default {
   */
   buildModules: [
     '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Nuxt.js modules
@@ -48,7 +50,6 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
     '@nuxtjs/auth'
   ],
   auth: {
@@ -77,7 +78,8 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'http://api.depodkowczers.walbrzych.pl'
+    baseURL: 'http://localhost:4000'
+    // baseURL: 'http://api.depodkowczers.walbrzych.pl'
   },
   /*
   ** vuetify module configuration

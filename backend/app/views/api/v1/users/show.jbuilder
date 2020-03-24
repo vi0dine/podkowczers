@@ -1,6 +1,7 @@
 json.user do
   json.id @user.id
   json.email @user.email
+  json.role @user.role
   json.coins @user.coins_count
   json.tickets do
     json.array! @user.tickets do |ticket|

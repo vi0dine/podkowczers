@@ -27,7 +27,7 @@ module Api
       api!
       def add_coin
         authorize! :add_coin, User
-        @user = User.find(params[:id])
+        @user = User.find(params[:user_id])
         if @user.add_coins(1)
           render 'show'
         else
@@ -38,7 +38,7 @@ module Api
       api!
       def promote
         authorize! :promote, User
-        @user = User.find(params[:id])
+        @user = User.find(params[:user_id])
         if @user.promote
           render 'show'
         else
@@ -49,7 +49,7 @@ module Api
       api!
       def demote
         authorize! :demote, User
-        @user = User.find(params[:id])
+        @user = User.find(params[:user_id])
         if @user.demote
           render 'show'
         else

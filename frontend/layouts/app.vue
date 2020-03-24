@@ -1,8 +1,10 @@
 <template>
   <v-app dark>
-    <v-content class="app-content">
+    <v-container fluid>
+      <v-content class="app-content">
         <nuxt />
-    </v-content>
+      </v-content>
+    </v-container>
     <Drawer/>
   </v-app>
 </template>
@@ -22,6 +24,6 @@
   }
 
   .app-content {
-    width: 85vw;
+    width: 83vw;
   }
 </style>

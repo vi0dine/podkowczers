@@ -46,7 +46,7 @@
 
     computed: {
       loading() {
-        return this.$store.state.user.loading
+        return this.$store.state.users.loading
       },
       emailErrors () {
         const errors = []
@@ -65,9 +65,12 @@
 
     methods: {
       submit () {
-        this.$store.dispatch('user/login', {email: this.email, password: this.password});
+        this.$store.dispatch('users/login', {email: this.email, password: this.password})
+        .then(() => {
+          this.$router.push({path: '/app'});
+        });
       }
-    },
+    }
   }
 </script>
 
