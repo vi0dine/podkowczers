@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_130245) do
+ActiveRecord::Schema.define(version: 2020_03_25_175209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2020_03_13_130245) do
     t.bigint "concert_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "reservation_open", default: false
+    t.datetime "reservation_opened_at"
     t.index ["concert_id"], name: "index_events_on_concert_id"
   end
 
@@ -69,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_130245) do
 
   create_table "oauth_access_tokens", force: :cascade do |t|
     t.bigint "resource_owner_id"
-    t.bigint "application_id", null: false
+    t.bigint "application_id"
     t.string "token", null: false
     t.string "refresh_token"
     t.integer "expires_in"
@@ -142,6 +144,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_130245) do
     t.string "encrypted_password", limit: 128
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128
+    t.string "notifications_token"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

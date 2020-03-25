@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   mode: 'universal',
   env: {
-    baseUrl: 'http://localhost:4000'
-    // baseUrl: 'http://api.depodkowczers.walbrzych.pl'
+    // baseUrl: 'http://localhost:4000',
+    baseUrl: 'http://api.depodkowczers.walbrzych.pl'
   },
   /*
   ** Headers of the page
@@ -50,7 +50,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+    'vue-scrollto/nuxt'
   ],
   auth: {
     redirect: {
@@ -91,7 +92,7 @@ export default {
       dark: true,
       themes: {
         dark: {
-          primary: colors.blue.darken2,
+          primary: '#ffc857',
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,

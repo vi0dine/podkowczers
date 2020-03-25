@@ -14,11 +14,10 @@ module Api
 
       api!
       def create
-        @concert = Concert.find(params[:concert_id])
-        @event = @concert.events.new(event_params)
-
         authorize! :create, Event
-        if @event.save
+        @event = EventCreatorService.new(params).call
+
+        if @event.save!
           render 'create', status: :created
         else
           render json: { error: @event.errors.full_messages.join(' ') }, status: :unprocessable_entity
@@ -46,7 +45,8 @@ module Api
       private
 
       def event_params
-        params.require(:event).permit(:place, :starts_at, :estimated_length)
+        params.require(:event).permit(:place, :starts_at, :estimated_length,
+                                      :concert_id, :planned, :reserved_seats)
       end
     end
   end

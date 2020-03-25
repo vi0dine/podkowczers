@@ -13,11 +13,12 @@ import {
     REGISTER_USER_SUCCESS
 } from "./Users.types";
 
-export const registerUser = (email, password, navigation) => {
+export const registerUser = (email, password, expo_token, navigation) => {
     return {
         type: REGISTER_USER,
         email: email,
         password: password,
+        expo_token: expo_token,
         navigation: navigation
     }
 };

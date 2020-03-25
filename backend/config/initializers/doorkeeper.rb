@@ -7,14 +7,14 @@ Doorkeeper.configure do
 
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
-    @user = request.env[:clearance].current_user
-
-    unless @user
-      session[:return_to] = request.fullpath
-      redirect_to(sign_in_url)
-    end
-
-    @user
+    # @user = request.env[:clearance].current_user
+    #
+    # unless @user
+    #   session[:return_to] = request.fullpath
+    #   redirect_to(sign_in_url)
+    # end
+    #
+    # @user
   end
 
   resource_owner_from_credentials do |_routes|
@@ -88,7 +88,7 @@ Doorkeeper.configure do
   # Access token expiration time (default: 2 hours).
   # If you want to disable expiration, set this to `nil`.
   #
-  # access_token_expires_in 2.hours
+  access_token_expires_in 8.hours
 
   # Assign custom TTL for access tokens. Will be used instead of access_token_expires_in
   # option if defined. In case the block returns `nil` value Doorkeeper fallbacks to

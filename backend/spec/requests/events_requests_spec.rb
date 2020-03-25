@@ -72,7 +72,7 @@ RSpec.describe 'Events', type: :request do
       let(:token) { get_access_token(admin) }
 
       before {
-        post '/api/v1/events', params: { event: event, concert_id: concert.id }, headers: {
+        post '/api/v1/events', params: { event: event.merge(concert_id: concert.id) }, headers: {
             "Authorization": "Bearer #{token}"
         }
       }
@@ -93,7 +93,7 @@ RSpec.describe 'Events', type: :request do
 
       it 'add new event to db' do
         expect do
-          post '/api/v1/events', params: { event: event, concert_id: concert.id }, headers: {
+          post '/api/v1/events', params: { event: event.merge(concert_id: concert.id) }, headers: {
               "Authorization": "Bearer #{token}"
           }
         end .to change { Event.all.count }.by(1)
@@ -105,7 +105,7 @@ RSpec.describe 'Events', type: :request do
       let(:token) { get_access_token(user) }
 
       before {
-        post '/api/v1/events', params: { event: event, concert_id: concert.id }, headers: {
+        post '/api/v1/events', params: { event: event.merge(concert_id: concert.id) }, headers: {
             "Authorization": "Bearer #{token}"
         }
       }
@@ -118,7 +118,7 @@ RSpec.describe 'Events', type: :request do
 
       it 'did not add new event to db' do
         expect do
-          post '/api/v1/events', params: { event: event, concert_id: concert.id }, headers: {
+          post '/api/v1/events', params: { event: event.merge(concert_id: concert.id) }, headers: {
               "Authorization": "Bearer #{token}"
           }
         end .to change { Event.all.count }.by(0)
@@ -127,7 +127,7 @@ RSpec.describe 'Events', type: :request do
 
     context 'as a quest' do
       before {
-        post '/api/v1/events', params: { event: event, concert_id: concert.id }
+        post '/api/v1/events', params: { event: event.merge(concert_id: concert.id) }
       }
 
       it 'respond with code 401' do
@@ -138,7 +138,7 @@ RSpec.describe 'Events', type: :request do
 
       it 'did not add new event to db' do
         expect do
-          post '/api/v1/events', params: { event: another_event, concert_id: concert.id }
+          post '/api/v1/events', params: { event: event.merge(concert_id: concert.id) }
         end .to change { Event.all.count }.by(0)
       end
     end

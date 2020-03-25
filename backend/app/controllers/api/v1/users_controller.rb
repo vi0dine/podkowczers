@@ -9,7 +9,6 @@ module Api
 
       def create
         @user = user_from_params
-
         if @user.save
           sign_in(@user) do |status|
             if status.success?
@@ -75,7 +74,7 @@ module Api
       private
 
       def user_params
-        params.require(:user).permit(%i[id email password])
+        params.require(:user).permit(%i[id email password notifications_token])
       end
     end
   end

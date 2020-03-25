@@ -3,5 +3,5 @@ const {manifest} = Constants;
 
 export const apiURL = () => {
     return 'http://api.depodkowczers.walbrzych.pl'
-    // return `http://${manifest.debuggerHost.split(':').shift()}:3000`;
+    // return `http://${manifest.debuggerHost.split(':').shift()}:4000`;
 };

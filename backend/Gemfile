@@ -12,9 +12,9 @@ gem 'clearance'
 gem 'doorkeeper'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'ed25519'
+gem 'exponent-server-sdk'
 gem 'faker'
 gem 'jbuilder'
-gem 'fast_jsonapi'
 gem 'interactor', '~> 3.0'
 gem "koala"
 gem 'pg'

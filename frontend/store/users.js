@@ -18,9 +18,7 @@ export const actions = {
     await this.$auth.login({ data: {
         email: email,
         password: password,
-        grant_type: "password",
-        client_id: process.env.APP_ID || "ZMyNFekj1F7ehLowwb1sx1DAKYIhOqTGQzeznyd2_ik",
-        client_secret: process.env.APP_SECRET || "7hRqQ9WApXSuZ2CH4xygSGUSSn6OnUDb-pVPjDthPRY"
+        grant_type: "password"
     }}).then(async ({data: user}) => {
       await this.$auth.setToken('local', 'Bearer ' + user.access_token);
       await this.$auth.setRefreshToken('local', user.refresh_token);

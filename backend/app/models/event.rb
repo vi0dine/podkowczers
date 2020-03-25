@@ -13,7 +13,7 @@ class Event < ApplicationRecord
   validates :estimated_length,
             presence: true,
             numericality: { only_integers: true,
-                            greater_than_or_equal_to: 900 }
+                            greater_than_or_equal_to: 30 }
   validates :concert_id,
             presence: true
 

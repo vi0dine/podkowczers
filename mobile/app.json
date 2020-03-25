@@ -23,8 +23,8 @@
     ],
     "android": {
       "package": "com.viodine.epodkowczers",
-      "versionCode": 1,
-      "permissions": []
+      "googleServicesFile": "./assets/google-services.json",
+      "versionCode": 1
     }
   }
 }

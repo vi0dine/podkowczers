@@ -14,7 +14,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ../../backend
-    command: sh -c "bundle install && bundle exec sidekiq -q default -q user_tickets "
+    command: sh -c "bundle install && bundle exec sidekiq -q default -q user_tickets -q open_reservation"
     volumes:
       - ../../backend:/api
     env_file:

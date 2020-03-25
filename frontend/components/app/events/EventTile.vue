@@ -16,22 +16,6 @@
         {{ event.place }}
       </v-card-subtitle>
     </div>
-
-    <div class="event-tile-actions">
-      <v-btn
-        icon
-        class="ticket-button"
-        width="70px"
-        height="70px"
-        nuxt
-        to="/app/concerts"
-      >
-        <v-icon
-          size="60px"
-          color="#FFC857"
-        >mdi-ticket</v-icon>
-      </v-btn>
-    </div>
   </v-card>
 </template>
 
@@ -55,10 +39,6 @@
 
   .event-tile-info {
     flex-direction: column;
-  }
-
-  .event-tile-actions {
-    padding-right: 2rem;
   }
 
   .event-tile-title {

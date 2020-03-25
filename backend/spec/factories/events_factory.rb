@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :event do
-    place { Faker::Address.city }
+    place { { name: Faker::Address.city, rows: 10, seats: 10 } }
     starts_at { Faker::Time.forward }
-    estimated_length { Faker::Number.between(from: 900, to: 10_000) }
+    estimated_length { Faker::Number.between(from: 30, to: 210) }
     concert
 
     trait :with_tickets do

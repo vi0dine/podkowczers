@@ -25,6 +25,7 @@ function* signUpUser(action) {
                 user: {
                     email: action.email,
                     password: action.password,
+                    notifications_token: action.expo_token
                 }
             },
             method: 'POST'
@@ -44,9 +45,7 @@ function* authenticateUser(action) {
             data: {
                 email: action.email,
                 password: action.password,
-                grant_type: "password",
-                client_id: "ZMyNFekj1F7ehLowwb1sx1DAKYIhOqTGQzeznyd2_ik",
-                client_secret: "7hRqQ9WApXSuZ2CH4xygSGUSSn6OnUDb-pVPjDthPRY"
+                grant_type: "password"
             },
             method: 'POST'
         }));

@@ -1,8 +1,10 @@
 import RegisterFormStyles from "./RegisterForm.styles";
+import {Notifications} from 'expo';
+import * as Permissions from 'expo-permissions';
 import {Button, Form, Icon, Input, Item} from "native-base";
 import {RED} from "../../../variables";
 import {Text, View} from "react-native";
-import React from "react";
+import React, {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import * as yup from "yup";
 import {useFormik} from "formik";
@@ -20,6 +22,16 @@ const RegisterForm = () => {
             .oneOf([yup.ref('password'), null], 'Hasła nie są identyczne')
     });
 
+    const getExpoToken = async () => {
+        const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+        if (status !== 'granted') {
+            alert('Zgoda na powiadomienia jest wymagana!');
+            return;
+        }
+
+        return await Notifications.getExpoPushTokenAsync()
+    };
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -27,8 +39,10 @@ const RegisterForm = () => {
             password_confirmation: ''
         },
         validationSchema: schema,
-        onSubmit:({email, password}) => {
-            dispatch(registerUser(email, password, navigation))
+        onSubmit: async ({email, password}) => {
+            const token = await getExpoToken();
+            console.log(token);
+            dispatch(registerUser(email, password, token, navigation))
         }
     });
 
