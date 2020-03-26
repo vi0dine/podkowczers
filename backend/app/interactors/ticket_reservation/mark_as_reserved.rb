@@ -6,7 +6,7 @@ module TicketReservation
 
     def call
       if context.requested_tickets.any? { |record| record[:ticket].reserved? }
-        context.fail!(message: 'Bilet zarezerwowany') 
+        context.fail!(message: 'Bilet zarezerwowany. Odśwież układ sali.')
       end
 
       context.requested_tickets.each do |record|

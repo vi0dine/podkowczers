@@ -49,12 +49,13 @@ const EventScreen = ({route}) => {
                             </View>
                             <TouchableOpacity
                                 style={EventScreenStyles.buttonContainer}
+                                disabled={!event.reservation_open}
                                 onPress={() => {
                                     navigation.navigate('Reserve', {id: event.id})
                                 }}
                             >
                                 <Icon type={'Entypo'} name={'ticket'} style={EventScreenStyles.buttonIcon}/>
-                                <Text style={EventScreenStyles.buttonText}>ZAREZERWUJ</Text>
+                                <Text style={EventScreenStyles.buttonText}>{ event.reservation_open ? 'ZAREZERWUJ' : 'WKRÓTCE' }</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={EventScreenStyles.descriptionContainer}>

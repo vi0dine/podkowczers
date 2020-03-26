@@ -1,4 +1,5 @@
 import {takeLatest, put, call, delay} from 'redux-saga/effects';
+import { store } from '../store'
 import axios from 'axios';
 import {AUTH_USER, FETCH_USER, LOGOUT_USER, REGISTER_USER} from "./Users.types";
 import {
@@ -34,6 +35,8 @@ function* signUpUser(action) {
         yield delay(2000);
         yield put(authUser(action.email, action.password, action.navigation))
     } catch (error) {
+        console.log(error);
+        console.log(error.response);
         yield put(registerUserFail(error))
     }
 }
@@ -77,8 +80,6 @@ function* logoutUser(action) {
         yield call(() => axios.request({
             url: `/oauth/revoke`,
             data: {
-                client_id: "T1vkA5VM7zQkI3P44fA-zaZEPQlIgUZITYSk6EwUdbA",
-                client_secret: "ypzhNGtiJSMw90aGeyuZuwGpdXwT_twFw7GNXnk2hX0",
                 token: store.getState().UserState.access_token
             },
             method: 'POST'
@@ -86,6 +87,7 @@ function* logoutUser(action) {
         yield put(logoutUserSuccess());
         yield call(() => action.navigation.navigate('Login'))
     } catch (error) {
+        console.log(error);
         yield put(logoutUserFail(error))
     }
 }

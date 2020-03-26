@@ -9,6 +9,7 @@ import {MUSTARD} from "../../../variables";
 
 const AudienceSelector = ({id, handleSelect, handleDeselect}) => {
     const processing = useSelector(state => state.EventsState.processing);
+    const fetching = useSelector(state => state.EventsState.fetching);
     const event = useSelector(state => state.EventsState.events.find(event => event.id === id));
     const [groupedSeats, setGroupedSeats] = useState(null);
 
@@ -17,12 +18,12 @@ const AudienceSelector = ({id, handleSelect, handleDeselect}) => {
     };
 
     useEffect(() => {
-        if (processing) {
+        if (processing || fetching) {
             setGroupedSeats(null);
         } else {
             setGroupedSeats(groupByRow())
         }
-    }, [processing]);
+    }, [processing, fetching]);
 
     return (groupedSeats && !processing) ? (
         <View style={AudienceSelectorStyles.audience}>

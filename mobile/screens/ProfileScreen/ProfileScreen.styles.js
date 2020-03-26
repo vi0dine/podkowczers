@@ -62,18 +62,20 @@ const ProfileScreenStyles = StyleSheet.create({
         fontSize: 21
     },
     logoutButton: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        width: 45,
+        height: 45,
+        padding: 5,
+        borderRadius: 30,
         backgroundColor: RED,
-        padding: 15,
-        borderRadius: 20,
-        width: Dimensions.get('window').width*0.9,
-        flexDirection: 'row',
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
     },
-    logoutText: {
-        color: WHITE,
-        fontFamily: MAIN_FONT,
-        fontSize: 21
+    logoutIcon: {
+        color: WHITE
     }
 });
 

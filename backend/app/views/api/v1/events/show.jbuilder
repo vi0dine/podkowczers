@@ -7,6 +7,7 @@ json.event do
   json.starts_at @event.starts_at
   json.estimated_length @event.estimated_length
   json.available_tickets_count @event.available_tickets_count
+  json.reservation_open @event.reservation_open
   json.tickets do
     json.array! @event.tickets do |ticket|
       json.id ticket.id

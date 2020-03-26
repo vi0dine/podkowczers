@@ -19,6 +19,7 @@ const HomeScreen = () => {
     return posts && (
         <Container style={HomeScreenStyles.mainContainer}>
             <Content
+                showsVerticalScrollIndicator={false}
                 contentContainerStyle={HomeScreenStyles.content}
                 refreshControl={<RefreshControl refreshing={fetching} onRefresh={() => dispatch(fetchPosts())} />}
             >
@@ -27,9 +28,13 @@ const HomeScreen = () => {
                 </View>
                 <View style={HomeScreenStyles.postsContainer}>
                     {
-                        posts.length > 0 && _.sortBy(posts, 'created_at').reverse().map(post => (
-                            <PostItem key={post.id} post={post} />
-                        ))
+                        posts.length > 0 && _.sortBy(posts, 'created_at').reverse().map(post =>
+                            {
+                                if (post.body || post.attachments.media.length > 0) {
+                                    return <PostItem key={post.id} post={post} />
+                                }
+                            }
+                        )
                     }
                 </View>
             </Content>

@@ -18,6 +18,7 @@ const ConcertsScreen = () => {
     return (
         <Container style={ConcertsScreenStyles.mainContainer}>
             <Content
+                showsVerticalScrollIndicator={false}
                 contentContainerStyle={ConcertsScreenStyles.content}
                 refreshControl={<RefreshControl refreshing={fetching} onRefresh={() => dispatch(fetchConcerts())}/>}
             >

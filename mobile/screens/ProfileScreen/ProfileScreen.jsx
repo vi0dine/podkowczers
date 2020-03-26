@@ -17,6 +17,7 @@ const ProfileScreen = ({navigation}) => {
     return (
         <Container style={ProfileScreenStyles.mainContainer}>
             <Content
+                showsVerticalScrollIndicator={false}
                 refreshControl={<RefreshControl refreshing={user.processing} onRefresh={() => {dispatch(fetchUser(user.id))}} />}
                 contentContainerStyle={ProfileScreenStyles.content}
             >
@@ -45,7 +46,11 @@ const ProfileScreen = ({navigation}) => {
                     }
                 </View>
                 <TouchableOpacity style={ProfileScreenStyles.logoutButton} onPress={() => dispatch(logoutUser(navigation))}>
-                    <Text style={ProfileScreenStyles.logoutText}>WYLOGUJ</Text>
+                    <Icon
+                        type={'FontAwesome'}
+                        name={'power-off'}
+                        style={ProfileScreenStyles.logoutIcon}
+                    />
                 </TouchableOpacity>
             </Content>
         </Container>

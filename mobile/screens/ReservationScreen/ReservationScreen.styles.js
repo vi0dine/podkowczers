@@ -11,7 +11,8 @@ const ReservationScreenStyles = StyleSheet.create({
         marginTop: Constants.statusBarHeight,
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        height: Dimensions.get('window').height*0.9
     },
     buttonContainer: {
         justifyContent: 'center',

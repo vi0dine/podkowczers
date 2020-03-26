@@ -18,6 +18,7 @@ const EventsScreen = () => {
     return events && (
         <Container style={EventsScreenStyles.mainContainer}>
             <Content
+                showsVerticalScrollIndicator={false}
                 contentContainerStyle={EventsScreenStyles.content}
                 refreshControl={<RefreshControl refreshing={fetching} onRefresh={() => dispatch(fetchEvents())} />}
             >

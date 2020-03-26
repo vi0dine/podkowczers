@@ -6,11 +6,11 @@ module TicketReservation
 
     def call
       if context.user.coins_count < context.requested_tickets.size
-        context.fail!(message: 'Użytkownik nie ma tylu monet')
+        context.fail!(message: 'Nie masz tylu monet.')
       end
 
       if context.requested_tickets.any? { |record| record[:ticket].user != nil }
-        context.fail!(message: 'Bilet ma już przypisanego użytkownika')
+        context.fail!(message: 'Miejsce już zarezerwowane.')
       end
 
       context.requested_tickets.each do |record|

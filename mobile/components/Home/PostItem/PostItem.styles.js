@@ -34,7 +34,7 @@ const PostItemStyles = StyleSheet.create({
         borderTopRightRadius: 20
     },
     video: {
-        height: 600,
+        height: 120,
         width: Dimensions.get('window').width*0.9,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20

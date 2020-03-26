@@ -15,26 +15,31 @@ const PostItem = ({post}) => {
                 navigation.navigate('Post', {id: post.id})
             }}
         >
-            <View style={PostItemStyles.imageContainer}>
-                {
-                    post.attachments.media[0].type === 'video_inline' ? (
-                        <Video
-                            source={{uri: post.attachments.media[0].src}}
-                            rate={0.7}
-                            isMuted={true}
-                            resizeMode="cover"
-                            shouldPlay
-                            isLooping
-                            style={PostItemStyles.image}
-                        />
-                    ) : (
-                        <Image
-                            style={PostItemStyles.image}
-                            source={{uri: `${post.attachments.media[0].src}`}}
-                        />
-                    )
-                }
-            </View>
+            {
+                (post.attachments.media[0].type === 'video_inline' || post.attachments.media[0].type === 'photo') && (
+                    <View style={PostItemStyles.imageContainer}>
+                        {
+                            post.attachments.media[0].type === 'video_inline' && post.attachments.media[0].src.startsWith("https://video") ? (
+                                <Video
+                                    source={{uri: post.attachments.media[0].src}}
+                                    rate={0.7}
+                                    isMuted={true}
+                                    resizeMode="cover"
+                                    shouldPlay
+                                    isLooping
+                                    style={PostItemStyles.video}
+                                />
+                            ) : (
+                                <Image
+                                    style={PostItemStyles.image}
+                                    source={{uri: `${post.attachments.media[0].src}`}}
+                                />
+                            )
+                        }
+                    </View>
+                )
+            }
+
             {
                 post.body && (
                     <View style={PostItemStyles.content}>
