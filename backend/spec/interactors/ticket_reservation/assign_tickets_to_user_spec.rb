@@ -48,7 +48,7 @@ RSpec.describe TicketReservation::AssignTicketsToUser do
       end
 
       it 'provides a failure message' do
-        expect(context.message).to eq('Bilet ma już przypisanego użytkownika')
+        expect(context.message).to eq('Miejsce już zarezerwowane.')
       end
 
       it 'does not assign tickets to the new user' do
@@ -81,7 +81,7 @@ RSpec.describe TicketReservation::AssignTicketsToUser do
       end
 
       it 'provides a failure message' do
-        expect(context.message).to eq('Użytkownik nie ma tylu monet')
+        expect(context.message).to eq('Nie masz tylu monet.')
       end
 
       it 'does not assign tickets to the user' do
