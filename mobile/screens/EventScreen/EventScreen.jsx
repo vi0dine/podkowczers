@@ -41,7 +41,7 @@ const EventScreen = ({route}) => {
                         </View>
                         <View style={EventScreenStyles.headerContainer}>
                             <View style={EventScreenStyles.infoContainer}>
-                                <Text style={EventScreenStyles.place}>{event.place}</Text>
+                                <Text style={EventScreenStyles.place}>{event.place.name}</Text>
                                 <Text style={EventScreenStyles.starts_at}>{moment(event.starts_at).format('LLL')}</Text>
                                 <Text style={EventScreenStyles.duration}>
                                     Czas trwania: {Math.ceil(moment.duration(event.estimated_length, 'seconds').asMinutes())} minuty

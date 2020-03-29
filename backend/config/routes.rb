@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :reviews, only: %i[index create update destroy]
       resources :concerts, only: %i[index show create update destroy]
       resources :events, only: %i[index show create update destroy]
+      resources :places, only: %i[index]
       resources :tickets, only: %i[index destroy] do
         post 'return', controller: :tickets, action: :return
       end

@@ -4,6 +4,7 @@ import {MAIN_FONT, MUSTARD, RED, WHITE} from "../../../variables";
 const TicketItemStyles = StyleSheet.create({
     ticketBox: {
         flexDirection: 'row',
+        alignItems: 'center',
         margin: 7,
         paddingBottom: 5,
         backgroundColor: RED,
@@ -28,7 +29,8 @@ const TicketItemStyles = StyleSheet.create({
     ticketPlace: {
         fontFamily: MAIN_FONT,
         color: WHITE,
-        fontSize: 12
+        fontSize: 12,
+        width: '90%'
     },
     ticketReservedAt: {
         fontFamily: MAIN_FONT,

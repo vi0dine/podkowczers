@@ -4,7 +4,10 @@ import Constants from 'expo-constants';
 
 const ReservationScreenStyles = StyleSheet.create({
     mainContainer: {
-        backgroundColor: BLACK
+        backgroundColor: BLACK,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
     content: {
         flex: 1,

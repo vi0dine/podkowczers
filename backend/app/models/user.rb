@@ -51,7 +51,7 @@ class User < ApplicationRecord
     with_lock do
       dissociate_ticket(ticket)
       ticket.update(reserved: false, mailed: false)
-      # ticket.revoke_qr TODO: QR in database
+      ticket.revoke_qr
       add_coins(1)
       save!
     end

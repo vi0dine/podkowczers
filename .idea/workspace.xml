@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feae1a83-02af-474d-9362-9677341a5d23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/jobs/open_reservation_for_event_job.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/services/EventCreatorService.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/admin_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/services/app_statistics_service.rb" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/components/app/Drawer.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/components/app/concerts/ConcertTile.vue" afterDir="false" />
@@ -14,6 +14,7 @@
       <change afterPath="$PROJECT_DIR$/frontend/components/app/users/ConfirmDialog.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/components/index/NavBar.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/layouts/app.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/middleware/authenticated.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/pages/app/concerts/_id.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/pages/app/concerts/index.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/pages/app/events/_id.vue" afterDir="false" />
@@ -29,33 +30,11 @@
       <change afterPath="$PROJECT_DIR$/frontend/store/concerts.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/store/events.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/store/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/podkowczers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/podkowczers.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/.generators" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/events_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/events_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/controllers/api/v1/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/controllers/api/v1/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/models/event.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models/event.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/initializers/doorkeeper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/initializers/doorkeeper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/seeds.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/spec/factories/events_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/factories/events_factory.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/spec/models/event_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/models/event_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/spec/requests/events_requests_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spec/requests/events_requests_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/production/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/production/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/app/events/EventTile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/app/events/EventTile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/nuxt.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/app/events/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/app/events/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/store/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/store/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/EventCreatorService.rb" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/event_creator_service.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile/components/Login/RegisterForm/RegisterForm.component.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/components/Login/RegisterForm/RegisterForm.component.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/config/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/config/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/redux/Users/Users.actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/redux/Users/Users.actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/redux/Users/Users.sagas.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,6 +228,7 @@
       <workItem from="1584782449983" duration="1954000" />
       <workItem from="1584792142560" duration="681000" />
       <workItem from="1585163609154" duration="420000" />
+      <workItem from="1585307855878" duration="1814000" />
     </task>
     <servers />
   </component>

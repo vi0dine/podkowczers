@@ -1,25 +1,25 @@
-import {takeLatest, put, call} from 'redux-saga/effects';
+import {takeLatest, put, call, delay} from 'redux-saga/effects';
 import axios from 'axios';
-import {BOOK_TICKETS, FETCH_EVENT, FETCH_EVENTS} from "./Events.types";
+import {BOOK_TICKETS, FETCH_EVENT, FETCH_EVENTS, RETURN_TICKET} from "./Events.types";
 import {
     bookTicketsFail,
     bookTicketsSuccess, fetchEvent,
     fetchEventFail,
     fetchEventsFail,
     fetchEventsSuccess,
-    fetchEventSuccess
+    fetchEventSuccess, returnTicketFail, returnTicketSuccess
 } from "./Events.actions";
-import {fetchUser} from "../Users/Users.actions";
 
 export function* watchEventsSaga() {
     yield takeLatest(FETCH_EVENTS, getEvents);
     yield takeLatest(FETCH_EVENT, getEvent);
     yield takeLatest(BOOK_TICKETS, makeReservation);
+    yield takeLatest(RETURN_TICKET, cancelReservation);
 }
 
 function* getEvents() {
     try {
-        const { data } = yield call(() => axios.request({
+        const {data} = yield call(() => axios.request({
             url: '/api/v1/events',
             method: "GET"
         }));
@@ -31,7 +31,7 @@ function* getEvents() {
 
 function* getEvent(action) {
     try {
-        const { data } = yield call(() => axios.request({
+        const {data} = yield call(() => axios.request({
             url: `/api/v1/events/${action.id}`,
             method: "GET"
         }));
@@ -50,8 +50,21 @@ function* makeReservation(action) {
             },
             method: "POST"
         }));
-        yield put(bookTicketsSuccess(action.event_id, data.tickets))
+        yield put(bookTicketsSuccess(action.event_id, data.tickets));
     } catch (error) {
         yield put(bookTicketsFail(error))
+    }
+}
+
+function* cancelReservation(action) {
+    try {
+        const {data} = yield call(() => axios.request({
+            url: `/api/v1/tickets/${action.id}/return`,
+            method: "POST"
+        }));
+        yield put(returnTicketSuccess(data.ticket.event, data.ticket.id));
+        yield put(fetchEvent(data.ticket.event))
+    } catch (error) {
+        yield put(returnTicketFail(error))
     }
 }

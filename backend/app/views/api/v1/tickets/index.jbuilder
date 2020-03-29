@@ -6,8 +6,11 @@ json.tickets do
     json.seat ticket.seat
     json.event do
       json.id ticket.event.id
-      json.place ticket.event.place
       json.name ticket.event.concert.name
+      json.place do
+        json.id ticket.event.place.id
+        json.name ticket.event.place.name
+      end
     end
     json.reserved ticket.reserved
   end

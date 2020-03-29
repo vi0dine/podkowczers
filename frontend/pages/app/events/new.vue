@@ -150,13 +150,6 @@
     },
     data() {
       return {
-        places: [
-          {
-            text: 'II Liceum Ogólnokształcące',
-            value: { name: 'II Liceum Ogólnokształcące im. Hugona Kołłątaja w Wałbrzychu', rows: 10, seats: 20 }
-          }
-        ],
-
         prereservation: false,
         plannedOpening: false,
         plannedDateOpen: false,
@@ -197,7 +190,8 @@
       }
     },
     async fetch() {
-      await this.$store.dispatch('concerts/fetchConcerts')
+      await this.$store.dispatch('concerts/fetchConcerts');
+      await this.$store.dispatch('events/fetchPlaces');
     },
     methods: {
       updateSeats(seats) {
@@ -207,7 +201,7 @@
         await this.$axios.$post('/api/v1/events', {
           event: {
             concert_id: this.concert.id,
-            place: this.place,
+            place: this.place.id,
             starts_at: moment(`${this.date} ${this.time}`).format(),
             estimated_length: this.estimatedLength,
             planned: moment(`${this.plannedDate} ${this.plannedTime}`).format(),
@@ -229,6 +223,13 @@
           return concerts.map(concert => ({ value: { id: concert.id, name: concert.name }, text: concert.name }))
         }
       },
+      places() {
+        const places = this.$store.state.events.places
+
+        if (places) {
+          return places.map(place => ({ value: { id: place.id, name: place.name, plan: place.plan }, text: place.name }))
+        }
+      },
       startsAt() {
         if (this.date && this.time) {
           return moment(`${this.date} ${this.time}`).format('LLL')
@@ -240,11 +241,15 @@
         }
       },
       availableSeats() {
-        const placeSeats = this.place.rows * this.place.seats;
-        const questsSeats = this.selectedSeats.length;
+        if (this.place) {
+          const placeSeats = this.place.plan.sectors.map(sector => sector.rows.map(row => row.seats)).flat().reduce((acc, row) => (acc + row))
+          const questsSeats = this.selectedSeats.length;
 
-        if (placeSeats) {
-          return placeSeats - questsSeats
+          if (placeSeats) {
+            return placeSeats - questsSeats
+          }
+        } else {
+          return 0
         }
       }
     },

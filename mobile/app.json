@@ -8,7 +8,7 @@
       "android"
     ],
     "version": "0.0.2",
-    "orientation": "portrait",
+    "orientation": "portrait, landscape",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",

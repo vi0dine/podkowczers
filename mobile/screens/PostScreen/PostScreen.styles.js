@@ -1,5 +1,5 @@
 import {StyleSheet, Dimensions} from "react-native";
-import {BLACK, MAIN_FONT, MUSTARD, RED} from "../../variables";
+import {BLACK, MAIN_FONT, MUSTARD, RED, WHITE} from "../../variables";
 
 const PostScreenStyles = StyleSheet.create({
     mainContainer: {
@@ -12,6 +12,27 @@ const PostScreenStyles = StyleSheet.create({
         justifyContent: 'center',
         height: Dimensions.get('window').height*0.85,
         marginTop: Dimensions.get('window').height*0.05,
+    },
+    leftArrowContainer: {
+        position: 'absolute',
+        top: '45%',
+        left: 10,
+        backgroundColor: WHITE,
+        width: 30,
+        height: 30,
+        borderRadius: 20
+    },
+    rightArrowContainer: {
+        position: 'absolute',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        top: '45%',
+        right: 10,
+        backgroundColor: WHITE,
+        width: 30,
+        height: 30,
+        borderRadius: 20
     },
     attachmentsContainer: {
         width: Dimensions.get('window').width,

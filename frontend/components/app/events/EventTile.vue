@@ -13,7 +13,7 @@
       <v-card-subtitle
         class="event-tile-subtitle"
       >
-        {{ event.place }}
+        {{ event.place.name }}
       </v-card-subtitle>
     </div>
   </v-card>

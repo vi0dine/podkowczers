@@ -21,7 +21,7 @@ const EventItem = ({event}) => {
                         <Text style={EventItemStyles.concert}>{event.concert}</Text>
                     </View>
                     <View style={EventItemStyles.placeContainer}>
-                        <Text style={EventItemStyles.place}>{event.place}</Text>
+                        <Text style={EventItemStyles.place}>{event.place.name}</Text>
                         <Text style={EventItemStyles.starts_at}>{moment(event.starts_at).format('LL HH:mm')}
                             &nbsp;~ {moment(event.starts_at).add(event.estimated_length, 'seconds').format('HH:mm')}</Text>
                     </View>

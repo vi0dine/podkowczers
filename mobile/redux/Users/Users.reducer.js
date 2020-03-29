@@ -6,7 +6,7 @@ import {
     REGISTER_USER_FAIL,
     REGISTER_USER_SUCCESS
 } from "./Users.types";
-import {BOOK_TICKETS_SUCCESS} from "../Events/Events.types";
+import {BOOK_TICKETS_SUCCESS, RETURN_TICKET_SUCCESS} from "../Events/Events.types";
 
 const INITIAL_STATE = {
     id: null,
@@ -81,6 +81,12 @@ export const userReducer = (state=INITIAL_STATE, action) => {
             return {
                 ...state,
                 tickets: state.tickets.concat(action.tickets)
+            };
+        case RETURN_TICKET_SUCCESS:
+            return {
+                ...state,
+                tickets: state.tickets.filter(ticket => ticket.id != action.ticket_id),
+                coins: state.coins+1
             };
         default:
             return state

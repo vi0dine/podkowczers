@@ -14,6 +14,7 @@ import EventScreen from "./screens/EventScreen/EventScreen";
 import ReservationScreen from "./screens/ReservationScreen/ReservationScreen";
 import ConcertScreen from "./screens/ConcertScreen/ConcertScreen";
 import PostScreen from "./screens/PostScreen/PostScreen";
+import {store} from "./redux/store";
 
 const HomeStack = createStackNavigator();
 
@@ -21,6 +22,8 @@ function HomeStackScreen() {
     return (
         <HomeStack.Navigator
             headerMode={'none'}
+            unmountInactiveRoutes={true}
+            unmountInactiveScreens={true}
         >
             <HomeStack.Screen name="Home" component={HomeScreen} />
             <HomeStack.Screen name="Post" component={PostScreen} />
@@ -34,7 +37,9 @@ function EventsStackScreen() {
     return (
         <EventsStack.Navigator
             headerMode={'none'}
-            mode={'modal'}
+            initialRouteName={'Wydarzenia'}
+            unmountInactiveRoutes={true}
+            unmountInactiveScreens={true}
         >
             <EventsStack.Screen
                 name="Wydarzenia"
@@ -67,6 +72,8 @@ function ConcertsStackScreen() {
     return (
         <ConcertsStack.Navigator
             headerMode={'none'}
+            unmountInactiveRoutes={true}
+            unmountInactiveScreens={true}
         >
             <ConcertsStack.Screen name="Koncerty" component={ConcertsScreen} />
             <ConcertsStack.Screen name="Concert" component={ConcertScreen} />
@@ -82,6 +89,7 @@ function ProfileStackScreen() {
             headerMode={'none'}
             mode={"modal"}
             unmountInactiveRoutes={true}
+            unmountInactiveScreens={true}
         >
             <ProfileStack.Screen name="Profil" component={ProfileScreen} />
             <ProfileStack.Screen
@@ -127,6 +135,8 @@ const setIcon = (name, size, color) => {
 const MainStack = () => {
     return (
         <Tab.Navigator
+            unmountInactiveScreens={true}
+            unmountInactiveRoutes={true}
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                     return setIcon(route.name, size, color);
@@ -180,6 +190,7 @@ const RootStack = () => (
     <Root.Navigator
         headerMode={'none'}
         tabBarVisible={'none'}
+        initialRouteName={store.getState().UserState.access_token ? 'Main' : 'Login'}
     >
         <Root.Screen name="Login" component={LoginScreen} />
         <Root.Screen name="Main" component={MainStack} />

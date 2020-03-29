@@ -4,7 +4,7 @@ import * as Permissions from 'expo-permissions';
 import {Button, Form, Icon, Input, Item} from "native-base";
 import {PURPLE, RED, WHITE} from "../../../variables";
 import {Text, View} from "react-native";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import * as yup from "yup";
 import {useFormik} from "formik";
@@ -14,6 +14,8 @@ import {registerUser} from "../../../redux/Users/Users.actions";
 const RegisterForm = () => {
     const dispatch = useDispatch();
     const navigation = useNavigation();
+    const [token, setToken] = useState(null);
+
 
     const schema = yup.object().shape({
         email: yup.string().email('Podaj prawidłowy adres email.').required('Email jest wymagany.'),
@@ -21,6 +23,11 @@ const RegisterForm = () => {
         password_confirmation: yup.string().required('Potwierdź swoje hasło.')
             .oneOf([yup.ref('password'), null], 'Hasła nie są identyczne')
     });
+
+    useEffect(() => {
+        const notifications_token = getExpoToken();
+        setToken(notifications_token);
+    }, []);
 
     const getExpoToken = async () => {
         const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
@@ -40,7 +47,6 @@ const RegisterForm = () => {
         },
         validationSchema: schema,
         onSubmit: async ({email, password}) => {
-            const token = await getExpoToken();
             dispatch(registerUser(email, password, token, navigation))
         }
     });

@@ -14,20 +14,24 @@ export const mutations = {
 
 export const actions = {
   async login ({ commit }, { email, password }) {
-    commit('login', { loading: true })
-    await this.$auth.login({ data: {
-        email: email,
-        password: password,
-        grant_type: "password"
-    }}).then(async ({data: user}) => {
+    try {
+      commit('login', { loading: true })
+      const { data: user } = await this.$auth.login({ data: {
+          email: email,
+          password: password,
+          grant_type: "password"
+        }})
       await this.$auth.setToken('local', 'Bearer ' + user.access_token);
       await this.$auth.setRefreshToken('local', user.refresh_token);
       await this.$auth.setUser({ id: user.id, email: user.email, role: user.role })
-    }).catch((e) => {
-      console.log(e)
-    });
+      commit('login', { loading: false });
+      setTimeout(() => {
+        this.$router.push({ path: '/app' })
+      }, 500)
+    } catch (error) {
+      console.log(error)
+    }
 
-    commit('login', { loading: false });
   },
   async fetchUsers ({ commit }) {
     const users = await this.$axios.$get('/api/v1/users')

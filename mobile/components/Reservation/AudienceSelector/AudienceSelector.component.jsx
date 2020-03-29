@@ -7,14 +7,15 @@ import SeatButton from "../SeatButton/SeatButton.component";
 import AudienceSelectorStyles from "./AudienceSelector.styles";
 import {MUSTARD} from "../../../variables";
 
-const AudienceSelector = ({id, handleSelect, handleDeselect}) => {
+const AudienceSelector = ({place, tickets, handleSelect, handleDeselect}) => {
     const processing = useSelector(state => state.EventsState.processing);
     const fetching = useSelector(state => state.EventsState.fetching);
-    const event = useSelector(state => state.EventsState.events.find(event => event.id === id));
     const [groupedSeats, setGroupedSeats] = useState(null);
 
+
     const groupByRow = () => {
-        return _.groupBy(event.tickets, 'row');
+        console.log('Grouping by row');
+        return _.groupBy(tickets, 'row');
     };
 
     useEffect(() => {
@@ -25,48 +26,58 @@ const AudienceSelector = ({id, handleSelect, handleDeselect}) => {
         }
     }, [processing, fetching]);
 
-    return (groupedSeats && !processing) ? (
+    return (groupedSeats && !processing) && (
         <View style={AudienceSelectorStyles.audience}>
             <View style={AudienceSelectorStyles.sceneContainer}>
                 <Text style={AudienceSelectorStyles.sceneText}>SCENA</Text>
             </View>
-            {
-                Object.keys(groupedSeats).map((k, i) => (
-                    <View key={i} style={AudienceSelectorStyles.row}>
-                        {
-                            _.sortBy(groupedSeats[k], 'seat').map((seat, i) => {
-                                if (i === 10) {
-                                    return (
-                                        <>
-                                            <View style={AudienceSelectorStyles.divider}/>
-                                            <SeatButton key={seat.seat} ticket={seat}
-                                                        handleSelect={ticket => handleSelect(ticket)}
-                                                        handleDeselect={ticket => handleDeselect(ticket)}/>
-                                        </>
-                                    )
-                                } else {
-                                    return <SeatButton key={seat.seat} ticket={seat}
-                                                       handleSelect={ticket => handleSelect(ticket)}
-                                                       handleDeselect={ticket => handleDeselect(ticket)}/>
-                                }
-                            })
-                        }
-                    </View>
-                ))
-            }
-        </View>
-    ) : (
-        <View style={AudienceSelectorStyles.audience}>
-            <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                <Spinner color={MUSTARD} />
+            <View style={AudienceSelectorStyles.seats}>
                 {
-                    processing ?
-                        <Text style={AudienceSelectorStyles.loadingText}>PRZETWARZANIE REZERWACJI</Text> :
-                        <Text style={AudienceSelectorStyles.loadingText}>ŁADOWANIE UKŁADU SALI</Text>
+                    Object.keys(groupedSeats).map((k, i) => (
+                        <View key={i} style={ AudienceSelectorStyles.row }>
+                            {
+                                _.sortBy(groupedSeats[k], 'seat').map((seat, i) => {
+                                    if (i === 10 && place.startsWith('II Liceum')) {
+                                        return (
+                                            <>
+                                                <View style={AudienceSelectorStyles.divider}/>
+                                                <SeatButton key={seat.seat} ticket={seat}
+                                                            handleSelect={ticket => handleSelect(ticket)}
+                                                            handleDeselect={ticket => handleDeselect(ticket)}/>
+                                            </>
+                                        )
+                                    } else if (i === groupedSeats[k].length/2 && seat.sector !== 'Lewy balkon' && seat.sector !== 'Prawy balkon' && place.startsWith('Teatr Zdrojowy')) {
+                                        return (
+                                            <>
+                                                <View style={AudienceSelectorStyles.divider}/>
+                                                <SeatButton key={seat.seat} ticket={seat}
+                                                            handleSelect={ticket => handleSelect(ticket)}
+                                                            handleDeselect={ticket => handleDeselect(ticket)}/>
+                                            </>
+                                        )
+                                    } else if (seat.sector === 'Balkon' && place.startsWith('Teatr Dramatyczny')) {
+                                        return (
+                                            <>
+                                                <SeatButton key={seat.seat}
+                                                            style={{minWidth: 8.5, margin: 1}}
+                                                            ticket={seat}
+                                                            handleSelect={ticket => handleSelect(ticket)}
+                                                            handleDeselect={ticket => handleDeselect(ticket)}/>
+                                            </>
+                                        )
+                                    } else {
+                                        return <SeatButton key={seat.seat} ticket={seat}
+                                                           handleSelect={ticket => handleSelect(ticket)}
+                                                           handleDeselect={ticket => handleDeselect(ticket)}/>
+                                    }
+                                })
+                            }
+                        </View>
+                    ))
                 }
             </View>
         </View>
-    );
+    )
 };
 
 export default AudienceSelector;

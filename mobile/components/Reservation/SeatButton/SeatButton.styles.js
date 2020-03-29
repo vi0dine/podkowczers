@@ -4,27 +4,30 @@ import Constants from 'expo-constants';
 
 const SeatButtonStyles = StyleSheet.create({
     button: {
+        flex: 1,
+        margin: 3,
+        maxHeight: Dimensions.get('window').height*0.1,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 3,
-        width: Dimensions.get('window').width/30,
-        height: Dimensions.get('window').height/20,
         backgroundColor: MUSTARD
     },
     reserved: {
+        flex: 1,
+        margin: 3,
+        maxHeight: Dimensions.get('window').height*0.1,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5,
-        width: Dimensions.get('window').width/30,
-        height: Dimensions.get('window').height/20,
         backgroundColor: WHITE
     },
     selectedButton: {
+        flex: 1,
+        margin: 3,
+        maxHeight: Dimensions.get('window').height*0.1,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5,
-        width: Dimensions.get('window').width/30,
-        height: Dimensions.get('window').height/20,
         backgroundColor: RED
     },
     buttonText: {

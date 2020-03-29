@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_175209) do
+ActiveRecord::Schema.define(version: 2020_03_28_103637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_03_25_175209) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "place"
     t.datetime "starts_at"
     t.integer "estimated_length"
     t.bigint "concert_id"
@@ -52,7 +51,9 @@ ActiveRecord::Schema.define(version: 2020_03_25_175209) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "reservation_open", default: false
     t.datetime "reservation_opened_at"
+    t.bigint "place_id"
     t.index ["concert_id"], name: "index_events_on_concert_id"
+    t.index ["place_id"], name: "index_events_on_place_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -95,6 +96,11 @@ ActiveRecord::Schema.define(version: 2020_03_25_175209) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name", null: false
+    t.json "plan", null: false
   end
 
   create_table "posts", force: :cascade do |t|

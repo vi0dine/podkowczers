@@ -3,7 +3,10 @@ json.tickets do
     json.id ticket.id
     json.code ticket.qr_code
     json.concert ticket.event.concert.name
-    json.place ticket.event.place
+    json.place do
+      json.id ticket.event.place.id
+      json.name ticket.event.place.name
+    end
     json.sector ticket.sector
     json.row ticket.row
     json.seat ticket.seat

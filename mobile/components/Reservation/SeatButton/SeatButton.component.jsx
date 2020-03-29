@@ -2,13 +2,12 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from "react-native";
 import SeatButtonStyles from "./SeatButton.styles";
 
-const SeatButton = ({ticket, handleSelect, handleDeselect}) => {
+const SeatButton = ({ticket, handleSelect, handleDeselect, style}) => {
     const [selected, setSelected] = useState(false);
-
 
     return (
         <TouchableOpacity
-            style={ticket.reserved ? (SeatButtonStyles.reserved) : (selected ? SeatButtonStyles.selectedButton : SeatButtonStyles.button)}
+            style={[ticket.reserved ? (SeatButtonStyles.reserved) : (selected ? SeatButtonStyles.selectedButton : SeatButtonStyles.button), style]}
             onPress={() => {
                 if (!ticket.reserved && selected) {
                     setSelected(false);

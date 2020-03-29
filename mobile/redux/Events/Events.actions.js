@@ -5,7 +5,7 @@ import {
     FETCH_EVENT_SUCCESS,
     FETCH_EVENTS,
     FETCH_EVENTS_FAIL,
-    FETCH_EVENTS_SUCCESS
+    FETCH_EVENTS_SUCCESS, RETURN_TICKET, RETURN_TICKET_FAIL, RETURN_TICKET_SUCCESS
 } from "./Events.types";
 
 export const fetchEvents = () => {
@@ -68,6 +68,28 @@ export const bookTicketsSuccess = (id, tickets) => {
 export const bookTicketsFail = (error) => {
     return {
         type: BOOK_TICKETS_FAIL,
+        error: error
+    }
+};
+
+export const returnTicket = (id) => {
+    return {
+        type: RETURN_TICKET,
+        id: id
+    }
+};
+
+export const returnTicketSuccess = (event_id, ticket_id) => {
+    return {
+        type: RETURN_TICKET_SUCCESS,
+        event_id: event_id,
+        ticket_id: ticket_id
+    }
+};
+
+export const returnTicketFail = (error) => {
+    return {
+        type: RETURN_TICKET_FAIL,
         error: error
     }
 };

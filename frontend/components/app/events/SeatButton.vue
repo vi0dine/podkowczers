@@ -1,18 +1,22 @@
 <template>
-  <div @click="prereservation ? selectSeat(row, seat, selected) : () => {}" :class="selected ? 'seat selected' : 'seat'">
+  <div
+    @click="prereservation ? selectSeat(row, seat, selected) : () => {}"
+    :class="selected ? 'seat selected ' : 'seat ' + sector.toLowerCase().replace(' ', '-')"
+  >
     <slot></slot>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['row', 'seat', 'selected', 'prereservation'],
+    props: ['sector', 'row', 'seat', 'selected', 'prereservation'],
     methods: {
       selectSeat(row, seat, selected) {
         if (selected) {
-          this.$emit('deselectSeat', { row: row, seat: seat })
+          this.$emit('deselectSeat', { sector: this.sector, row: row.id, seat: seat })
         } else {
-          this.$emit('selectSeat', { row: row, seat: seat })
+          console.log(this.sector)
+          this.$emit('selectSeat', { sector: this.sector, row: row.id, seat: seat })
         }
       }
     }
@@ -23,6 +27,7 @@
   .seat {
     display: flex;
     flex: 1 1 100%;
+    max-width: 65px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -33,11 +38,18 @@
     border-radius: 10px;
     margin: 3px;
     padding: 10px;
-    background-color: $MUSTARD;
     transition: all .4s ease-in;
 
     &.selected {
       background-color: #7F828B !important;
+    }
+
+    &.balkon, &.lewy-balkon, &.prawy-balkon {
+      background-color: $RED;
+    }
+
+    &.sala {
+      background-color: $MUSTARD;
     }
 
     &:hover {

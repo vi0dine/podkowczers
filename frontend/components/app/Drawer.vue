@@ -86,6 +86,8 @@
             return 'Widz';
           case 'admin':
             return 'Administrator';
+          default:
+              return '';
         }
       }
     }

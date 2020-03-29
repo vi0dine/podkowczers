@@ -6,19 +6,16 @@ import SelectSeatForm from "../../components/Reservation/SelectSeatForm/SelectSe
 import RandomSeatForm from "../../components/Reservation/RandomSeatForm/RandomSeatForm.component";
 import {fetchEvent} from "../../redux/Events/Events.actions";
 import {useDispatch, useSelector} from "react-redux";
+import ReactNativeZoomableView from '@dudigital/react-native-zoomable-view/src/ReactNativeZoomableView';
 
 const ReservationScreen = ({route}) => {
     const id = route.params.id;
     const dispatch = useDispatch();
     const [mode, setMode] = useState(null);
-    const event = useSelector(state => state.EventsState.events.find(event => event.id === id));
-    const fetching = useSelector(state => state.EventsState.fetching);
 
     return (
         <Container style={ReservationScreenStyles.mainContainer}>
-            <Content
-                refreshControl={<RefreshControl refreshing={fetching} onRefresh={() => dispatch(fetchEvent(id))}/>}
-            >
+            <Content>
                 {
                     !mode && (
                         <View style={ReservationScreenStyles.content}>
@@ -38,7 +35,17 @@ const ReservationScreen = ({route}) => {
                     )
                 }
                 {mode === 'random' && <RandomSeatForm id={id}/>}
-                {mode === 'manual' && <SelectSeatForm id={id}/>}
+                {mode === 'manual' && (
+                    <ReactNativeZoomableView
+                        maxZoom={2}
+                        minZoom={1}
+                        zoomStep={1}
+                        initialZoom={1}
+                        bindToBorders={true}
+                    >
+                        <SelectSeatForm id={id}/>
+                    </ReactNativeZoomableView>
+                )}
             </Content>
         </Container>
     );

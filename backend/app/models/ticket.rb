@@ -5,8 +5,7 @@ class Ticket < ApplicationRecord
   belongs_to :event
 
   validates :sector,
-            presence: true,
-            length: { is: 1 }
+            presence: true
 
   validates :row,
             presence: true,
@@ -41,6 +40,13 @@ class Ticket < ApplicationRecord
   def mark_as_mailed
     with_lock do
       self.mailed = true
+      save!
+    end
+  end
+
+  def revoke_qr
+    with_lock do
+      self.qr_code = nil
       save!
     end
   end

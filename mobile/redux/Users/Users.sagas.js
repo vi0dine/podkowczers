@@ -52,6 +52,7 @@ function* authenticateUser(action) {
             },
             method: 'POST'
         }));
+        console.log(data);
         yield put(authUserSuccess(data));
         yield call(() => action.navigation.navigate('Main'))
     } catch (error) {

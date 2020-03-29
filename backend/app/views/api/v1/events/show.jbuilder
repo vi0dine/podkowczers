@@ -3,7 +3,11 @@ json.event do
   json.images @event.concert.photos_paths
   json.concert @event.concert.name
   json.description @event.concert.description
-  json.place @event.place
+  json.place do
+    json.id @event.place.id
+    json.name @event.place.name
+    json.plan @event.place.plan
+  end
   json.starts_at @event.starts_at
   json.estimated_length @event.estimated_length
   json.available_tickets_count @event.available_tickets_count

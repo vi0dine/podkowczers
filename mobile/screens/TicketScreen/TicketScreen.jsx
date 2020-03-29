@@ -25,7 +25,7 @@ const TicketScreen = ({route}) => {
                         <View style={TicketScreenStyles.iconContainer}>
                             <Icon type={'FontAwesome5'} name={'search-location'} style={TicketScreenStyles.icon}/>
                         </View>
-                        <Text style={TicketScreenStyles.place}>{ticket.place}</Text>
+                        <Text style={TicketScreenStyles.place}>{ticket.place.name}</Text>
                     </View>
                     <View style={TicketScreenStyles.chairContainer}>
                         <Text style={TicketScreenStyles.seatLabel}>Sektor:</Text>

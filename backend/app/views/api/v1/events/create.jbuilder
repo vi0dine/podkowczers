@@ -1,7 +1,11 @@
 json.event do
   json.id @event.id
   json.concert @event.concert.name
-  json.place @event.place
+  json.place do
+    json.id @event.place.id
+    json.name @event.place.name
+    json.plan @event.place.plan
+  end
   json.starts_at @event.starts_at
   json.estimated_length @event.estimated_length
   json.available_tickets_count @event.available_tickets_count

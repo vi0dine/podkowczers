@@ -2,12 +2,10 @@
 
 class Event < ApplicationRecord
   belongs_to :concert
+  belongs_to :place
   has_many :reviews
   has_many :tickets, dependent: :destroy
 
-  validates :place,
-            presence: true,
-            length: { minimum: 5, maximum: 200 }
   validates :starts_at,
             presence: true
   validates :estimated_length,

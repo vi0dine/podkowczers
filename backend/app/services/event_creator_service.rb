@@ -1,11 +1,9 @@
 class EventCreatorService
   def initialize(params)
     @concert = Concert.find(params[:event][:concert_id])
-    @place = params[:event][:place][:name]
+    @place = Place.find(params[:event][:place])
     @starts_at = params[:event][:starts_at]
     @estimated_length = params[:event][:estimated_length]
-    @rows = params[:event][:place][:rows].to_i
-    @seats = params[:event][:place][:seats].to_i
     @reserved = params[:event][:reserved_seats]
     @opening_date = params[:event][:planned]
   end
@@ -18,21 +16,18 @@ class EventCreatorService
                                estimated_length: @estimated_length
                            })
 
-    (1..@rows).each do |i|
-      (1..@seats).each do |j|
-        Ticket.create!({
-                           event: @event,
-                           sector: 'A',
-                           row: i,
-                           seat: j,
-                           reserved: false,
-                           mailed: false
-                       })
+    @event.place.plan.deep_symbolize_keys!
+
+    @event.place.plan[:sectors].each do |sector|
+      sector[:rows].each do |row|
+        row[:seats].times do |seat|
+          Ticket.create!(event: @event, sector: sector[:name], row: row[:id], seat: seat+1)
+        end
       end
     end
 
     @reserved&.each do |s|
-      @event.tickets.where(row: s[:row], seat: s[:seat]).take.update(reserved: true)
+      @event.tickets.where(sector: s[:sector], row: s[:row], seat: s[:seat]).take.update(reserved: true)
     end
 
     if @opening_date

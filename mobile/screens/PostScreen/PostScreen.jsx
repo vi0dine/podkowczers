@@ -1,6 +1,6 @@
-import React from 'react';
-import {View, Text, Image} from "react-native";
-import {Container, Content, DeckSwiper} from "native-base";
+import React, {useState, useEffect} from 'react';
+import {View, Text, Image, Animated} from "react-native";
+import {Container, Content, DeckSwiper, Icon} from "native-base";
 import PostScreenStyles from "./PostScreen.styles";
 import {useDispatch, useSelector} from "react-redux";
 import {Video} from "expo-av";
@@ -9,10 +9,36 @@ import moment from "moment";
 const PostScreen = ({route}) => {
     const id = route.params.id;
     const post = useSelector(state => state.PostsState.posts.find(post => post.id === id));
+    const [arrowsOpacity] = useState(new Animated.Value(0));
+
+    React.useEffect(() => {
+        if (post.attachments.media.length > 1) {
+            Animated.sequence([
+                Animated.delay(500),
+                Animated.timing(
+                    arrowsOpacity,
+                    {
+                        toValue: 1,
+                        duration: 1000,
+                    }
+                ),
+                Animated.timing(
+                    arrowsOpacity,
+                    {
+                        toValue: 0.2,
+                        duration: 1000,
+                    }
+                )
+            ]).start();
+        }
+    }, []);
+
 
     return post && (
         <Container style={PostScreenStyles.mainContainer}>
-            <Content contentContainerStyle={PostScreenStyles.content}>
+            <Content contentContainerStyle={PostScreenStyles.content}
+                     showsVerticalScrollIndicator={false}
+            >
                 <View style={PostScreenStyles.attachmentsContainer}>
                     {
                         post.attachments.media[0].type === 'video_inline' ? (
@@ -23,9 +49,11 @@ const PostScreen = ({route}) => {
                                 resizeMode="cover"
                                 shouldPlay
                                 isLooping
+                                useNativeControls
                                 style={PostScreenStyles.video}
                             />
                         ) : (
+                            <>
                             <DeckSwiper
                                 dataSource={post.attachments.media}
                                 renderItem={item => (
@@ -35,6 +63,13 @@ const PostScreen = ({route}) => {
                                     />
                                 )}
                             />
+                                <Animated.View style={[PostScreenStyles.leftArrowContainer, {opacity: arrowsOpacity}]}>
+                                    <Icon type={'MaterialIcons'} name={'chevron-left'} />
+                                </Animated.View>
+                                <Animated.View style={[PostScreenStyles.rightArrowContainer, {opacity: arrowsOpacity}]}>
+                                    <Icon type={'MaterialIcons'} name={'chevron-right'} />
+                                </Animated.View>
+                            </>
                         )
                     }
                 </View>

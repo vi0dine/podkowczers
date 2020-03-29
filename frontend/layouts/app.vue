@@ -12,6 +12,7 @@
 <script>
   import Drawer from '../components/app/Drawer'
   export default {
+    middleware: 'authenticated',
     components: { Drawer }
   }
 </script>

@@ -34,7 +34,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/vuex-persist', ssr: false }
+    { src: '~/plugins/vuex-persist', ssr: false },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -54,11 +54,7 @@ export default {
     'vue-scrollto/nuxt'
   ],
   auth: {
-    redirect: {
-      login: '/app/login',
-      home: false,
-      rewriteRedirects: true
-    },
+    redirect: false,
     localStorage: false,
     cookie: true,
     strategies: {

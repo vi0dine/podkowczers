@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :event do
-    place { { name: Faker::Address.city, rows: 10, seats: 10 } }
+    place
     starts_at { Faker::Time.forward }
     estimated_length { Faker::Number.between(from: 30, to: 210) }
     concert

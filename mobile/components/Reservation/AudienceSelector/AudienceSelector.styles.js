@@ -11,6 +11,7 @@ const AudienceSelectorStyles = StyleSheet.create({
         marginBottom: 80
     },
     sceneContainer: {
+        flex: .1,
         backgroundColor: RED,
         marginBottom: 15,
         justifyContent: 'center',
@@ -24,23 +25,23 @@ const AudienceSelectorStyles = StyleSheet.create({
     audience: {
         paddingLeft: 5,
         paddingRight: 5,
-        marginTop: Constants.statusBarHeight + 20,
         justifyContent: 'center',
-        width: Dimensions.get('window').width,
+        width: Dimensions.get('window').width*0.98,
         height: Dimensions.get('window').height*0.7
+    },
+    seats: {
+        flex: .9,
+        justifyContent: 'flex-end'
     },
     row: {
         flex: 1,
+        maxHeight: 55,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'center'
     },
     divider: {
-        flex: .2
-    },
-    loadingText: {
-        fontFamily: MAIN_FONT,
-        color: WHITE,
-        fontSize: 14
+        flex: 1,
+        marginRight: 10
     }
 });
 
