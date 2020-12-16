@@ -1,112 +1,46 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
-  mode: 'universal',
-  env: {
-    // baseUrl: 'http://localhost:4000',
-    baseUrl: 'http://api.depodkowczers.walbrzych.pl'
-  },
-  /*
-  ** Headers of the page
-  */
+  // Target (https://go.nuxtjs.dev/config-target)
+  target: 'static',
+
+  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: "DePodkówczers",
-    title: "DePodkówczers",
+    title: 'DePodkówczers',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: '' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: '#fff' },
-  /*
-  ** Global CSS
-  */
-  css: [
-  ],
-  /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-    { src: '~/plugins/vuex-persist', ssr: false },
-  ],
-  /*
-  ** Nuxt.js dev-modules
-  */
+
+  // Global CSS (https://go.nuxtjs.dev/config-css)
+  css: ['~/assets/fonts/Lato.css'],
+
+  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
+  plugins: [],
+
+  // Auto import components (https://go.nuxtjs.dev/config-components)
+  components: true,
+
+  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    '@nuxtjs/vuetify',
-    '@nuxtjs/dotenv'
+    // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/eslint-module',
+    // https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/tailwindcss',
   ],
-  /*
-  ** Nuxt.js modules
-  */
+
+  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
+    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/auth',
-    'vue-scrollto/nuxt'
+    // https://go.nuxtjs.dev/pwa
+    '@nuxtjs/pwa',
   ],
-  auth: {
-    redirect: false,
-    localStorage: false,
-    cookie: true,
-    strategies: {
-      local: {
-        endpoints: {
-          login: { url: '/oauth/token', method: 'post', propertyName: false },
-          logout: false,
-          user: false
-        }
-      }
-    }
-  },
-  router: {
-    middleware: ['auth']
-  },
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {
-    // baseURL: 'http://localhost:4000'
-    baseURL: 'http://api.depodkowczers.walbrzych.pl'
-  },
-  /*
-  ** vuetify module configuration
-  ** https://github.com/nuxt-community/vuetify-module
-  */
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: '#ffc857',
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: '#984447',
-          success: colors.green.accent3
-        }
-      }
-    }
-  },
-  /*
-  ** Build configuration
-  */
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
-  }
+
+  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
+  axios: {},
+
+  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  build: {},
 }
