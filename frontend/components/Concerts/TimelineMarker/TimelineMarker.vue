@@ -1,43 +1,66 @@
 <template>
-  <div class="wrapper" @click="$emit('click', { date })">
-    <div v-if="active" class="marker__container">
-      <img src="~/assets/svg/active-marker.svg" />
-      <span class="marker__text--active">{{ date }}</span>
-    </div>
-    <div v-else class="marker__container">
-      <img src="~/assets/svg/marker.svg" />
-      <span class="marker__text--inactive">{{ date }}</span>
-    </div>
+  <div :class="{ wrapper: true, active: isActive }">
+    <svg
+      class="marker"
+      viewBox="0 0 105 105"
+      @click="$emit('click', { id: concert.id })"
+    >
+      <path
+        d="M52.5 105C51.4393 105 50.4535 104.453 49.8914 103.554L34.7214 79.2824C20.2002 72.417 10.8691 57.7428 10.8691 41.6309C10.8691 18.6754 29.5446 0 52.5 0C75.4554 0 94.1309 18.6754 94.1309 41.6309C94.1309 57.7428 84.7996 72.417 70.2784 79.2824L55.1084 103.554C54.5463 104.453 53.5605 105 52.5 105Z"
+        :fill="isActive ? '#7358cc' : '#A0AEC0'"
+        fill-opacity="0.5"
+      />
+      <path
+        d="M52.4999 0C52.4997 0 52.4997 0 52.4999 0V105C53.5606 105 54.5464 104.453 55.1085 103.554L70.2785 79.2824C84.7995 72.417 94.1308 57.7428 94.1308 41.6309C94.1308 18.6754 75.4551 0 52.4999 0Z"
+        :fill="isActive ? '#7358cc' : '#A0AEC0'"
+      />
+      <path
+        d="M52.6026 70.6966C36.6321 70.6966 23.6394 57.7036 23.6394 41.7334C23.6394 25.7631 36.6321 12.7702 52.6026 12.7702C68.5731 12.7702 81.5658 25.7631 81.5658 41.7334C81.5658 57.7036 68.5731 70.6966 52.6026 70.6966Z"
+        fill="#FFF4F4"
+      />
+      <path
+        d="M52.6025 12.77C52.5683 12.77 52.5342 12.7713 52.5 12.7713V70.6951C52.5342 70.6953 52.5683 70.6964 52.6025 70.6964C68.573 70.6964 81.5657 57.7034 81.5657 41.7332C81.5657 25.7629 68.573 12.77 52.6025 12.77Z"
+        fill="#F6EFEA"
+      />
+    </svg>
+    <span
+      @click="$emit('click', { id: concert.id })"
+      :class="{ marker__text: true, active: isActive }"
+      >{{ $moment(concert.date).format('MM/YYYY') }}</span
+    >
   </div>
 </template>
 <script>
 export default {
   name: 'TimelineMarker',
-  props: ['active', 'date'],
+  props: ['isActive', 'concert'],
 }
 </script>
 <style lang="scss">
 .wrapper {
+  position: relative;
+  height: 100px;
+  transition: all 1.3s ease-in-out;
+
+  &.active {
+    height: 150px;
+  }
+
   &:hover {
     cursor: pointer;
   }
 }
 .marker {
-  &__container {
-    position: relative;
-  }
+  height: 100%;
   &__text {
-    &--inactive {
-      @apply absolute text-gray-600 font-bold;
-      font-size: 0.8rem;
-      top: 32px;
-      left: 28px;
-    }
-    &--active {
-      @apply absolute text-gray-600 font-bold;
-      font-size: 1.25rem;
-      top: 47px;
-      left: 40px;
+    @apply absolute text-gray-600 font-bold;
+    font-size: 0.8rem;
+    top: 32px;
+    left: 26px;
+    transition: all 0.4s ease-in-out;
+
+    &.active {
+      opacity: 0;
     }
   }
 }

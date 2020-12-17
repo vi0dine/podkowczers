@@ -3,9 +3,9 @@
     <div class="timeline__markers">
       <TimelineMarker
         v-for="concert in concerts"
-        :key="concert.date"
-        :active="activeMarker === concert.date"
-        :date="concert.date"
+        :key="concert.id"
+        :is-active="concert && active && active.id === concert.id"
+        :concert="concert"
         @click="setActiveMarker"
       />
     </div>
@@ -17,25 +17,10 @@ import TimelineMarker from '@/components/Concerts/TimelineMarker/TimelineMarker'
 export default {
   name: 'Timeline',
   components: { TimelineMarker },
-  data() {
-    return {
-      concerts: [
-        {
-          date: '01/2013',
-        },
-        {
-          date: '01/2014',
-        },
-        {
-          date: '12/2019',
-        },
-      ],
-      activeMarker: null,
-    }
-  },
+  props: ['concerts', 'active'],
   methods: {
     setActiveMarker(payload) {
-      this.activeMarker = payload.date
+      this.$emit('concertChange', { id: payload.id })
     },
   },
 }
@@ -43,7 +28,8 @@ export default {
 <style lang="scss">
 .timeline {
   &__wrapper {
-    @apply absolute flex w-full justify-center;
+    @apply absolute flex w-full justify-center items-end;
+    height: 5vh;
     bottom: 20px;
   }
 
