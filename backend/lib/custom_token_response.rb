@@ -9,5 +9,6 @@ module CustomTokenResponse
     }
 
     super.merge(additional_data)
+    ...
   end
 end
